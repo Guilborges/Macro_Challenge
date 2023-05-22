@@ -11,6 +11,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Text("oi")
+            Text("oi")
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
