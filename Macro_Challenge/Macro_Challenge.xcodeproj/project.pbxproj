@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		056DA21B2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */; };
-		056DA21D2A1BDF26005FD1F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA21C2A1BDF26005FD1F5 /* ContentView.swift */; };
+		056DA21D2A1BDF26005FD1F5 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA21C2A1BDF26005FD1F5 /* ContentViewModel.swift */; };
 		056DA21F2A1BDF27005FD1F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056DA21E2A1BDF27005FD1F5 /* Assets.xcassets */; };
 		056DA2222A1BDF27005FD1F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056DA2212A1BDF27005FD1F5 /* Preview Assets.xcassets */; };
 		056DA22C2A1BDF27005FD1F5 /* Macro_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA22B2A1BDF27005FD1F5 /* Macro_ChallengeTests.swift */; };
 		056DA2362A1BDF27005FD1F5 /* Macro_ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA2352A1BDF27005FD1F5 /* Macro_ChallengeUITests.swift */; };
 		056DA2382A1BDF27005FD1F5 /* Macro_ChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA2372A1BDF27005FD1F5 /* Macro_ChallengeUITestsLaunchTests.swift */; };
+		0D4318582A1D333600E468EB /* PrincipalClassTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4318572A1D333600E468EB /* PrincipalClassTest.swift */; };
+		0D43185A2A1D51BD00E468EB /* Clothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4318592A1D51BD00E468EB /* Clothing.swift */; };
+		0D43185C2A1D51D000E468EB /* ClothingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D43185B2A1D51CF00E468EB /* ClothingViewModel.swift */; };
+		0D43185E2A1E8B1000E468EB /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D43185D2A1E8B1000E468EB /* Tags.swift */; };
+		0D4318602A1E91AC00E468EB /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D43185F2A1E91AC00E468EB /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +41,7 @@
 /* Begin PBXFileReference section */
 		056DA2172A1BDF26005FD1F5 /* Macro_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Macro_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_ChallengeApp.swift; sourceTree = "<group>"; };
-		056DA21C2A1BDF26005FD1F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		056DA21C2A1BDF26005FD1F5 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		056DA21E2A1BDF27005FD1F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		056DA2212A1BDF27005FD1F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		056DA2272A1BDF27005FD1F5 /* Macro_ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Macro_ChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +49,11 @@
 		056DA2312A1BDF27005FD1F5 /* Macro_ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Macro_ChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		056DA2352A1BDF27005FD1F5 /* Macro_ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_ChallengeUITests.swift; sourceTree = "<group>"; };
 		056DA2372A1BDF27005FD1F5 /* Macro_ChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_ChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0D4318572A1D333600E468EB /* PrincipalClassTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalClassTest.swift; sourceTree = "<group>"; };
+		0D4318592A1D51BD00E468EB /* Clothing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clothing.swift; sourceTree = "<group>"; };
+		0D43185B2A1D51CF00E468EB /* ClothingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingViewModel.swift; sourceTree = "<group>"; };
+		0D43185D2A1E8B1000E468EB /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		0D43185F2A1E91AC00E468EB /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +105,11 @@
 			isa = PBXGroup;
 			children = (
 				056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */,
-				056DA21C2A1BDF26005FD1F5 /* ContentView.swift */,
+				056DA21C2A1BDF26005FD1F5 /* ContentViewModel.swift */,
+				0D4318592A1D51BD00E468EB /* Clothing.swift */,
+				0D43185D2A1E8B1000E468EB /* Tags.swift */,
+				0D43185B2A1D51CF00E468EB /* ClothingViewModel.swift */,
+				0D43185F2A1E91AC00E468EB /* ImagePicker.swift */,
 				056DA21E2A1BDF27005FD1F5 /* Assets.xcassets */,
 				056DA2202A1BDF27005FD1F5 /* Preview Content */,
 			);
@@ -114,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				056DA22B2A1BDF27005FD1F5 /* Macro_ChallengeTests.swift */,
+				0D4318572A1D333600E468EB /* PrincipalClassTest.swift */,
 			);
 			path = Macro_ChallengeTests;
 			sourceTree = "<group>";
@@ -257,7 +272,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056DA21D2A1BDF26005FD1F5 /* ContentView.swift in Sources */,
+				056DA21D2A1BDF26005FD1F5 /* ContentViewModel.swift in Sources */,
+				0D43185A2A1D51BD00E468EB /* Clothing.swift in Sources */,
+				0D43185C2A1D51D000E468EB /* ClothingViewModel.swift in Sources */,
+				0D4318602A1E91AC00E468EB /* ImagePicker.swift in Sources */,
+				0D43185E2A1E8B1000E468EB /* Tags.swift in Sources */,
 				056DA21B2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				056DA22C2A1BDF27005FD1F5 /* Macro_ChallengeTests.swift in Sources */,
+				0D4318582A1D333600E468EB /* PrincipalClassTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,7 +437,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro_Challenge/Preview Content\"";
-				DEVELOPMENT_TEAM = TNPTQGXSA4;
+				DEVELOPMENT_TEAM = 7857H4YLGF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -446,7 +466,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro_Challenge/Preview Content\"";
-				DEVELOPMENT_TEAM = TNPTQGXSA4;
+				DEVELOPMENT_TEAM = 7857H4YLGF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -474,7 +494,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TNPTQGXSA4;
+				DEVELOPMENT_TEAM = 7857H4YLGF;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
@@ -494,7 +514,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TNPTQGXSA4;
+				DEVELOPMENT_TEAM = 7857H4YLGF;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
@@ -513,7 +533,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TNPTQGXSA4;
+				DEVELOPMENT_TEAM = 7857H4YLGF;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "FontsSwiftUi.Macro-ChallengeUITests";
@@ -531,7 +551,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TNPTQGXSA4;
+				DEVELOPMENT_TEAM = 7857H4YLGF;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "FontsSwiftUi.Macro-ChallengeUITests";
