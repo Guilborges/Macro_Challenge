@@ -14,6 +14,8 @@
 		056DA22C2A1BDF27005FD1F5 /* Macro_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA22B2A1BDF27005FD1F5 /* Macro_ChallengeTests.swift */; };
 		056DA2362A1BDF27005FD1F5 /* Macro_ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA2352A1BDF27005FD1F5 /* Macro_ChallengeUITests.swift */; };
 		056DA2382A1BDF27005FD1F5 /* Macro_ChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA2372A1BDF27005FD1F5 /* Macro_ChallengeUITestsLaunchTests.swift */; };
+		05AC02B22A1FD93900FDC569 /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AC02B12A1FD93900FDC569 /* TagViewModel.swift */; };
+		05AC02B42A1FDC8000FDC569 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AC02B32A1FDC8000FDC569 /* TagView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		056DA2312A1BDF27005FD1F5 /* Macro_ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Macro_ChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		056DA2352A1BDF27005FD1F5 /* Macro_ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_ChallengeUITests.swift; sourceTree = "<group>"; };
 		056DA2372A1BDF27005FD1F5 /* Macro_ChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_ChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		05AC02B12A1FD93900FDC569 /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
+		05AC02B32A1FDC8000FDC569 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 			children = (
 				056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */,
 				056DA21C2A1BDF26005FD1F5 /* ContentView.swift */,
+				05AC02B32A1FDC8000FDC569 /* TagView.swift */,
+				05AC02B12A1FD93900FDC569 /* TagViewModel.swift */,
 				056DA21E2A1BDF27005FD1F5 /* Assets.xcassets */,
 				056DA2202A1BDF27005FD1F5 /* Preview Content */,
 			);
@@ -259,6 +265,8 @@
 			files = (
 				056DA21D2A1BDF26005FD1F5 /* ContentView.swift in Sources */,
 				056DA21B2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift in Sources */,
+				05AC02B22A1FD93900FDC569 /* TagViewModel.swift in Sources */,
+				05AC02B42A1FDC8000FDC569 /* TagView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
