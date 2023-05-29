@@ -8,7 +8,8 @@
 import Foundation
 
 
-class Tag  {
+class Tag: Identifiable  {
+    var id = UUID()
     var name: String
     var frequency: Int = 0
     
