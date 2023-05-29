@@ -17,6 +17,7 @@
 		0DC46DE62A22A17100B48210 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC46DE52A22A17100B48210 /* Product.swift */; };
 		0DC46DE82A22A1D300B48210 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC46DE72A22A1D300B48210 /* Tag.swift */; };
 		0DC46DEA2A22A29900B48210 /* ProductStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC46DE92A22A29900B48210 /* ProductStatus.swift */; };
+		0DC46DEC2A25441500B48210 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC46DEB2A25441500B48210 /* PhotoPicker.swift */; };
 		817112152A254178001D1F6D /* ButtomStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817112142A254178001D1F6D /* ButtomStatus.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		0DC46DE52A22A17100B48210 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0DC46DE72A22A1D300B48210 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		0DC46DE92A22A29900B48210 /* ProductStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStatus.swift; sourceTree = "<group>"; };
+		0DC46DEB2A25441500B48210 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		817112142A254178001D1F6D /* ButtomStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtomStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 				817112142A254178001D1F6D /* ButtomStatus.swift */,
 				0DC46DE72A22A1D300B48210 /* Tag.swift */,
 				0DC46DE92A22A29900B48210 /* ProductStatus.swift */,
+				0DC46DEB2A25441500B48210 /* PhotoPicker.swift */,
 			);
 			path = Macro_Challenge;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC46DEC2A25441500B48210 /* PhotoPicker.swift in Sources */,
 				0DC46DE82A22A1D300B48210 /* Tag.swift in Sources */,
 				056DA21D2A1BDF26005FD1F5 /* ContentView.swift in Sources */,
 				817112152A254178001D1F6D /* ButtomStatus.swift in Sources */,
