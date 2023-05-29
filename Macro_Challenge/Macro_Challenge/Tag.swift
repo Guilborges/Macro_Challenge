@@ -8,15 +8,17 @@
 import Foundation
 
 
-class Tag  {
+class Tag: Identifiable  {
+    let id = UUID()
     var name: String
-    var frequency: Int = 0
+//    var frequency: Int = 0
     
-    init(name: String, frequency: Int) {
+    init(name: String) {
         self.name = name
-        self.frequency = frequency
+//        self.frequency = frequency
     }
     
+
     func createTag(name: String ,frequency: Int) -> Tag {
         return Tag(name: name, frequency: frequency)
         

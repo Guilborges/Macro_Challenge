@@ -11,8 +11,9 @@ import SwiftUI
 struct Macro_ChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            
-            ContentView()
+
+            ContentView(prod: Product.init(tags: [Tag(name: "")], price: 200, status: ProductStatus.sewing, acessory: true))
+
         }
     }
 }

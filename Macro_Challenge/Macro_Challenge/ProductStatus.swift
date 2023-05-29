@@ -8,9 +8,10 @@
 import Foundation
 
 
-enum ProductStatus{
-    case washing
-    case sewing
-    case store
+enum ProductStatus: String{
+    
+    case washing = "washing"
+    case sewing = "sewing"
+    case store = "store"
     
 }

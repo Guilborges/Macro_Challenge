@@ -7,21 +7,44 @@
 
 import Foundation
 
-class Product {
+class Product:Identifiable {
+    let id = UUID()
     var tags: [Tag] = []
     var price: Double
     var status: ProductStatus
     var acessory: Bool
     
     init(tags: [Tag], price: Double, status: ProductStatus, acessory: Bool) {
+       
         self.tags = tags
         self.price = price
         self.status = status
         self.acessory = acessory
     }
     
-    func createProduct(tags: [Tag], price: Double, status: ProductStatus, accessory: Bool) -> Product {
-        return Product(tags: tags, price: price, status: status, acessory: accessory)
+
+    
+   
+    var productList = [Product]()
+    
+   
+    func addProduct(tags: [Tag], price: Double, status: ProductStatus, acessory: Bool) {
+        
+       
+        productList.append(Product(tags: tags, price: price, status: status.self, acessory: true))
+        
+       
     }
+    
+    func runList (prodlist: [Product]) {
+        prodlist.forEach { product in
+            // Access properties of each product
+            print("Tags: \(product.tags)")
+            print("Price: \(product.price)")
+            print("Status: \(product.status)")
+            print("Accessory: \(product.acessory)")
+        }
+    }
+
 
 }
