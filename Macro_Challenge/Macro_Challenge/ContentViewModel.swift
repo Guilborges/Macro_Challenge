@@ -29,7 +29,7 @@ struct SingleImagePicker: View {
                         .resizable()
                         .scaledToFit()
                 } else  {
-                    let cameraPhoto = cameraPicker.sourceType
+                   // let cameraPhoto = cameraPicker.sourceType
                         
                     Text("clicke")
                 }

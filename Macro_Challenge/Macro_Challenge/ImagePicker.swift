@@ -11,7 +11,7 @@ import PhotosUI
 import Combine
 
 class ImagePicker: ObservableObject{
-    @Published var sourceType: UIImagePickerController.SourceType = .camera
+   // @Published var sourceType: UIImagePickerController.SourceType = .camera
     @Published var image: Image?
     
 //    private var cancellabes = Set<AnyCancellable>()
