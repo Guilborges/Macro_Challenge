@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-import _PhotosUI_SwiftUI
+import PhotosUI
 
 struct SingleImagePicker: View {
     
