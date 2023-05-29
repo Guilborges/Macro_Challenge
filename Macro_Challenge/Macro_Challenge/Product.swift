@@ -19,4 +19,9 @@ class Product {
         self.status = status
         self.acessory = acessory
     }
+    
+    func createProduct(tags: [Tag], price: Double, status: ProductStatus, accessory: Bool) -> Product {
+        return Product(tags: tags, price: price, status: status, acessory: accessory)
+    }
+
 }

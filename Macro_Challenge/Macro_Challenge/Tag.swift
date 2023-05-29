@@ -16,4 +16,14 @@ class Tag  {
         self.name = name
         self.frequency = frequency
     }
+    
+    func createTag(name: String ,frequency: Int) -> Tag {
+        return Tag(name: name, frequency: frequency)
+        
+    }
+    
+    func instanceTags (){
+        
+    }
+
 }
