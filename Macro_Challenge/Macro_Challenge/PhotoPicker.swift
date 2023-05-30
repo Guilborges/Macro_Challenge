@@ -15,6 +15,7 @@ class ImagePicker: ObservableObject{
     @Published var image: Image?
     @Published var imageSelection: PhotosPickerItem?{
         
+    
         didSet {
             if let imageSelection {
                 Task {

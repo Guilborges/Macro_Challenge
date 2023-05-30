@@ -19,8 +19,8 @@ class Tag: Identifiable  {
     }
     
 
-    func createTag(name: String ,frequency: Int) -> Tag {
-        return Tag(name: name, frequency: frequency)
+    func createTag(name: String ) -> Tag {
+        return Tag(name: name)
         
     }
     
