@@ -10,8 +10,9 @@ import Foundation
 
 enum ProductStatus: String{
     
-    case washing = "washing"
-    case sewing = "sewing"
-    case store = "store"
+    case washing = "Lavando"
+    case maintenance = "Manuteção"
+    case selling = "Vendendo"
+    case acquarid = "Adquirido"
     
 }
