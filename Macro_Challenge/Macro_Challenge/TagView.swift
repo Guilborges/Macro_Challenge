@@ -46,14 +46,14 @@ struct TagView: View {
                 RoundedRectangle(cornerRadius: 8)
                     .strokeBorder(Color(.white).opacity(0.15),lineWidth: 1)
             )
-            .overlay(
+//            .overlay(
 //                //limit
 //                Text("0/\(maxLimit)")
 //                    .font(.system(size: 13, weight: .semibold))
 //                    .foregroundColor(Color(.white))
 //                    .padding(12),
 //                    alignment: .bottomTrailing)
-//            
+            
             
         }
         // Since onChange will perfrom little late...
