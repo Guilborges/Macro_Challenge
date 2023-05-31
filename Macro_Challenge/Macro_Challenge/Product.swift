@@ -10,14 +10,14 @@ import Foundation
 class Product:Identifiable {
     let id = UUID()
     var tags: [Tag] = []
-    var price: Double
+    public var purchasedPrice: Double
     var status: ProductStatus
     var acessory: Bool
     
-    init(tags: [Tag], price: Double, status: ProductStatus, acessory: Bool) {
+    init(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool) {
        
         self.tags = tags
-        self.price = price
+        self.purchasedPrice = purchasedPrice
         self.status = status
         self.acessory = acessory
     }
@@ -28,22 +28,14 @@ class Product:Identifiable {
     var productList = [Product]()
     
    
-    func addProduct(tags: [Tag], price: Double, status: ProductStatus, acessory: Bool) {
-        
-       
-        productList.append(Product(tags: tags, price: price, status: status.self, acessory: true))
-        
-       
+    public func addProduct(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool) {
+    
+        productList.append(Product(tags: tags, purchasedPrice: purchasedPrice, status: status.self, acessory: true))
     }
     
-    func runList (prodlist: [Product]) {
-        prodlist.forEach { product in
-            // Access properties of each product
-            print("Tags: \(product.tags)")
-            print("Price: \(product.price)")
-            print("Status: \(product.status)")
-            print("Accessory: \(product.acessory)")
-        }
+    func convertStringToDouble(text: String) {
+        
+        
     }
 
 

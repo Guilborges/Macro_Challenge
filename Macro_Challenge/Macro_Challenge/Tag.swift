@@ -21,7 +21,7 @@ class Tag: Identifiable  {
 
     func createTag(name: String ) -> Tag {
         return Tag(name: name)
-        
+
     }
     
     func instanceTags (){
