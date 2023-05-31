@@ -12,7 +12,7 @@ struct Macro_ChallengeApp: App {
     var body: some Scene {
         WindowGroup {
 
-           Home()
+            Home( prod:.init(tags:[Tag(name: "")] , price: 2, status: ProductStatus.sewing, acessory: false) )
 
         }
     }

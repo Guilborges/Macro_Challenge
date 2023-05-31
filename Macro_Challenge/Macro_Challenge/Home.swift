@@ -13,10 +13,12 @@ struct Home: View {
     
     //tags..
     @State var tags: [Tag] = []
+    var prod: Product
     
     var body: some View {
         
         VStack{
+        
             
             Text("Meu brecho")
                 .font(.system(size: 30, weight: .bold))
@@ -25,12 +27,12 @@ struct Home: View {
             
             // Visualização de marca personalizada
             TagView(maxLimit: 150, tags: $tags)
-            //default Height
+            //padrao Height
                 .frame(height: 280)
                 .padding(.top, 20)
             
-            //TextFIELD...
-            TextField("apple", text: $text )
+            //Textfield...
+            TextField("confirmar", text: $text )
                 .font(.title3)
                 .padding(.vertical,10)
                 .padding(.horizontal)
@@ -47,6 +49,7 @@ struct Home: View {
             Button {
                 //Add tag
                 tags.append(Tag(name: text))
+                
                 text = ""
                 
             } label: {
@@ -63,6 +66,27 @@ struct Home: View {
             // Desativa o botão
             .disabled(text == "")
             .opacity(text == "" ? 0.6 : 1)
+            
+            Button {
+                
+//                tags.append(Tag(name: text))
+                prod.addProduct(tags: tags, price: 2, status: ProductStatus.sewing, acessory: true)
+              
+                    print(prod.tags[0].name)
+    //                text = ""grf
+                
+              
+                
+            } label: {
+                Text("Add Peca")
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color(.white))
+                    .padding(.vertical,12)
+                    .padding(.horizontal,45)
+                    .background(Color(.white))
+                    .cornerRadius(10)
+                
+            }
         }
         .padding(15)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
