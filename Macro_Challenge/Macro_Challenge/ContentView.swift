@@ -102,8 +102,11 @@ struct ContentView: View {
             
             HStack {
                 Button {
+
                     prod.addProduct(tags: [Tag(name: name)], purchasedPrice: Double(purchasedPrice)!, status: status, acessory: true, image: imagePicker.image!)
+
                     name = ""
+                    purchasedPrice = ""
                     
                 } label: {
                     VStack {

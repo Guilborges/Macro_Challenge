@@ -37,9 +37,20 @@ class Product:Identifiable {
         productList.append(Product(tags: tags, purchasedPrice: purchasedPrice, status: status.self, acessory: true, image: image))
     }
     
-    func convertStringToDouble(text: String) {
+    
+    public func convertStringToDouble(text: String) -> Double {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
         
+        if let cost = Double(text) {
+            let formattedCost = String(format: "%.2f", cost)
+            return Double(formattedCost) ?? 0.0
+        } else {
+            print("Not a valid number: \(text)")
+        }
         
+        return 0.0
     }
 
 
