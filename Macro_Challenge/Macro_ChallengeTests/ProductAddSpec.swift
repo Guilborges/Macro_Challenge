@@ -42,5 +42,9 @@ final class ProductAddSpec: XCTestCase {
         
         
     }
+    
+    func testReturnDoubleValue() {
+        XCTAssertEqual(prod.convertStringToDouble(text: "2.0"), 2.0)
+    }
 
 }

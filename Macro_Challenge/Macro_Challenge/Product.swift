@@ -34,7 +34,7 @@ class Product:Identifiable {
     }
     
     
-    func convertStringToDouble(text: String) -> Double {
+    public func convertStringToDouble(text: String) -> Double {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.maximumFractionDigits = 2
