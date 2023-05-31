@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TagView: View {
     var maxLimit: Int
-    @Binding var tags: [TagModel]
+    @Binding var tags: [Tag]
     
     
     var body: some View {
@@ -67,7 +67,7 @@ struct TagView: View {
             
             let atributes = [NSAttributedString.Key.font: font]
             
-            let size = (last.text as NSString).size(withAttributes: atributes)
+            let size = (last.name as NSString).size(withAttributes: atributes)
             
             //updating Size...
             tags[getIndex(tag: last)].size = size.width
@@ -77,8 +77,8 @@ struct TagView: View {
     }
     
     @ViewBuilder
-    func RowView(tag: TagModel) ->some View{
-        Text(tag.text)
+    func RowView(tag: Tag) ->some View{
+        Text(tag.name)
         //applying same font size..
         //else size will vary...
             .font(.system(size: 16))
@@ -102,7 +102,7 @@ struct TagView: View {
             }
     }
     
-    func getIndex(tag: TagModel) -> Int{
+    func getIndex(tag: Tag) -> Int{
         
         let index = tags.firstIndex { currentTag in
             return tag.id == currentTag.id
@@ -111,10 +111,10 @@ struct TagView: View {
         return index
     }
     
-    func getRows() -> [[TagModel]]{
+    func getRows() -> [[Tag]]{
         
-        var rows: [[TagModel]] = []
-        var currentRow: [TagModel] = []
+        var rows: [[Tag]] = []
+        var currentRow: [Tag] = []
         
         //calculating text width...
         var totalWidth: CGFloat = 0

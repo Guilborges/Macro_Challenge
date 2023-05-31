@@ -12,7 +12,7 @@ struct Home: View {
     @State var text: String = ""
     
     //tags..
-    @State var tags: [TagModel] = []
+    @State var tags: [Tag] = []
     
     var body: some View {
         
@@ -46,7 +46,7 @@ struct Home: View {
             //Botao
             Button {
                 //Add tag
-                tags.append(TagModel(text: text))
+                tags.append(Tag(name: text))
                 text = ""
                 
             } label: {
