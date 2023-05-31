@@ -114,12 +114,9 @@
 				817112142A254178001D1F6D /* ButtomStatus.swift */,
 				0DC46DE72A22A1D300B48210 /* Tag.swift */,
 				0DC46DE92A22A29900B48210 /* ProductStatus.swift */,
-
 				0DC46DEB2A25441500B48210 /* PhotoPicker.swift */,
 				0DC46DED2A25449400B48210 /* PickerView.swift */,
-
 				056DA2202A1BDF27005FD1F5 /* Preview Content */,
-
 			);
 			path = Macro_Challenge;
 			sourceTree = "<group>";
@@ -448,7 +445,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro_Challenge/Preview Content\"";
-				DEVELOPMENT_TEAM = TNPTQGXSA4;
+				DEVELOPMENT_TEAM = 7857H4YLGF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -477,7 +474,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro_Challenge/Preview Content\"";
-				DEVELOPMENT_TEAM = TNPTQGXSA4;
+				DEVELOPMENT_TEAM = 7857H4YLGF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

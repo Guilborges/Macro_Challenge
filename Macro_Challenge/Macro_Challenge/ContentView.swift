@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import PhotosUI
+
 
 struct ContentView: View {
     
@@ -16,13 +18,24 @@ struct ContentView: View {
     @State var purchasedPrice = String()
     @State var status: ProductStatus = ProductStatus.acquarid
     @State var double: Double = 0.0
-   
+    @StateObject var imagePicker = ImagePicker()
        
      
     
     var body: some View {
         
         VStack {
+        
+                if let image = imagePicker.image {
+                    image
+                        .resizable()
+                        .scaledToFit()
+                } else  {
+                   // let cameraPhoto = cameraPicker.sourceType
+                        
+                    Text("clicke")
+                }
+           
             GeometryReader { sizeOfView in
                 VStack {
                     
@@ -89,7 +102,7 @@ struct ContentView: View {
             
             HStack {
                 Button {
-                    prod.addProduct(tags: [Tag(name: name)], purchasedPrice: Double(purchasedPrice)!, status: status, acessory: true)
+                    prod.addProduct(tags: [Tag(name: name)], purchasedPrice: Double(purchasedPrice)!, status: status, acessory: true, image: imagePicker.image!)
                     name = ""
                     
                 } label: {
@@ -101,20 +114,34 @@ struct ContentView: View {
             }
             NavigationView {
                 List(prod.productList) { product in
-                    HStack{
-                        Image(systemName: "square.and.arrow.up").fixedSize()
-                        VStack(alignment: .leading) {
+                    HStack {
+                        HStack {
+                            product.image.resizable().scaledToFit()
+                        }.frame(width: 40,height: 40)
+                        HStack{
                             
-                            Text("Tags:")
-                            ForEach(product.tags) { tag in
-                                Text(tag.name)
+                            
+                            VStack(alignment: .leading) {
+                                
+                                Text("Tags:")
+                                ForEach(product.tags) { tag in
+                                    Text(tag.name)
+                                }
+                                Text("Price: \(product.purchasedPrice.formatted(.number))")
+                                Text("Status: \(product.status.rawValue)")
+                                Text("Accessory: \(product.acessory ? "Yes" : "No")")
                             }
-                            Text("Price: \(product.purchasedPrice.formatted(.number))")
-                            Text("Status: \(product.status.rawValue)")
-                            Text("Accessory: \(product.acessory ? "Yes" : "No")")
+                            
+                            
                         }
-                        
-                        
+                    }
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing){
+                        PhotosPicker(selection: $imagePicker.imageSelection){
+                            Image(systemName: "photo")
+                                .imageScale(.large)
+                        }
                     }
                 }
                 .navigationBarTitle("Product List")
@@ -125,12 +152,12 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        
-        
-        ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid , acessory: true))
-        
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//
+//
+//        ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid , acessory: true))
+//
+//    }
+//}

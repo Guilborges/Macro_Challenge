@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import PhotosUI
+import SwiftUI
 
 class Product:Identifiable {
     let id = UUID()
@@ -13,13 +15,15 @@ class Product:Identifiable {
     public var purchasedPrice: Double
     var status: ProductStatus
     var acessory: Bool
+    var image: Image
     
-    init(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool) {
+    init(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool, image: Image) {
        
         self.tags = tags
         self.purchasedPrice = purchasedPrice
         self.status = status
         self.acessory = acessory
+        self.image = image
     }
     
 
@@ -28,9 +32,9 @@ class Product:Identifiable {
     var productList = [Product]()
     
    
-    public func addProduct(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool) {
+    public func addProduct(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool, image: Image) {
     
-        productList.append(Product(tags: tags, purchasedPrice: purchasedPrice, status: status.self, acessory: true))
+        productList.append(Product(tags: tags, purchasedPrice: purchasedPrice, status: status.self, acessory: true, image: image))
     }
     
     func convertStringToDouble(text: String) {
