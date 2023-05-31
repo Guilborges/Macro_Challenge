@@ -23,7 +23,7 @@ struct Home: View {
                 .foregroundColor(Color(.black))
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            // Custom tag View
+            // Visualização de marca personalizada
             TagView(maxLimit: 150, tags: $tags)
             //default Height
                 .frame(height: 280)
@@ -39,7 +39,7 @@ struct Home: View {
                 RoundedRectangle(cornerRadius: 8)
                     .strokeBorder(Color(.white).opacity(0.2),lineWidth: 1)
                 )
-            // Setting only TextField as dark..
+            // Definindo apenas TextField como escuro..
                 .environment(\.colorScheme, .dark)
                 .padding(.vertical,20)
         
@@ -59,7 +59,8 @@ struct Home: View {
                     .cornerRadius(10)
                 
             }
-            //Disable button
+            
+            // Desativa o botão
             .disabled(text == "")
             .opacity(text == "" ? 0.6 : 1)
         }
