@@ -65,6 +65,7 @@ struct ContentView: View {
                                     }
                                 }
                             }
+                            
                         }
                         .frame(width: UIScreen.main.bounds.width - 80, alignment: .leading)
                         .padding(.vertical)
@@ -72,12 +73,12 @@ struct ContentView: View {
                     .frame(width:  sizeOfView.size.width * 0.80, height: sizeOfView.size.height * 0.4)
                     .background(
                         RoundedRectangle(cornerRadius: 8)
-                            .strokeBorder(Color(.black).opacity(0.15),lineWidth: 1)
+                            .strokeBorder(Color(.white).opacity(0.15),lineWidth: 1)
                     )
                     .environment(\.colorScheme, .dark)
                     .padding(.vertical,20)
                     
-                    TextField("Adicione uma tag", text: $text )
+                    TextField("Adicione uma tag", text: $text, onCommit: addTag )
                         .font(.title3)
                         .foregroundColor(.black)
                         .padding(.vertical,10)
@@ -90,26 +91,27 @@ struct ContentView: View {
                     // Definindo apenas TextField como escuro..
                         .environment(\.colorScheme, .dark)
                         .padding(.vertical,20)
-                    Button {
-                        //Add tag
-                        tags.append(Tag(name: text))
-                        
-                        text = ""
-                        
-                    } label: {
-                        Text("Add Tag")
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color(.white))
-                            .padding(.vertical,12)
-                            .padding(.horizontal,45)
-                            .background(Color(.black))
-                            .cornerRadius(10)
-                        
-                    }
-                    // Desativa o botão
-                    .disabled(text == "")
-                    .opacity(text == "" ? 0.6 : 1)
                     
+//                    Button {
+//                        //Add tag
+//                        tags.append(Tag(name: text))
+//
+//                        text = ""
+//
+//                    } label: {
+//                        Text("Add Tag")
+//                            .fontWeight(.semibold)
+//                            .foregroundColor(Color(.white))
+//                            .padding(.vertical,12)
+//                            .padding(.horizontal,45)
+//                            .background(Color(.black))
+//                            .cornerRadius(10)
+//
+//                    }
+//                    // Desativa o botão
+//                    .disabled(text == "")
+//                    .opacity(text == "" ? 0.6 : 1)
+//
                 }
                 .onChange(of: tags) { newValue in
                     //Obtendo novo valor inserido...
@@ -280,7 +282,19 @@ struct ContentView: View {
         }
         return rows
     }
-}
+    func addTag() {
+         // Verificar se o texto não está vazio e não é uma tag duplicada
+         guard !text.isEmpty, !tags.contains(where: { $0.name == text }) else {
+             return
+         }
+
+         // Adicionar tag
+         tags.append(Tag(name: text))
+
+         // Limpar o TextField
+         text = ""
+     }
+ }
 
 //struct ContentView_Previews: PreviewProvider {
 //    
