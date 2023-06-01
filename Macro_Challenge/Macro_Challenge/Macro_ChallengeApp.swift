@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct Macro_ChallengeApp: App {
+    @State var tags: [Tag] = []
+
     var body: some Scene {
         WindowGroup {
-
-            ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid, acessory: true))
-
+            ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid, acessory: true), tags: $tags)
         }
     }
 }

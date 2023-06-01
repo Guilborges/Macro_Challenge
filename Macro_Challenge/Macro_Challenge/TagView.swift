@@ -12,6 +12,7 @@ struct TagView: View {
     @Binding var tags: [Tag]
     
     
+    
     var body: some View {
         
         VStack(alignment: .leading, spacing:  15){
@@ -88,7 +89,7 @@ struct TagView: View {
             .background(
             
                 Capsule()
-                    .fill(Color(.white))
+                    .fill(Color(.black))
             )
             .foregroundColor(Color(.black))
             .lineLimit(1)

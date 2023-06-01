@@ -39,7 +39,7 @@ struct Home: View {
                 .background(
                 
                 RoundedRectangle(cornerRadius: 8)
-                    .strokeBorder(Color(.white).opacity(0.2),lineWidth: 1)
+                    .strokeBorder(Color(.black).opacity(0.2),lineWidth: 1)
                 )
             // Definindo apenas TextField como escuro..
                 .environment(\.colorScheme, .dark)
