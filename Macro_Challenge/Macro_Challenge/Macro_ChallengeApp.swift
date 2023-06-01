@@ -10,11 +10,18 @@ import SwiftUI
 
 @main
 struct Macro_ChallengeApp: App {
+
     @StateObject var imagePicker = ImagePicker()
+    @State var tags: [Tag] = []
     var body: some Scene {
         WindowGroup {
 
-            ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid, acessory: true, image: Image(systemName: "circle")))
+            ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid, acessory: true, image: Image(systemName: "circle")), tags: $tags)
+
+
+    
+
+  
 
         }
     }

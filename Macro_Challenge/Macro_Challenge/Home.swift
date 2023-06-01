@@ -39,7 +39,7 @@ struct Home: View {
                 .background(
                 
                 RoundedRectangle(cornerRadius: 8)
-                    .strokeBorder(Color(.white).opacity(0.2),lineWidth: 1)
+                    .strokeBorder(Color(.black).opacity(0.2),lineWidth: 1)
                 )
             // Definindo apenas TextField como escuro..
                 .environment(\.colorScheme, .dark)
@@ -70,7 +70,9 @@ struct Home: View {
             Button {
                 
 //                tags.append(Tag(name: text))
-//                prod.addProduct(tags: tags, price: 2, status: ProductStatus.sewing, acessory: true, image: Image?)
+
+                prod.addProduct(tags: tags, purchasedPrice: 2, status: ProductStatus.selling, acessory: true)
+
               
                     print(prod.tags[0].name)
     //                text = ""grf
