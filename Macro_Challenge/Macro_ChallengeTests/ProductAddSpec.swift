@@ -9,7 +9,7 @@ import XCTest
 @testable import Macro_Challenge
 
 final class ProductAddSpec: XCTestCase {
-    var prod: Product!
+    var prod: ProductModel!
     var status: ProductStatus = ProductStatus.acquarid
     
    
@@ -17,7 +17,7 @@ final class ProductAddSpec: XCTestCase {
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         try super.setUpWithError()
-        prod = Product(tags: [Tag(name: "arroz")], purchasedPrice: 2, status: status , acessory: true)
+        prod = ProductModel(tags: [Tag(name: "arroz")], purchasedPrice: 5.5, status: status , acessory: true)
     }
 
     override func tearDownWithError() throws {

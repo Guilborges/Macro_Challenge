@@ -12,7 +12,8 @@ enum ProductStatus: String{
     
     case washing = "Lavando"
     case maintenance = "Manuteção"
-    case selling = "Vendendo"
+    case selling = "A Vendendo"
     case acquarid = "Adquirido"
+    case sold = "Vendido"
     
 }

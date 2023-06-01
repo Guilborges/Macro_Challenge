@@ -8,7 +8,7 @@
 import Foundation
 
 
-class Tag: Identifiable, Equatable, Hashable {
+class Tag: Identifiable, Equatable, Hashable , ObservableObject{
     let id = UUID()
     var name: String
     var size: CGFloat = 0
