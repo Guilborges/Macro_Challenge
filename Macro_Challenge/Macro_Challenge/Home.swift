@@ -70,7 +70,7 @@ struct Home: View {
             Button {
                 
 //                tags.append(Tag(name: text))
-                prod.addProduct(tags: tags, price: 2, status: ProductStatus.sewing, acessory: true)
+//                prod.addProduct(tags: tags, price: 2, status: ProductStatus.sewing, acessory: true, image: Image?)
               
                     print(prod.tags[0].name)
     //                text = ""grf

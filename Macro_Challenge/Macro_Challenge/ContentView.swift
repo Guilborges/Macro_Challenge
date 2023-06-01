@@ -25,6 +25,7 @@ struct ContentView: View {
     var body: some View {
         
         VStack {
+          //  padding()
         
                 if let image = imagePicker.image {
                     image
@@ -59,10 +60,12 @@ struct ContentView: View {
                     } label: {
                         HStack {
                             Text("Adquirido")
+                            
                         }
                     }.padding(10)
-                }.frame(width:  sizeOfView.size.width * 0.25, height: sizeOfView.size.height * 0.3)
+                }.frame(width:  sizeOfView.size.width * 0.25, height: sizeOfView.size.height * 0.1)
                     .background(Color(.red)).cornerRadius(10)
+                    
                     .position(CGPoint(x: sizeOfView.size.width * 0.1, y: sizeOfView.size.height * 0.9))
                 VStack {
                     Button {
@@ -71,20 +74,20 @@ struct ContentView: View {
                         
                         Text("Lavando")
                     }.padding(10)
-                }.frame(width: sizeOfView.size.width * 0.25, height: sizeOfView.size.height * 0.3)
+                }.frame(width: sizeOfView.size.width * 0.25, height: sizeOfView.size.height * 0.1)
                     .background(Color(.blue))
                     .cornerRadius(10)
-                    .position(CGPoint(x: sizeOfView.size.width * 0.50, y: sizeOfView.size.height * 0.9))
+                    .position(CGPoint(x: sizeOfView.size.width * 0.35, y: sizeOfView.size.height * 0.9))
                 VStack{
                     Button {
                         status = ProductStatus.washing
                     } label: {
                         Text("Manutenção")
                     }.padding(10)
-                }.frame(width:  sizeOfView.size.width * 0.35, height: sizeOfView.size.height * 0.3)
+                }.frame(width:  sizeOfView.size.width * 0.25, height: sizeOfView.size.height * 0.1)
                     .background(Color(.yellow))
                     .cornerRadius(10)
-                    .position(CGPoint(x: sizeOfView.size.width * 0.75, y: sizeOfView.size.height * 0.9))
+                    .position(CGPoint(x: sizeOfView.size.width * 0.60, y: sizeOfView.size.height * 0.9))
                 
                 VStack {
                     Button {
@@ -92,10 +95,10 @@ struct ContentView: View {
                     } label: {
                         Text("Vendendo")
                     }.padding(10)
-                }.frame(width:  sizeOfView.size.width * 0.25, height: sizeOfView.size.height * 0.3)
+                }.frame(width:  sizeOfView.size.width * 0.25, height: sizeOfView.size.height * 0.1)
                     .background(Color(.red))
                     .cornerRadius(10)
-                    .position(CGPoint(x: sizeOfView.size.width * 0.9, y: sizeOfView.size.height * 0.9))
+                    .position(CGPoint(x: sizeOfView.size.width * 0.85, y: sizeOfView.size.height * 0.9))
                 
                 
             }.position(x:190,y:100)
