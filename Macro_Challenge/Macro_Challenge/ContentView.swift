@@ -11,56 +11,56 @@ import PhotosUI
 
 struct ContentView: View {
     
-   
+    
     let formatter = NumberFormatter()
     @State var name = String()
     @State var prod: Product
     @State var purchasedPrice = String()
     @State var status: ProductStatus = ProductStatus.acquarid
     @State var double: Double = 0.0
-
+    
     @StateObject var imagePicker = ImagePicker()
-
+    
     @State var text: String = ""
     @Binding var tags: [Tag]
     
-   
-
-       
-     
+    
+    
+    
+    
     
     var body: some View {
         
         VStack {
-          //  padding()
-        
-                if let image = imagePicker.image {
-                    image
-                        .resizable()
-                        .scaledToFit()
-                } else  {
-                   // let cameraPhoto = cameraPicker.sourceType
-                        
-                    Text("clicke")
-                }
-           
+            //  padding()
+            
+            if let image = imagePicker.image {
+                image
+                    .resizable()
+                    .scaledToFit()
+            } else  {
+                // let cameraPhoto = cameraPicker.sourceType
+                
+                Text("clicke")
+            }
+            
             GeometryReader { sizeOfView in
-//                VStack {
-//
-//
-//                    Text("Ola bem vindo ao Brecho")
-//
-//                    Form {
-//                        Section(header: Text("Informe a(s) Tag(s) da peça")){
-//                            TextField("Tags da peça", text: $name)
-//                        }
-//                        Section(header: Text("Informe o preço pago")){
-//                            TextField("0.00", text: $purchasedPrice).keyboardType(.decimalPad)
-//                                      }
-////                        TextField("Preço pago na peça", value: $purchasedPrice, formatter: formatter ).keyboardType(.numbersAndPunctuation)
-//
-//                    }
-//                }.padding()
+                //                VStack {
+                //
+                //
+                //                    Text("Ola bem vindo ao Brecho")
+                //
+                //                    Form {
+                //                        Section(header: Text("Informe a(s) Tag(s) da peça")){
+                //                            TextField("Tags da peça", text: $name)
+                //                        }
+                //                        Section(header: Text("Informe o preço pago")){
+                //                            TextField("0.00", text: $purchasedPrice).keyboardType(.decimalPad)
+                //                                      }
+                ////                        TextField("Preço pago na peça", value: $purchasedPrice, formatter: formatter ).keyboardType(.numbersAndPunctuation)
+                //
+                //                    }
+                //                }.padding()
                 VStack(alignment: .leading, spacing:  15){
                     
                     Text("adicione uma tag")
@@ -101,9 +101,9 @@ struct ContentView: View {
                         .padding(.vertical,10)
                         .padding(.horizontal)
                         .background(
-                        
-                        RoundedRectangle(cornerRadius: 8)
-                            .strokeBorder(Color(.black).opacity(0.2),lineWidth: 1)
+                            
+                            RoundedRectangle(cornerRadius: 8)
+                                .strokeBorder(Color(.black).opacity(0.2),lineWidth: 1)
                         )
                     // Definindo apenas TextField como escuro..
                         .environment(\.colorScheme, .dark)
@@ -147,7 +147,7 @@ struct ContentView: View {
                 }
                 // Animacao...
                 .animation(.easeInOut, value: tags)
-            
+                
                 VStack {
                     Button {
                         status = ProductStatus.acquarid
@@ -159,9 +159,9 @@ struct ContentView: View {
                     }.padding(10)
                 }.frame(width:  sizeOfView.size.width * 0.25, height: sizeOfView.size.height * 0.1)
                     .background(Color(.red)).cornerRadius(10)
-                    
+                
                     .position(CGPoint(x: sizeOfView.size.width * 0.1, y: sizeOfView.size.height * 0.9))
-
+                
                 VStack {
                     Button {
                         status = ProductStatus.washing
@@ -173,8 +173,8 @@ struct ContentView: View {
                     .background(Color(.blue))
                     .cornerRadius(10)
                     .position(CGPoint(x: sizeOfView.size.width * 0.35, y: sizeOfView.size.height * 0.9))
-
-
+                
+                
                 VStack{
                     Button {
                         status = ProductStatus.washing
@@ -184,13 +184,13 @@ struct ContentView: View {
                 }.frame(width:  sizeOfView.size.width * 0.25, height: sizeOfView.size.height * 0.1)
                     .background(Color(.yellow))
                     .cornerRadius(10)
-
+                
                     .position(CGPoint(x: sizeOfView.size.width * 0.60, y: sizeOfView.size.height * 0.9))
                 
-
-                    
-
-
+                
+                
+                
+                
                 VStack {
                     Button {
                         status = ProductStatus.selling
@@ -207,13 +207,13 @@ struct ContentView: View {
             
             HStack {
                 Button {
-
-
-                    prod.addProduct(tags: tags, purchasedPrice: purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true, image: imagePicker.image!)
-
-
                     
-
+                    
+                    prod.addProduct(tags: tags,  purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true, image: imagePicker.image!)
+                    
+                    
+                    
+                    
                     name = ""
                     purchasedPrice = ""
                     
@@ -262,10 +262,10 @@ struct ContentView: View {
         }
         
     }
-
-}
-
-
+    
+    
+    
+    
     @ViewBuilder
     func RowView(tag: Tag) ->some View{
         Text(tag.name)
@@ -276,7 +276,7 @@ struct ContentView: View {
             .padding(.horizontal,14)
             .padding(.vertical,8)
             .background(
-            
+                
                 Capsule()
                     .fill(Color(.gray))
             )
