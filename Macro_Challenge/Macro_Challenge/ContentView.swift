@@ -16,9 +16,8 @@ struct ContentView: View {
     @State var purchasedPrice = String()
     @State var status: ProductStatus = ProductStatus.acquarid
     @State var double: Double = 0.0
-    @State var text: String = ""
     @Binding var tags: [Tag]
-    
+    @State var text: String = ""
     
     
     
@@ -47,12 +46,13 @@ struct ContentView: View {
                                         
                                         ForEach(rows) { row in
                                             // Row view...
-                                            RowView(tag: row).foregroundColor(Color(.white))
+                                            RowView(tag: row)
+                                            
                                         }
                                     }
                                 }.padding(10)
                                 
-                            }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 1)
+                            }
                         }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.3
                         ).background(
                             RoundedRectangle(cornerRadius: 10).strokeBorder(Color.purple)
@@ -77,67 +77,63 @@ struct ContentView: View {
                             
                         }
                     }
-                    
-                    HStack {
-                        VStack {
-                            Button {
-                                status = ProductStatus.acquarid
-                            } label: {
-                                HStack {
-                                    Text("Adquirido")
-                                }
-                            }.padding(10)
-                        }
+                    VStack{
+                        HStack {
+                            VStack {
+                                Button {
+                                    status = ProductStatus.acquarid
+                                } label: {
+                                    HStack {
+                                        Text("Adquirido")
+                                    }
+                                }.padding(10)
+                            }
                             .background(Color(.red)).cornerRadius(10)
-                        
-                        VStack{
-                            Button {
-                                status = ProductStatus.washing
-                            } label: {
-                                Text("Lavando")
-                            }.padding(10)
-                        }
+                            
+                            VStack{
+                                Button {
+                                    status = ProductStatus.washing
+                                } label: {
+                                    Text("Lavando")
+                                }.padding(10)
+                            }
                             .background(Color(.yellow))
                             .cornerRadius(10)
-                        
-                        
-                        VStack {
-                            Button {
-                                status = ProductStatus.maintenance
-                            } label: {
-                                Text("Manutenção")
-                            }.padding(10)
-                        }
+                            
+                            
+                            VStack {
+                                Button {
+                                    status = ProductStatus.maintenance
+                                } label: {
+                                    Text("Manutenção")
+                                }.padding(10)
+                            }
                             .background(Color(.red))
                             .cornerRadius(10)
-                        VStack {
-                            Button {
-                                status = ProductStatus.acquarid
-                            } label: {
-                                Text("Na loja")
-                            }.padding(10)
-                        }
+                            VStack {
+                                Button {
+                                    status = ProductStatus.acquarid
+                                } label: {
+                                    Text("Na loja")
+                                }.padding(10)
+                            }
                             .background(Color(.red))
                             .cornerRadius(10)
-                        
-                        VStack {
-                            Button {
-                                status = ProductStatus.sold
-                            } label: {
-                                Text("Vendido")
-                            }.padding(10)
-                        }
+                            
+                            VStack {
+                                Button {
+                                    status = ProductStatus.sold
+                                } label: {
+                                    Text("Vendido")
+                                }.padding(10)
+                            }
                             .background(Color(.red))
                             .cornerRadius(10)
+                            
+                        }
                         
                     }
-                    
-                }
-                ZStack{
-                   
-                        
-                }
-                HStack {
+                    Spacer()
                     Button {
                         prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true)
                         name = ""
@@ -150,6 +146,14 @@ struct ContentView: View {
                         }
                         
                     }
+
+                }
+                ZStack{
+                   
+                        
+                }
+                HStack {
+                    
                 }
                 
             }.onChange(of: tags) { newValue in
@@ -177,7 +181,7 @@ struct ContentView: View {
             
             
             
-        }.background(Color(.gray))
+        }.background(Color(.white))
         
     }
     @ViewBuilder
@@ -270,7 +274,6 @@ struct ContentView: View {
         text = ""
     }
 }
-
 
 
 //NavigationView {

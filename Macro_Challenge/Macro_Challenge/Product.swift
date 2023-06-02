@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Product:Identifiable {
     let id = UUID()
