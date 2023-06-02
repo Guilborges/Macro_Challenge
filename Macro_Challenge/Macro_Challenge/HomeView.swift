@@ -15,7 +15,7 @@ struct HomeView: View {
         VStack {
             NavigationStack {
                 NavigationLink {
-                    ContentView()
+                 //   ContentView()
                 } label: {
                     Text("adicionar")
                 }
