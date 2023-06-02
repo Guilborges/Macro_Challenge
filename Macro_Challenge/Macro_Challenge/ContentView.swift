@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-   
+    
     let formatter = NumberFormatter()
     @State var name = String()
     @State var prod: Product
@@ -19,190 +19,165 @@ struct ContentView: View {
     @State var text: String = ""
     @Binding var tags: [Tag]
     
-   
-       
-     
+    
+    
+    
     
     var body: some View {
         
-        VStack {
+        ZStack {
             GeometryReader { sizeOfView in
-//                VStack {
-//
-//
-//                    Text("Ola bem vindo ao Brecho")
-//
-//                    Form {
-//                        Section(header: Text("Informe a(s) Tag(s) da peça")){
-//                            TextField("Tags da peça", text: $name)
-//                        }
-//                        Section(header: Text("Informe o preço pago")){
-//                            TextField("0.00", text: $purchasedPrice).keyboardType(.decimalPad)
-//                                      }
-////                        TextField("Preço pago na peça", value: $purchasedPrice, formatter: formatter ).keyboardType(.numbersAndPunctuation)
-//
-//                    }
-//                }.padding()
-                VStack(alignment: .leading, spacing:  15){
+                VStack {
                     
-                    Text("adicione uma tag")
-                        .font(.callout)
-                        .foregroundColor(Color(.black))
                     
+                    Text("Ola bem vindo ao Brecho")
                     //ScrollView Primeiro quadrado
-                    ScrollView(.vertical, showsIndicators: false) {
-                        
-                        VStack(alignment: .leading, spacing: 10){
-                            
-                            //Exibindo tags
-                            ForEach(getRows(),id: \.self) { rows in
-                                
-                                HStack(spacing:6){
-                                    
-                                    ForEach(rows) { row in
-                                        // Row view...
-                                        RowView(tag: row)
-                                    }
-                                }
-                            }
-                            
-                        }
-                        .frame(width: UIScreen.main.bounds.width - 80, alignment: .leading)
-                        .padding(.vertical)
-                    }
-                    .frame(width:  sizeOfView.size.width * 0.80, height: sizeOfView.size.height * 0.4)
-                    .background(
-                        RoundedRectangle(cornerRadius: 8)
-                            .strokeBorder(Color(.white).opacity(0.15),lineWidth: 1)
-                    )
-                    .environment(\.colorScheme, .dark)
-                    .padding(.vertical,20)
-                    
-                    TextField("Adicione uma tag", text: $text, onCommit: addTag )
-                        .font(.title3)
-                        .foregroundColor(.black)
-                        .padding(.vertical,10)
-                        .padding(.horizontal)
-                        .background(
-                        
-                        RoundedRectangle(cornerRadius: 8)
-                            .strokeBorder(Color(.black).opacity(0.2),lineWidth: 1)
-                        )
-                    // Definindo apenas TextField como escuro..
-                        .environment(\.colorScheme, .dark)
-                        .padding(.vertical,20)
-                    
-//                    Button {
-//                        //Add tag
-//                        tags.append(Tag(name: text))
-//
-//                        text = ""
-//
-//                    } label: {
-//                        Text("Add Tag")
-//                            .fontWeight(.semibold)
-//                            .foregroundColor(Color(.white))
-//                            .padding(.vertical,12)
-//                            .padding(.horizontal,45)
-//                            .background(Color(.black))
-//                            .cornerRadius(10)
-//
-//                    }
-//                    // Desativa o botão
-//                    .disabled(text == "")
-//                    .opacity(text == "" ? 0.6 : 1)
-//
-                }
-                .onChange(of: tags) { newValue in
-                    //Obtendo novo valor inserido...
-                    guard let last = tags.last else{
-                        return
-                    }
-                    //Obtendo o tamanho do texto...
-                    let font = UIFont.systemFont(ofSize: 16)
-                    
-                    let atributes = [NSAttributedString.Key.font: font]
-                    
-                    let size = (last.name as NSString).size(withAttributes: atributes)
                     
                     
-                    //atualizando tamanho...
-                    tags[getIndex(tag: last)].size = size.width
-                }
-                // Animacao...
-                .animation(.easeInOut, value: tags)
-            
-                VStack {
-                    Button {
-                        status = ProductStatus.acquarid
-                    } label: {
-                        HStack {
-                            Text("Adquirido")
-                        }
-                    }.padding(10)
-                }.frame(width:  sizeOfView.size.width * 0.25, height: sizeOfView.size.height * 0.3)
-                    .background(Color(.red)).cornerRadius(10)
-                    .position(CGPoint(x: sizeOfView.size.width * 0.1, y: sizeOfView.size.height * 0.9))
-                VStack{
-                    Button {
-                        status = ProductStatus.washing
-                    } label: {
-                        Text("Manutenção")
-                    }.padding(10)
-                }.frame(width:  sizeOfView.size.width * 0.35, height: sizeOfView.size.height * 0.3)
-                    .background(Color(.yellow))
-                    .cornerRadius(10)
-                    .position(CGPoint(x: sizeOfView.size.width * 0.75, y: sizeOfView.size.height * 0.9))
-
-                VStack {
-                    Button {
-                        status = ProductStatus.selling
-                    } label: {
-                        Text("Vendendo")
-                    }.padding(10)
-                }.frame(width:  sizeOfView.size.width * 0.25, height: sizeOfView.size.height * 0.3)
-                    .background(Color(.red))
-                    .cornerRadius(10)
-                    .position(CGPoint(x: sizeOfView.size.width * 0.9, y: sizeOfView.size.height * 0.9))
-                
-                
-            }
-            
-            HStack {
-                Button {
-                    prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true)
-                    name = ""
-                    purchasedPrice = ""
                     
-                } label: {
                     VStack {
-                        Text("adicionar")
+                        HStack{
+                            ScrollView(.vertical, showsIndicators: false) {
+                                
+                                
+                                //Exibindo tags
+                                ForEach(getRows(),id: \.self) { rows in
+                                    
+                                    HStack(spacing:6){
+                                        
+                                        ForEach(rows) { row in
+                                            // Row view...
+                                            RowView(tag: row).foregroundColor(Color(.white))
+                                        }
+                                    }
+                                }.padding(10)
+                                
+                            }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 1)
+                        }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.3
+                        ).background(
+                            RoundedRectangle(cornerRadius: 10).strokeBorder(Color.purple)
+                        )
+                        
+                        VStack {
+                            Section(header: Text("Informe a(s) Tag(s) da peça")){
+                                TextField("Adicione uma tag", text: $text, onCommit: addTag ).padding(.leading).background(
+                                    Color(.white)
+                                        .cornerRadius(10).frame(height: 50)
+                                ).padding(10)
+                                
+                            }
+                            Section(header: Text("Informe o preço pago").padding(10)){
+                                TextField("0.00", text: $purchasedPrice).padding(.leading).keyboardType(.decimalPad).background(
+                                    Color(.white)
+                                        .cornerRadius(10).frame(height: 50)
+                                    
+                                ).padding(10)
+                            }
+                            
+                            
+                        }
+                    }
+                    
+                    HStack {
+                        VStack {
+                            Button {
+                                status = ProductStatus.acquarid
+                            } label: {
+                                HStack {
+                                    Text("Adquirido")
+                                }
+                            }.padding(10)
+                        }
+                            .background(Color(.red)).cornerRadius(10)
+                        
+                        VStack{
+                            Button {
+                                status = ProductStatus.washing
+                            } label: {
+                                Text("Lavando")
+                            }.padding(10)
+                        }
+                            .background(Color(.yellow))
+                            .cornerRadius(10)
+                        
+                        
+                        VStack {
+                            Button {
+                                status = ProductStatus.maintenance
+                            } label: {
+                                Text("Manutenção")
+                            }.padding(10)
+                        }
+                            .background(Color(.red))
+                            .cornerRadius(10)
+                        VStack {
+                            Button {
+                                status = ProductStatus.acquarid
+                            } label: {
+                                Text("Na loja")
+                            }.padding(10)
+                        }
+                            .background(Color(.red))
+                            .cornerRadius(10)
+                        
+                        VStack {
+                            Button {
+                                status = ProductStatus.sold
+                            } label: {
+                                Text("Vendido")
+                            }.padding(10)
+                        }
+                            .background(Color(.red))
+                            .cornerRadius(10)
+                        
                     }
                     
                 }
-            }
-            NavigationView {
-                List(prod.productList) { product in
-                    HStack{
-                        Image(systemName: "square.and.arrow.up").fixedSize()
-                        VStack(alignment: .leading) {
-                            
-                            Text("Tags:")
-                            ForEach(product.tags) { tag in
-                                Text(tag.name)
-                            }
-                            Text("Price: \(product.purchasedPrice.formatted(.number))")
-                            Text("Status: \(product.status.rawValue)")
-                            Text("Accessory: \(product.acessory ? "Yes" : "No")")
-                        }
+                ZStack{
+                   
                         
+                }
+                HStack {
+                    Button {
+                        prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true)
+                        name = ""
+                        purchasedPrice = ""
+                        
+                    } label: {
+                        VStack {
+                            Image(systemName: "checkmark")
+                                .foregroundColor(.black)
+                        }
                         
                     }
                 }
-                .navigationBarTitle("Product List")
+                
+            }.onChange(of: tags) { newValue in
+                //Obtendo novo valor inserido...
+                guard let last = tags.last else{
+                    return
+                }
+                //Obtendo o tamanho do texto...
+                let font = UIFont.systemFont(ofSize: 16)
+                
+                let atributes = [NSAttributedString.Key.font: font]
+                
+                let size = (last.name as NSString).size(withAttributes: atributes)
+                
+                
+                //atualizando tamanho...
+                tags[getIndex(tag: last)].size = size.width * 2
             }
+            // Animacao...
+            .animation(.easeInOut, value: tags)
             
-        }
+            
+            
+            
+            
+            
+            
+        }.background(Color(.gray))
         
     }
     @ViewBuilder
@@ -215,7 +190,7 @@ struct ContentView: View {
             .padding(.horizontal,14)
             .padding(.vertical,8)
             .background(
-            
+                
                 Capsule()
                     .fill(Color(.gray))
             )
@@ -283,25 +258,38 @@ struct ContentView: View {
         return rows
     }
     func addTag() {
-         // Verificar se o texto não está vazio e não é uma tag duplicada
-         guard !text.isEmpty, !tags.contains(where: { $0.name == text }) else {
-             return
-         }
+        // Verificar se o texto não está vazio e não é uma tag duplicada
+        guard !text.isEmpty, !tags.contains(where: { $0.name == text }) else {
+            return
+        }
+        
+        // Adicionar tag
+        tags.append(Tag(name: text))
+        
+        // Limpar o TextField
+        text = ""
+    }
+}
 
-         // Adicionar tag
-         tags.append(Tag(name: text))
 
-         // Limpar o TextField
-         text = ""
-     }
- }
 
-//struct ContentView_Previews: PreviewProvider {
-//    
-//    static var previews: some View {
-//        
-//        
-//        ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid , acessory: true))
-//        
+//NavigationView {
+//    List(prod.productList) { product in
+//        HStack{
+//            Image(systemName: "square.and.arrow.up").fixedSize()
+//            VStack(alignment: .leading) {
+//                
+//                Text("Tags:")
+//                ForEach(product.tags) { tag in
+//                    Text(tag.name)
+//                }
+//                Text("Price: \(product.purchasedPrice.formatted(.number))")
+//                Text("Status: \(product.status.rawValue)")
+//                Text("Accessory: \(product.acessory ? "Yes" : "No")")
+//            }
+//            
+//            
+//        }
 //    }
+//    .navigationBarTitle("Product List")
 //}
