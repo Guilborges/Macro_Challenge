@@ -105,7 +105,7 @@ struct ContentView: View {
                     //MARK: Sessão com botão responsavel por adicionar a peça
                     HStack {
                         Button {
-                            prod.addProduct(tags: [Tag(name: name)], purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true)
+                            prod.addProduct(tags: [Tag(name: name)], purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image!)
                             name = ""
                             purchasedPrice = ""
                             print($prod.productList[0].purchasedPrice)

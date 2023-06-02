@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ViewModelProduct {
     public var productList = [ProductModel]()
-     
+    //@StateObject var imagePicker = ImagePicker()
     
-    public mutating func addProduct(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool) {
+    public mutating func addProduct(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool,image: Image) {
      
-        productList.append(ProductModel.init(tags: tags, purchasedPrice: purchasedPrice, status: status, acessory: acessory))
+        productList.append(ProductModel.init(tags: tags, purchasedPrice: purchasedPrice, status: status, acessory: acessory, image: image))
      }
      
      

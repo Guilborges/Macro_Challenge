@@ -16,7 +16,7 @@ struct Macro_ChallengeApp: App {
     var body: some Scene {
         WindowGroup {
 
-            ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid, acessory: true, image: Image(systemName: "circle")), tags: $tags)
+            HomeView(viewProduct: ViewModelProduct.init())
 
 
     
