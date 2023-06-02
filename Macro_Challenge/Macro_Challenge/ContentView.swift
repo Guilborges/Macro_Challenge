@@ -108,7 +108,7 @@ struct ContentView: View {
                             prod.addProduct(tags: [Tag(name: name)], purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true)
                             name = ""
                             purchasedPrice = ""
-                            print(prod.productList[0].purchasedPrice)
+                            print($prod.productList[0].purchasedPrice)
                             
                         } label: {
                             VStack {
