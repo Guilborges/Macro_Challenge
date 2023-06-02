@@ -121,5 +121,13 @@ struct ContentView: View {
                 }
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing){
+                PhotosPicker(selection: $imagePicker.imageSelection){
+                    Image(systemName: "photo")
+                        .imageScale(.large)
+                }
+            }
+        }
     }
 }
