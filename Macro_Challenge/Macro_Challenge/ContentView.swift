@@ -38,6 +38,15 @@ struct ContentView: View {
                     VStack {
                         //MARK: Forumario para inserir a peça
                         Form {
+                            if let image = imagePicker.image {
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                            } else  {
+                               // let cameraPhoto = cameraPicker.sourceType
+                                    
+                                Text("clicke")
+                            }
                             //Sessao para inputar tags
                             Section(header: Text("Informe a(s) Tag(s) da peça")){
                                 TextField("Tags da peça", text: $name)
