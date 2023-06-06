@@ -13,12 +13,12 @@ struct TelaInicial: View {
     var body: some View {
         TabView {
             NavigationView {
-                VStack {
+                VStack(alignment: .leading) { 
                     Text("Meu Brechó")
                         .bold()
                         .font(.system(size: 34, weight: .bold, design: .rounded))
-                        .padding(.vertical)
                     Text("Total de Peças: 500")
+                        .frame(maxWidth: .infinity, alignment: .center)
                     
                     Spacer()
                     
@@ -33,17 +33,17 @@ struct TelaInicial: View {
                     
                     Spacer()
                     
-                    .toolbar{
-                        ToolbarItem(placement: .navigationBarTrailing){
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
                             NavigationLink(destination: ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid, acessory: true), tags: $tags )) {
                                 Image(systemName: "plus")
                             }
                         }
-                        
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                     .padding()
                 }
+                .frame(maxWidth: .infinity) // Define a largura máxima do VStack
             }
             .navigationBarHidden(true)
             .tabItem {
