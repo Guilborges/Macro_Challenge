@@ -113,6 +113,7 @@ struct ContentView: View {
                             
                         }
                     }
+                    .padding(10)
                     VStack{
                         HStack {
                             VStack {
@@ -179,11 +180,11 @@ struct ContentView: View {
                         
                     } label: {
                         
-                            Image(systemName: "checkmark")
-                                .foregroundColor(.black)
+                            Image("checkIcon")
+                               
                         
                         
-                    }
+                    }.padding(20)
                     
                 }
                 
