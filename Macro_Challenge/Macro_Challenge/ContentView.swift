@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ContentView: View {
     
@@ -18,13 +19,17 @@ struct ContentView: View {
     @State private var double: Double = 0.0
     @Binding var tags: [Tag]
     @State private var text: String = ""
-   
+    @StateObject var imagePicker = ImagePicker()
+
+    
+    
     
     
     
     var body: some View {
         
         ZStack {
+            
             GeometryReader { sizeOfView in
                 VStack {
                     
@@ -32,6 +37,36 @@ struct ContentView: View {
                     Text("Adicionar")
                     //ScrollView Primeiro quadrado
                     
+                        if let image = imagePicker.image {
+                            PhotosPicker( selection: $imagePicker.imageSelection){
+                                image
+                                        .resizable()
+                                        .frame(width: 82, height: 70)
+                                        
+                                        .padding()
+                                    
+                                     
+                                    
+                            
+                                }
+                            
+                        } else  {
+                           // let cameraPhoto = cameraPicker.sourceType
+                                
+                            
+                                PhotosPicker( selection: $imagePicker.imageSelection){
+                                Image(systemName: "photo")
+                                        .resizable()
+                                        .frame(width: 82, height: 70)
+                                        
+                                        .padding()
+                                    
+                                     
+                                    
+                            
+                                } .foregroundColor(.gray)
+                        
+                    }
                     
                     
                     VStack {
@@ -61,14 +96,15 @@ struct ContentView: View {
                         VStack {
                             Section(header: Text("Informe a(s) Tag(s) da peça")){
                                 TextField("Adicione uma tag", text: $text, onCommit: addTag ).padding(.leading).background(
-                                    Color(.white)
+                                    Color(.lightGray)
                                         .cornerRadius(10).frame(height: 50)
                                 ).padding(10)
                                 
                             }
                             Section(header: Text("Informe o preço pago").padding(10)){
                                 TextField("0.00", text: $purchasedPrice).padding(.leading).keyboardType(.decimalPad).background(
-                                    Color(.white)
+                                    
+                                    Color(.lightGray)
                                         .cornerRadius(10).frame(height: 50)
                                     
                                 ).padding(10)
@@ -84,81 +120,75 @@ struct ContentView: View {
                                     status = ProductStatus.acquarid
                                 } label: {
                                     HStack {
-                                        Text("Adquirido")
+                                        Image("onAcquaridIcon")
+
                                     }
-                                }.padding(10)
+                                }
                             }
-                            .background(Color(.red)).cornerRadius(10)
+                            
                             
                             VStack{
                                 Button {
                                     status = ProductStatus.washing
                                 } label: {
-                                    Text("Lavando")
-                                }.padding(10)
+                                    Image("onWashingIcon")
+
+                                }
                             }
-                            .background(Color(.yellow))
-                            .cornerRadius(10)
+        
                             
                             
                             VStack {
                                 Button {
                                     status = ProductStatus.maintenance
                                 } label: {
-                                    Text("Manutenção")
-                                }.padding(10)
+                                    Image("onMaintenanceIcon")
+                                }
                             }
-                            .background(Color(.brown))
-                            .cornerRadius(10)
+                           
                             VStack {
                                 Button {
                                     status = ProductStatus.acquarid
                                 } label: {
-                                    Text("Na loja")
-                                }.padding(10)
+                                    Image("onSellingIcon")
+                                }
                             }
-                            .background(Color(.red))
-                            .cornerRadius(10)
+                            
                             
                             VStack {
                                 Button {
                                     status = ProductStatus.sold
                                 } label: {
-                                   
-                                        Text("Vendido")
+                                    
+                                    Image( "onSoldIcon")
                                     
                                     //Text("Vendido")
-                                }.padding(10)
+                                }
                             }
-                            .background(Color(.red))
-                            .cornerRadius(10)
+                            
                             
                         }
                         
                     }
-                    Spacer()
+                    
                     Button {
                         prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true)
-                        name = ""
+                        text = ""
                         purchasedPrice = ""
+                        print(prod)
                         
                     } label: {
-                        VStack {
+                        
                             Image(systemName: "checkmark")
                                 .foregroundColor(.black)
-                        }
+                        
                         
                     }
-
-                }
-                
-                ZStack{
-                   
-                        
-                }
-                HStack {
                     
                 }
+                
+
+                
                 
             }.onChange(of: tags) { newValue in
                 //Obtendo novo valor inserido...

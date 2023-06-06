@@ -32,6 +32,7 @@ class Product:Identifiable {
     public func addProduct(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool) {
     
         productList.append(Product(tags: tags, purchasedPrice: purchasedPrice, status: status.self, acessory: true))
+
     }
     
     
