@@ -16,8 +16,8 @@ struct ContentView: View {
     @State private var purchasedPrice = String()
     @State private var status: ProductStatus = ProductStatus.acquarid
     @State private var double: Double = 0.0
-    @Binding   var tags: [Tag]
-    @State var text: String = ""
+    @Binding var tags: [Tag]
+    @State private var text: String = ""
    
     
     
@@ -29,7 +29,7 @@ struct ContentView: View {
                 VStack {
                     
                     
-                    Text("Ola bem vindo ao Brecho")
+                    Text("Adicionar")
                     //ScrollView Primeiro quadrado
                     
                     
@@ -124,9 +124,9 @@ struct ContentView: View {
                                 Button {
                                     status = ProductStatus.sold
                                 } label: {
-                                    if let fotoStatusSold = true{
+                                   
                                         Text("Vendido")
-                                    }
+                                    
                                     //Text("Vendido")
                                 }.padding(10)
                             }
@@ -151,6 +151,7 @@ struct ContentView: View {
                     }
 
                 }
+                
                 ZStack{
                    
                         
@@ -175,6 +176,7 @@ struct ContentView: View {
                 //atualizando tamanho...
                 tags[getIndex(tag: last)].size = size.width * 2
             }
+            
             // Animacao...
             .animation(.easeInOut, value: tags)
             
@@ -184,7 +186,9 @@ struct ContentView: View {
             
             
             
-        }.background(Color(.white))
+        }
+        
+        .background(Color(.white))
         
     }
     @ViewBuilder
@@ -277,6 +281,7 @@ struct ContentView: View {
         text = ""
     }
 }
+
 
 
 //NavigationView {

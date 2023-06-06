@@ -18,25 +18,44 @@ struct SingleImagePicker: View {
         NavigationStack{
             VStack{
                 if let image = imagePicker.image {
-                    image
-                        .resizable()
-                        .scaledToFit()
+                    PhotosPicker( selection: $imagePicker.imageSelection){
+                        image
+                                .resizable()
+                                .frame(width: 82, height: 70)
+                                
+                                .padding()
+                            
+                             
+                            
+                    
+                        }
+                    
                 } else  {
                    // let cameraPhoto = cameraPicker.sourceType
                         
-                    Text("clicke")
+                    
+                        PhotosPicker( selection: $imagePicker.imageSelection){
+                        Image(systemName: "photo")
+                                .resizable()
+                                .frame(width: 82, height: 70)
+                                
+                                .padding()
+                            
+                             
+                            
+                    
+                        } .foregroundColor(.gray)
                 }
             }
             .padding()
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing){
-                    PhotosPicker(selection: $imagePicker.imageSelection){
-                        Image(systemName: "photo")
-                            .imageScale(.large)
-                    }
-                }
-            }
+            
         }
+    }
+}
+
+struct Content_Previews: PreviewProvider {
+    static var previews: some View{
+        SingleImagePicker()
     }
 }
 
