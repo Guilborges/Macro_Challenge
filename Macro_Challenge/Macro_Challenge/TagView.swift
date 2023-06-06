@@ -46,17 +46,11 @@ struct TagView: View {
                 RoundedRectangle(cornerRadius: 8)
                     .strokeBorder(Color(.white).opacity(0.15),lineWidth: 1)
             )
-//            .overlay(
-//                //limit
-//                Text("0/\(maxLimit)")
-//                    .font(.system(size: 13, weight: .semibold))
-//                    .foregroundColor(Color(.white))
-//                    .padding(12),
-//                    alignment: .bottomTrailing)
+              
             
             
         }
-        // Já que onChange funcionará um pouco tarde...
+        ///  Já que onChange funcionará um pouco tarde...
         .onChange(of: tags) { newValue in
             //Obtendo novo valor inserido...
             guard let last = tags.last else{

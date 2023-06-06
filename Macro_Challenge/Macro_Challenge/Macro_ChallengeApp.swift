@@ -14,6 +14,8 @@ struct Macro_ChallengeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid, acessory: true), tags: $tags )
+            SingleImagePicker()
+            
         }
         
     }

@@ -11,14 +11,14 @@ struct ContentView: View {
     
     
     let formatter = NumberFormatter()
-    @State var name = String()
-    @State var prod: Product
-    @State var purchasedPrice = String()
-    @State var status: ProductStatus = ProductStatus.acquarid
-    @State var double: Double = 0.0
-    @Binding var tags: [Tag]
+    @State private var name = String()
+    @State  var prod: Product
+    @State private var purchasedPrice = String()
+    @State private var status: ProductStatus = ProductStatus.acquarid
+    @State private var double: Double = 0.0
+    @Binding   var tags: [Tag]
     @State var text: String = ""
-    
+   
     
     
     
@@ -108,7 +108,7 @@ struct ContentView: View {
                                     Text("Manutenção")
                                 }.padding(10)
                             }
-                            .background(Color(.red))
+                            .background(Color(.brown))
                             .cornerRadius(10)
                             VStack {
                                 Button {
@@ -124,7 +124,10 @@ struct ContentView: View {
                                 Button {
                                     status = ProductStatus.sold
                                 } label: {
-                                    Text("Vendido")
+                                    if let fotoStatusSold = true{
+                                        Text("Vendido")
+                                    }
+                                    //Text("Vendido")
                                 }.padding(10)
                             }
                             .background(Color(.red))
