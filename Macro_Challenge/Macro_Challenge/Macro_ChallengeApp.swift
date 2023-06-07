@@ -14,8 +14,12 @@ struct Macro_ChallengeApp: App {
     @State var imagepicker1 = Image(systemName: "")
     var body: some Scene {
         WindowGroup {
+    //ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid, acessory: true), tags: $tags )
+            TelaInicial()
+//            SingleImagePicker()
+
             
-            ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid, acessory: true, image: imagePicker.image ?? imagepicker1), tags: $tags)
+           // ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid, acessory: true, image: imagePicker.image ?? imagepicker1), tags: $tags)
 
         }
         
