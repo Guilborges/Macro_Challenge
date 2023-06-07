@@ -20,6 +20,7 @@ struct ContentView: View {
     @Binding var tags: [Tag]
     @State private var text: String = ""
     @StateObject var imagePicker = ImagePicker()
+    @State var imagepicker1 = Image(systemName: "")
 
     
     
@@ -37,38 +38,23 @@ struct ContentView: View {
                     Text("Adicionar")
                     //ScrollView Primeiro quadrado
                     
-                        if let image = imagePicker.image {
-                            PhotosPicker( selection: $imagePicker.imageSelection){
-                                image
-                                        .resizable()
-                                        .frame(width: 82, height: 70)
-                                        
-                                        .padding()
-                                    
-                                     
-                                    
+                    if let image = imagePicker.image {
+                        PhotosPicker( selection: $imagePicker.imageSelection){
+                            image
+                                .resizable()
+                                .frame(width: 82, height: 70)
                             
-                                }
+                                .padding()
+                        }
+                    } else  {
+                        PhotosPicker( selection: $imagePicker.imageSelection){
+                            Image(systemName: "photo")
+                                .resizable()
+                                .frame(width: 82, height: 70)
                             
-                        } else  {
-                           // let cameraPhoto = cameraPicker.sourceType
-                                
-                            
-                                PhotosPicker( selection: $imagePicker.imageSelection){
-                                Image(systemName: "photo")
-                                        .resizable()
-                                        .frame(width: 82, height: 70)
-                                        
-                                        .padding()
-                                    
-                                     
-                                    
-                            
-                                } .foregroundColor(.gray)
-                        
+                                .padding()
+                        } .foregroundColor(.gray)
                     }
-                    
-                    
                     VStack {
                         HStack{
                             ScrollView(.vertical, showsIndicators: false) {
@@ -109,8 +95,6 @@ struct ContentView: View {
                                     
                                 ).padding(10)
                             }
-                            
-                            
                         }
                     }
                     .padding(10)
@@ -122,23 +106,18 @@ struct ContentView: View {
                                 } label: {
                                     HStack {
                                         Image("onAcquaridIcon")
-
+                                        
                                     }
                                 }
                             }
-                            
-                            
                             VStack{
                                 Button {
                                     status = ProductStatus.washing
                                 } label: {
                                     Image("onWashingIcon")
-
+                                    
                                 }
                             }
-        
-                            
-                            
                             VStack {
                                 Button {
                                     status = ProductStatus.maintenance
@@ -146,7 +125,7 @@ struct ContentView: View {
                                     Image("onMaintenanceIcon")
                                 }
                             }
-                           
+                            
                             VStack {
                                 Button {
                                     status = ProductStatus.acquarid
@@ -154,8 +133,6 @@ struct ContentView: View {
                                     Image("onSellingIcon")
                                 }
                             }
-                            
-                            
                             VStack {
                                 Button {
                                     status = ProductStatus.sold
@@ -166,31 +143,20 @@ struct ContentView: View {
                                     //Text("Vendido")
                                 }
                             }
-                            
-                            
                         }
-                        
                     }
                     
                     Button {
-                        prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true)
+                        prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
                         text = ""
                         purchasedPrice = ""
                         print(prod)
                         
                     } label: {
-                        
-                            Image("checkIcon")
-                               
-                        
-                        
+                        Image("checkIcon")
                     }.padding(20)
                     
                 }
-                
-
-                
-                
             }.onChange(of: tags) { newValue in
                 //Obtendo novo valor inserido...
                 guard let last = tags.last else{
@@ -207,16 +173,8 @@ struct ContentView: View {
                 //atualizando tamanho...
                 tags[getIndex(tag: last)].size = size.width * 2
             }
-            
             // Animacao...
             .animation(.easeInOut, value: tags)
-            
-            
-            
-            
-            
-            
-            
         }
         
         .background(Color(.white))
@@ -315,23 +273,3 @@ struct ContentView: View {
 
 
 
-//NavigationView {
-//    List(prod.productList) { product in
-//        HStack{
-//            Image(systemName: "square.and.arrow.up").fixedSize()
-//            VStack(alignment: .leading) {
-//                
-//                Text("Tags:")
-//                ForEach(product.tags) { tag in
-//                    Text(tag.name)
-//                }
-//                Text("Price: \(product.purchasedPrice.formatted(.number))")
-//                Text("Status: \(product.status.rawValue)")
-//                Text("Accessory: \(product.acessory ? "Yes" : "No")")
-//            }
-//            
-//            
-//        }
-//    }
-//    .navigationBarTitle("Product List")
-//}
