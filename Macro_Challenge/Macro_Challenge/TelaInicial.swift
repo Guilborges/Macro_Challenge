@@ -21,16 +21,16 @@ struct TelaInicial: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                     
                     Spacer()
-                    
-                    HStack {
-                        ForEach(0..<3) { index in
-                            Rectangle()
-                                .frame(width: 100, height: 100)
-                                .foregroundColor(.gray)
-                                .padding(10)
+                    ScrollView(.vertical){
+                        HStack {
+                            ForEach(0..<3) { index in
+                                Rectangle()
+                                    .frame(width: 100, height: 100)
+                                    .foregroundColor(.gray)
+                                    .padding(10)
+                            }
                         }
                     }
-                    
                     Spacer()
                     
                     .toolbar {
