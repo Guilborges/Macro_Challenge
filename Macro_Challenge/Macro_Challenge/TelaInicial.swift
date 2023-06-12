@@ -9,6 +9,9 @@ import SwiftUI
 
 struct TelaInicial: View {
     @State private var tags: [Tag] = []
+    @State var imagePicker = ImagePicker()
+    @State var imagepicker1 = Image(systemName: "")
+    
     
     var body: some View {
         TabView {
@@ -17,6 +20,7 @@ struct TelaInicial: View {
                     Text("Meu Brechó")
                         .bold()
                         .font(.system(size: 34, weight: .bold, design: .rounded))
+                        .padding(25)
                     Text("Total de Peças: 500")
                         .frame(maxWidth: .infinity, alignment: .center)
                     
@@ -35,7 +39,7 @@ struct TelaInicial: View {
                     
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid, acessory: true), tags: $tags )) {
+                            NavigationLink(destination: ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid, acessory: true, image: imagePicker.image ?? imagepicker1), tags: $tags)) {
                                 Image(systemName: "plus")
                             }
                         }
