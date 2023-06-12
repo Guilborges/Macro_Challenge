@@ -10,7 +10,7 @@ import PhotosUI
 
 struct ContentView: View {
     
-    
+    @Environment(\.presentationMode) var presentationMode
     let formatter = NumberFormatter()
     @State private var name = String()
     @State  var prod: Product
@@ -21,7 +21,7 @@ struct ContentView: View {
     @State private var text: String = ""
     @StateObject var imagePicker = ImagePicker()
     @State var imagepicker1 = Image(systemName: "")
-
+    
     
     
     
@@ -38,7 +38,7 @@ struct ContentView: View {
                     Text("Adicionar")
                     //ScrollView Primeiro quadrado
                     
-                    if let image = imagePicker.image {
+                    if var image = imagePicker.image {
                         PhotosPicker( selection: $imagePicker.imageSelection){
                             image
                                 .resizable()
@@ -53,7 +53,7 @@ struct ContentView: View {
                                 .frame(width: 82, height: 70)
                             
                                 .padding()
-                        } .foregroundColor(.gray)
+                        }.foregroundColor(.gray)
                     }
                     VStack {
                         HStack{
@@ -147,10 +147,16 @@ struct ContentView: View {
                     }
                     
                     Button {
-                        prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
-                        text = ""
-                        purchasedPrice = ""
-                        print(prod)
+                        
+                        if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil){
+                           print("nao deu")
+                        }else {
+                            prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
+                            print(prod)
+                            resetScreenObject()
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+
                         
                     } label: {
                         Image("checkIcon")
@@ -269,7 +275,15 @@ struct ContentView: View {
         // Limpar o TextField
         text = ""
     }
+    
+    func resetScreenObject (){
+        tags.removeAll()
+        text = ""
+        purchasedPrice = ""
+        imagePicker.image = nil
+    }
 }
+    
 
 
 

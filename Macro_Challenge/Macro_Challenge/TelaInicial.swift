@@ -50,14 +50,14 @@ struct TelaInicial: View {
                 .frame(maxWidth: .infinity) // Define a largura máxima do VStack
             }
             .navigationBarHidden(true)
-            .tabItem {
-                Label("Brechó", systemImage: "square.grid.2x2.fill")
-            }
-            
-            Text("Second Tab")
-                .tabItem {
-                    Label("Segunda", systemImage: "circle.fill")
-                }
+//            .tabItem {
+//                Label("Brechó", systemImage: "square.grid.2x2.fill")
+//            }
+//            
+//            Text("Second Tab")
+//                .tabItem {
+//                    Label("Segunda", systemImage: "circle.fill")
+//                }
         }
     }
     
