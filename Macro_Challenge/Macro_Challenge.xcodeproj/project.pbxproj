@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051BD0A02A379F7700FF3919 /* ComponenteTriangulo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051BD09F2A379F7700FF3919 /* ComponenteTriangulo.swift */; };
 		056DA21B2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */; };
 		056DA21D2A1BDF26005FD1F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA21C2A1BDF26005FD1F5 /* ContentView.swift */; };
 		056DA21F2A1BDF27005FD1F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056DA21E2A1BDF27005FD1F5 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		051BD09F2A379F7700FF3919 /* ComponenteTriangulo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponenteTriangulo.swift; sourceTree = "<group>"; };
 		056DA2172A1BDF26005FD1F5 /* Macro_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Macro_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_ChallengeApp.swift; sourceTree = "<group>"; };
 		056DA21C2A1BDF26005FD1F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				0DC46DE92A22A29900B48210 /* ProductStatus.swift */,
 				056DA2202A1BDF27005FD1F5 /* Preview Content */,
 				0DC46DEB2A25441500B48210 /* PhotoPicker.swift */,
+				051BD09F2A379F7700FF3919 /* ComponenteTriangulo.swift */,
 				0DC46DED2A25449400B48210 /* PickerView.swift */,
 				05C74E1B2A2FA6CF00F05822 /* TelaInicial.swift */,
 				05C74E1D2A2FACFB00F05822 /* Teste.swift */,
@@ -311,6 +314,7 @@
 				05BC83222A26A4C700723392 /* TagView.swift in Sources */,
 				05C74E1C2A2FA6CF00F05822 /* TelaInicial.swift in Sources */,
 				0DC46DE82A22A1D300B48210 /* Tag.swift in Sources */,
+				051BD0A02A379F7700FF3919 /* ComponenteTriangulo.swift in Sources */,
 				056DA21D2A1BDF26005FD1F5 /* ContentView.swift in Sources */,
 				05C74E1E2A2FACFB00F05822 /* Teste.swift in Sources */,
 				817112152A254178001D1F6D /* ButtomStatus.swift in Sources */,

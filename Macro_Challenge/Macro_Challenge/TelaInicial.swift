@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TelaInicial: View {
     @State private var tags: [Tag] = []
-    
+//    @State var Triangulo: ComponenteTriangulo
     var body: some View {
         TabView {
             NavigationView {
@@ -22,16 +22,24 @@ struct TelaInicial: View {
                     
                     Spacer()
                     ScrollView(.vertical){
+                        
                         HStack {
                             ForEach(0..<3) { index in
                                 Rectangle()
                                     .frame(width: 100, height: 100)
                                     .foregroundColor(.gray)
                                     .padding(10)
+//                                    .overlay(
+//                                        Triangle()
+//                                            .frame(width: 50, height: 50)
+//                                            .foregroundColor(.red)
+//                                            .rotationEffect(.degrees(1))
+//                                            .offset(x: 25, y: 25)
+//                                    )
                             }
+                            Spacer()
                         }
                     }
-                    Spacer()
                     
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
@@ -44,6 +52,7 @@ struct TelaInicial: View {
                     .padding()
                 }
                 .frame(maxWidth: .infinity) // Define a largura máxima do VStack
+                
             }
             .navigationBarHidden(true)
             .tabItem {
@@ -60,3 +69,26 @@ struct TelaInicial: View {
 }
 
 
+//ZStack {
+//            Rectangle()
+//                .frame(width: 200, height: 200)
+//                .foregroundColor(.blue)
+//
+//            Triangle()
+//                .frame(width: 50, height: 50)
+//                .foregroundColor(.red)
+//                .rotationEffect(.degrees(-45))
+//                .offset(x: 75, y: 75)
+//        }
+//struct Triangle: Shape {
+//    func path(in rect: CGRect) -> Path {
+//        var path = Path()
+//
+//        path.move(to: CGPoint(x: rect.maxX, y: rect.maxY))
+//        path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
+//        path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
+//        path.closeSubpath()
+//
+//        return path
+//    }
+//}
