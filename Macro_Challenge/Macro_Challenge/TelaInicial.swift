@@ -14,7 +14,7 @@ struct TelaInicial: View {
     
     
     var body: some View {
-        TabView {
+     //   TabView {
             NavigationView {
                 VStack(alignment: .leading) { 
                     Text("Meu Brechó")
@@ -58,7 +58,7 @@ struct TelaInicial: View {
 //                .tabItem {
 //                    Label("Segunda", systemImage: "circle.fill")
 //                }
-        }
+        
     }
     
 }
