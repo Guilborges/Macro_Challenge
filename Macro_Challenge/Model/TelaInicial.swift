@@ -11,7 +11,7 @@ struct TelaInicial: View {
     @State private var tags: [Tag] = []
 //    @State var Triangulo: ComponenteTriangulo
     var body: some View {
-        TabView {
+//        TabView {
             NavigationView {
                 VStack(alignment: .leading) { 
                     Text("Meu Brechó")
@@ -55,15 +55,15 @@ struct TelaInicial: View {
                 
             }
             .navigationBarHidden(true)
-            .tabItem {
-                Label("Brechó", systemImage: "square.grid.2x2.fill")
-            }
-            
-            Text("Second Tab")
-                .tabItem {
-                    Label("Segunda", systemImage: "circle.fill")
-                }
-        }
+//            .tabItem {
+//                Label("Brechó", systemImage: "square.grid.2x2.fill")
+//            }
+//
+//            Text("Second Tab")
+//                .tabItem {
+//                    Label("Segunda", systemImage: "circle.fill")
+//                }
+
     }
     
 }

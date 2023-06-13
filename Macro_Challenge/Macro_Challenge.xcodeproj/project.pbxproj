@@ -11,14 +11,11 @@
 		056DA21B2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */; };
 		056DA21D2A1BDF26005FD1F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA21C2A1BDF26005FD1F5 /* ContentView.swift */; };
 		056DA21F2A1BDF27005FD1F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056DA21E2A1BDF27005FD1F5 /* Assets.xcassets */; };
-		056DA2222A1BDF27005FD1F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056DA2212A1BDF27005FD1F5 /* Preview Assets.xcassets */; };
 		056DA22C2A1BDF27005FD1F5 /* Macro_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA22B2A1BDF27005FD1F5 /* Macro_ChallengeTests.swift */; };
 		056DA2362A1BDF27005FD1F5 /* Macro_ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA2352A1BDF27005FD1F5 /* Macro_ChallengeUITests.swift */; };
 		056DA2382A1BDF27005FD1F5 /* Macro_ChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA2372A1BDF27005FD1F5 /* Macro_ChallengeUITestsLaunchTests.swift */; };
-		05BC83202A26A04B00723392 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC831F2A26A04B00723392 /* Home.swift */; };
 		05BC83222A26A4C700723392 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC83212A26A4C700723392 /* TagView.swift */; };
 		05C74E1C2A2FA6CF00F05822 /* TelaInicial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C74E1B2A2FA6CF00F05822 /* TelaInicial.swift */; };
-		05C74E1E2A2FACFB00F05822 /* Teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C74E1D2A2FACFB00F05822 /* Teste.swift */; };
 		05C74E212A2FB5AA00F05822 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05C74E232A2FB5AA00F05822 /* Localizable.strings */; };
 		05F73CC02A27C08700243342 /* TagView_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F73CBF2A27C08700243342 /* TagView_Tests.swift */; };
 		0DC46DE62A22A17100B48210 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC46DE52A22A17100B48210 /* Product.swift */; };
@@ -26,7 +23,6 @@
 		0DC46DEA2A22A29900B48210 /* ProductStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC46DE92A22A29900B48210 /* ProductStatus.swift */; };
 		0DC46DEC2A25441500B48210 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC46DEB2A25441500B48210 /* PhotoPicker.swift */; };
 		0DC46DEE2A25449400B48210 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC46DED2A25449400B48210 /* PickerView.swift */; };
-		817112152A254178001D1F6D /* ButtomStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817112142A254178001D1F6D /* ButtomStatus.swift */; };
 		817112172A269A0A001D1F6D /* ProductAddSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817112162A269A0A001D1F6D /* ProductAddSpec.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,16 +49,14 @@
 		056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_ChallengeApp.swift; sourceTree = "<group>"; };
 		056DA21C2A1BDF26005FD1F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		056DA21E2A1BDF27005FD1F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		056DA2212A1BDF27005FD1F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		056DA2272A1BDF27005FD1F5 /* Macro_ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Macro_ChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		056DA22B2A1BDF27005FD1F5 /* Macro_ChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_ChallengeTests.swift; sourceTree = "<group>"; };
 		056DA2312A1BDF27005FD1F5 /* Macro_ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Macro_ChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		056DA2352A1BDF27005FD1F5 /* Macro_ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_ChallengeUITests.swift; sourceTree = "<group>"; };
 		056DA2372A1BDF27005FD1F5 /* Macro_ChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_ChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		05BC831F2A26A04B00723392 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		05B178322A3902B2009978C5 /* Macro-Challenge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Macro-Challenge-Info.plist"; sourceTree = "<group>"; };
 		05BC83212A26A4C700723392 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		05C74E1B2A2FA6CF00F05822 /* TelaInicial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaInicial.swift; sourceTree = "<group>"; };
-		05C74E1D2A2FACFB00F05822 /* Teste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teste.swift; sourceTree = "<group>"; };
 		05C74E222A2FB5AA00F05822 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		05F73CBF2A27C08700243342 /* TagView_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView_Tests.swift; sourceTree = "<group>"; };
 		0DC46DE52A22A17100B48210 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -70,7 +64,6 @@
 		0DC46DE92A22A29900B48210 /* ProductStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStatus.swift; sourceTree = "<group>"; };
 		0DC46DEB2A25441500B48210 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		0DC46DED2A25449400B48210 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
-		817112142A254178001D1F6D /* ButtomStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtomStatus.swift; sourceTree = "<group>"; };
 		817112162A269A0A001D1F6D /* ProductAddSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,7 +95,12 @@
 		056DA20E2A1BDF26005FD1F5 = {
 			isa = PBXGroup;
 			children = (
-				056DA2192A1BDF26005FD1F5 /* Macro_Challenge */,
+				05B178322A3902B2009978C5 /* Macro-Challenge-Info.plist */,
+				05C74E232A2FB5AA00F05822 /* Localizable.strings */,
+				05B178302A38EB60009978C5 /* Model */,
+				05B178312A38EB81009978C5 /* ViewModel */,
+				056DA2192A1BDF26005FD1F5 /* Componentes */,
+				056DA2202A1BDF27005FD1F5 /* Preview Content */,
 				056DA22A2A1BDF27005FD1F5 /* Macro_ChallengeTests */,
 				056DA2342A1BDF27005FD1F5 /* Macro_ChallengeUITests */,
 				05F73CBE2A27BFD200243342 /* tags_tests */,
@@ -120,33 +118,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		056DA2192A1BDF26005FD1F5 /* Macro_Challenge */ = {
+		056DA2192A1BDF26005FD1F5 /* Componentes */ = {
 			isa = PBXGroup;
 			children = (
-				056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */,
-				05C74E232A2FB5AA00F05822 /* Localizable.strings */,
-				056DA21C2A1BDF26005FD1F5 /* ContentView.swift */,
-				0DC46DE52A22A17100B48210 /* Product.swift */,
-				817112142A254178001D1F6D /* ButtomStatus.swift */,
-				05BC83212A26A4C700723392 /* TagView.swift */,
-				05BC831F2A26A04B00723392 /* Home.swift */,
-				0DC46DE72A22A1D300B48210 /* Tag.swift */,
-				0DC46DE92A22A29900B48210 /* ProductStatus.swift */,
-				056DA2202A1BDF27005FD1F5 /* Preview Content */,
 				0DC46DEB2A25441500B48210 /* PhotoPicker.swift */,
 				051BD09F2A379F7700FF3919 /* ComponenteTriangulo.swift */,
 				0DC46DED2A25449400B48210 /* PickerView.swift */,
-				05C74E1B2A2FA6CF00F05822 /* TelaInicial.swift */,
-				05C74E1D2A2FACFB00F05822 /* Teste.swift */,
 			);
-			path = Macro_Challenge;
+			path = Componentes;
 			sourceTree = "<group>";
 		};
 		056DA2202A1BDF27005FD1F5 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
 				056DA21E2A1BDF27005FD1F5 /* Assets.xcassets */,
-				056DA2212A1BDF27005FD1F5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -167,6 +152,27 @@
 				056DA2372A1BDF27005FD1F5 /* Macro_ChallengeUITestsLaunchTests.swift */,
 			);
 			path = Macro_ChallengeUITests;
+			sourceTree = "<group>";
+		};
+		05B178302A38EB60009978C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				05C74E1B2A2FA6CF00F05822 /* TelaInicial.swift */,
+				056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */,
+				056DA21C2A1BDF26005FD1F5 /* ContentView.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		05B178312A38EB81009978C5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0DC46DE72A22A1D300B48210 /* Tag.swift */,
+				05BC83212A26A4C700723392 /* TagView.swift */,
+				0DC46DE92A22A29900B48210 /* ProductStatus.swift */,
+				0DC46DE52A22A17100B48210 /* Product.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		05F73CBE2A27BFD200243342 /* tags_tests */ = {
@@ -282,7 +288,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056DA2222A1BDF27005FD1F5 /* Preview Assets.xcassets in Resources */,
 				05C74E212A2FB5AA00F05822 /* Localizable.strings in Resources */,
 				056DA21F2A1BDF27005FD1F5 /* Assets.xcassets in Resources */,
 			);
@@ -316,13 +321,10 @@
 				0DC46DE82A22A1D300B48210 /* Tag.swift in Sources */,
 				051BD0A02A379F7700FF3919 /* ComponenteTriangulo.swift in Sources */,
 				056DA21D2A1BDF26005FD1F5 /* ContentView.swift in Sources */,
-				05C74E1E2A2FACFB00F05822 /* Teste.swift in Sources */,
-				817112152A254178001D1F6D /* ButtomStatus.swift in Sources */,
 				0DC46DEE2A25449400B48210 /* PickerView.swift in Sources */,
 				0DC46DEA2A22A29900B48210 /* ProductStatus.swift in Sources */,
 				056DA21B2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift in Sources */,
 				0DC46DE62A22A17100B48210 /* Product.swift in Sources */,
-				05BC83202A26A04B00723392 /* Home.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,10 +494,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Macro_Challenge/Preview Content\"";
 				DEVELOPMENT_TEAM = TNPTQGXSA4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Macro-Challenge-Info.plist";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Permissão necessária para acessar a galeria de fotos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -521,10 +524,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Macro_Challenge/Preview Content\"";
 				DEVELOPMENT_TEAM = TNPTQGXSA4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Macro-Challenge-Info.plist";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Permissão necessária para acessar a galeria de fotos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
