@@ -11,11 +11,18 @@ struct TelaInicial: View {
     @State private var tags: [Tag] = []
     @State var imagePicker = ImagePicker()
     @State var imagepicker1 = Image(systemName: "")
+    public var productList = [Product]()
+    @State  var prod: ProductViewModel
+
+    
+   // var productList = [Product]()
+    
+    //@Binding var productList: [Product]
     
     
     var body: some View {
-     //   TabView {
             NavigationView {
+                
                 VStack(alignment: .leading) { 
                     Text("Meu Brechó")
                         .bold()
@@ -39,7 +46,7 @@ struct TelaInicial: View {
                     
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: ContentView(prod: Product.init(tags: [Tag(name: "")], purchasedPrice: 200, status: ProductStatus.acquarid, acessory: true, image: imagePicker.image ?? imagepicker1), tags: $tags)) {
+                            NavigationLink(destination: ContentView(prod: prod, tags: $tags)) {
                                 Image(systemName: "plus")
                             }
                         }
@@ -48,16 +55,20 @@ struct TelaInicial: View {
                     .padding()
                 }
                 .frame(maxWidth: .infinity) // Define a largura máxima do VStack
+//                List(productList) { product in
+//                    VStack(alignment: .leading) {
+//                        Text("ID: \(product.id)")
+//                        Text("Price: $\(product.purchasedPrice)")
+//                        Text("Status: \(product.status.rawValue)")
+//                        //Text("Accessory: \(product.accessory ? "Yes" : "No")")
+//                        product.image
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fit)
+//                            .frame(height: 100)
+//                    }
+//                }
             }
             .navigationBarHidden(true)
-//            .tabItem {
-//                Label("Brechó", systemImage: "square.grid.2x2.fill")
-//            }
-//            
-//            Text("Second Tab")
-//                .tabItem {
-//                    Label("Segunda", systemImage: "circle.fill")
-//                }
         
     }
     

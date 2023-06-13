@@ -13,7 +13,7 @@ struct ContentView: View {
     @Environment(\.presentationMode) var presentationMode
     let formatter = NumberFormatter()
     @State private var name = String()
-    @State  var prod: Product
+    @State  var prod: ProductViewModel
     @State private var purchasedPrice = String()
     @State private var status: ProductStatus = ProductStatus.acquarid
     @State private var double: Double = 0.0
@@ -32,10 +32,7 @@ struct ContentView: View {
             
             GeometryReader { sizeOfView in
                 VStack {
-                    
-                    
-                        
-                
+     
                     VStack(alignment: .leading) {
                         Text("Adicionar")
                             .position(x: 65, y:10)
