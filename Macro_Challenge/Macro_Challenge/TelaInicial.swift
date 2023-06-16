@@ -12,66 +12,107 @@ struct TelaInicial: View {
     @State var imagePicker = ImagePicker()
     @State var imagepicker1 = Image(systemName: "")
     public var productList = [Product]()
-    @State  var prod: ProductViewModel
-
-    
-   // var productList = [Product]()
-    
-    //@Binding var productList: [Product]
+    @ObservedObject var prodVm: ProductViewModel
     
     
+    
+    @State private var showingSheet = false
+  //  @Environment(\.dismiss) var dismiss
     var body: some View {
-            NavigationView {
+            NavigationStack {
                 
                 VStack(alignment: .leading) { 
                     Text("Meu Brechó")
                         .bold()
                         .font(.system(size: 34, weight: .bold, design: .rounded))
                         .padding(25)
-                    Text("Total de Peças: 500")
+                    Text("Total de Peças: \(prodVm.productsCount())")
                         .frame(maxWidth: .infinity, alignment: .center)
                     
-                    Spacer()
-                    ScrollView(.vertical){
-                        HStack {
-                            ForEach(0..<3) { index in
-                                Rectangle()
-                                    .frame(width: 100, height: 100)
-                                    .foregroundColor(.gray)
-                                    .padding(10)
+                  
+                    List{
+                       
+                            ForEach(prodVm.productList, id: \.self){ index in
+                                
+                                HStack{
+                                    index.image
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width:120,height: 90)
+                                    VStack(alignment: .leading){
+                                        ForEach(index.tags) { tag in
+                                            Text(tag.name)}
+                                        
+                                        Text("\(index.purchasedPrice,specifier: "%.2f") R$").frame(width: 90)
+                                    }
+                                    Button {
+                                        showingSheet.toggle()
+                                        
+                                    } label: {
+                                        Circle()
+                                        switch index.status{
+                                        case ProductStatus.acquarid: ButtonCircleYellow().position(x:60,y:20)
+                                        case ProductStatus.sold: ButtonCircleGreen().position(x:60,y:20)
+                                        case ProductStatus.maintenance: ButtonCircleOrange().position(x:60,y:20)
+                                        case ProductStatus.selling: ButtonCirclePurple().position(x:60,y:20)
+                                        case ProductStatus.washing: ButtonCircleBlue().position(x:60,y:20)
+                                            
+                                        default: Circle()
+                                                .frame(width: 20)
+                                                .foregroundColor(.blue)
+                                            
+                                        }
+                                        
+                                    
+                                    
+                                    
+                                    }.sheet(isPresented: $showingSheet) {
+                                        Button("Press to dismiss") {
+                                         //   dismiss()
+                                            showingSheet.toggle()
+                                            prodVm.trocarEnum(objeto: index, novoEnum: .acquarid)
+                                            prodVm.printalista1()
+                                            
+                                        }
+                                        .font(.title)
+                                        .padding()
+                                        .background(.black)                                    }
                             }
                         }
+                        
+                        
                     }
-                    Spacer()
+                    
+                    
                     
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: ContentView(prod: prod, tags: $tags)) {
+                            NavigationLink(destination: ContentView(prod: prodVm, tags: $tags)) {
                                 Image(systemName: "plus")
                             }
                         }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                     .padding()
+                    
+                    
                 }
+                .navigationViewStyle(.stack)
                 .frame(maxWidth: .infinity) // Define a largura máxima do VStack
-//                List(productList) { product in
-//                    VStack(alignment: .leading) {
-//                        Text("ID: \(product.id)")
-//                        Text("Price: $\(product.purchasedPrice)")
-//                        Text("Status: \(product.status.rawValue)")
-//                        //Text("Accessory: \(product.accessory ? "Yes" : "No")")
-//                        product.image
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fit)
-//                            .frame(height: 100)
-//                    }
-//                }
+                
             }
             .navigationBarHidden(true)
         
     }
     
-}
+    
+    
+    
+    }
+
+
+
+//
+
 
 

@@ -8,7 +8,12 @@
 import Foundation
 import SwiftUI
 
-class Product:Identifiable{
+class Product:Identifiable, Hashable,ObservableObject{
+    static func == (lhs: Product, rhs: Product) -> Bool {
+        
+        return false
+    }
+    
     let id = UUID()
     var tags: [Tag] = []
     public var purchasedPrice: Double
@@ -23,8 +28,13 @@ class Product:Identifiable{
         self.status = status
         self.acessory = acessory
         self.image = image
+        
     }
-
+    
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
    
     
     

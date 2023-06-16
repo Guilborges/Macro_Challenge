@@ -10,18 +10,22 @@ import PhotosUI
 
 struct ContentView: View {
     
-    @Environment(\.presentationMode) var presentationMode
+    // variaveis do objeto
     let formatter = NumberFormatter()
-    @State private var name = String()
-    @State  var prod: ProductViewModel
+    var prod: ProductViewModel
     @State private var purchasedPrice = String()
     @State private var status: ProductStatus = ProductStatus.acquarid
     @State private var double: Double = 0.0
+    @State var imagepicker1 = Image(systemName: "")
+    @StateObject var imagePicker = ImagePicker()
+    
+    //Variaveis das tags
     @Binding var tags: [Tag]
     @State private var text: String = ""
-    @StateObject var imagePicker = ImagePicker()
-    @State var imagepicker1 = Image(systemName: "")
+    @State private var name = String()
     
+    //Variaveis da tela
+    @Environment(\.presentationMode) var presentationMode
     @State private var showAlert = false
 
     
@@ -131,7 +135,7 @@ struct ContentView: View {
                             
                             VStack {
                                 Button {
-                                    status = ProductStatus.acquarid
+                                    status = ProductStatus.selling
                                 } label: {
                                     Image("onSellingIcon")
                                 }

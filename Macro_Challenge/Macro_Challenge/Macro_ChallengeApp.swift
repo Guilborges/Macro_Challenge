@@ -19,7 +19,7 @@ struct Macro_ChallengeApp: App {
 
         WindowGroup {
 
-            TelaInicial(prod: ProductViewModel())
+            TelaInicial(prodVm: ProductViewModel())
 
 
         }

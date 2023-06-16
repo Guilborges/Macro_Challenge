@@ -123,7 +123,7 @@ struct TagView: View {
             //adicionando o tamanho da cápsula na largura total com espaçamento...
             //14 + 14 + 6 + 6
             // extra 6 para segurança...
-            totalWidth += (tag.size + 40)
+           // totalWidth += (tag.size + 1)
             
             //verificando se a largura total é maior que o tamanho
             if totalWidth > screenWidth{
