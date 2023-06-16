@@ -9,54 +9,54 @@ import Foundation
 import SwiftUI
 import PhotosUI
 
-struct SingleImagePicker: View {
+//struct SingleImagePicker: View {
     
-    @StateObject var imagePicker = ImagePicker()
+//    @StateObject var imagePicker = ImagePicker(completion: <#(UIImage?) -> Void#>)
 
     
-    var body: some View {
-        NavigationStack{
-            VStack{
-                if let image = imagePicker.image {
-                    PhotosPicker( selection: $imagePicker.imageSelection){
-                        image
-                                .resizable()
-                                .frame(width: 82, height: 70)
-                                
-                                .padding()
-                            
-                             
-                            
-                    
-                        }
-                    
-                } else  {
-                   // let cameraPhoto = cameraPicker.sourceType
-                        
-                    
-                        PhotosPicker( selection: $imagePicker.imageSelection){
-                        Image(systemName: "photo")
-                                .resizable()
-                                .frame(width: 82, height: 70)
-                                
-                                .padding()
-                            
-                             
-                            
-                    
-                        } .foregroundColor(.gray)
-                }
-            }
-            .padding()
-            
-        }
-    }
-}
+//    var body: some View {
+//        NavigationStack{
+//            VStack{
+//                if let image = imagePicker.image {
+//                    PhotosPicker( selection: $imagePicker.imageSelection){
+//                        image
+//                                .resizable()
+//                                .frame(width: 82, height: 70)
+//
+//                                .padding()
+//
+//
+//
+//
+//                        }
+//
+//                } else  {
+//                   // let cameraPhoto = cameraPicker.sourceType
+//
+//
+//                        PhotosPicker( selection: $imagePicker.imageSelection){
+//                        Image(systemName: "photo")
+//                                .resizable()
+//                                .frame(width: 82, height: 70)
+//
+//                                .padding()
+//
+//
+//
+//
+//                        } .foregroundColor(.gray)
+//                }
+//            }
+//            .padding()
+//
+//        }
+//    }
+//}
 
-struct Content_Previews: PreviewProvider {
-    static var previews: some View{
-        SingleImagePicker()
-    }
-}
+//struct Content_Previews: PreviewProvider {
+//    static var previews: some View{
+//        SingleImagePicker()
+//    }
+//}
 
 

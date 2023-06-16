@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TelaInicial: View {
     @State private var tags: [Tag] = []
-    @State var imagePicker = ImagePicker()
+//    @State var imagePicker = ImagePicker()
     @State var imagepicker1 = Image(systemName: "")
     public var productList = [Product]()
     @State  var prod: ProductViewModel

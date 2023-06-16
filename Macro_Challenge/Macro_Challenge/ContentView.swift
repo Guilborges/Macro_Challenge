@@ -19,8 +19,10 @@ struct ContentView: View {
     @State private var double: Double = 0.0
     @Binding var tags: [Tag]
     @State private var text: String = ""
-    @StateObject var imagePicker = ImagePicker()
+//    @StateObject var imagePicker = ImagePicker()
     @State var imagepicker1 = Image(systemName: "")
+    @State private var currentImage: Image?
+       @State private var showImagePicker = false
     
     @State private var showAlert = false
 
@@ -35,29 +37,36 @@ struct ContentView: View {
      
                     VStack(alignment: .leading) {
                         Text("Adicionar")
-                            .position(x: 65, y:10)
+                            .position(x: 65, y: 10)
                             .bold()
                             .font(.system(size: 34, weight: .bold, design: .rounded))
                             .padding(25)
-                    }
-                    
-                    if let image = imagePicker.image {
-                        PhotosPicker( selection: $imagePicker.imageSelection){
+                        
+                        Button(action: {
+                            showImagePicker = true
+                        }) {
+                            Text("Selecionar Imagem")
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                        }
+                        .sheet(isPresented: $showImagePicker) {
+                            ImagePicker(completion: { selectedImage in
+                                if let image = selectedImage {
+                                    currentImage = Image(uiImage: image)
+                                }
+                            })
+                        }
+                        
+                        if let image = currentImage {
                             image
                                 .resizable()
-                                .frame(width: 82, height: 70)
-                            
-                                .padding()
+                                .scaledToFit()
+                                .frame(width: 200, height: 200)
                         }
-                    } else  {
-                        PhotosPicker( selection: $imagePicker.imageSelection){
-                            Image(systemName: "photo")
-                                .resizable()
-                                .frame(width: 82, height: 70)
-                            
-                                .padding()
-                        }.foregroundColor(.gray)
                     }
+
                     VStack {
                         HStack{
                             ScrollView(.vertical, showsIndicators: false) {
@@ -149,30 +158,30 @@ struct ContentView: View {
                         }
                     }
                     
-                    Button {
-                        
-                        if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil){
-                            showAlert = true
-                           print("nao deu")
-                        }else {
-                            prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
-                            print(prod)
-                            resetScreenObject()
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
+//                    Button {
+//
+//                        if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil){
+//                            showAlert = true
+//                           print("nao deu")
+//                        }else {
+//                            prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
+//                            print(prod)
+//                            resetScreenObject()
+//                            self.presentationMode.wrappedValue.dismiss()
+//                        }
 
                         
-                    } label: {
-                        Image("checkIcon")
-                            .frame(width: 82, height: 70)
-                            
-                            
-                    }.alert(isPresented: $showAlert) {
-                        Alert(
-                            title: Text("Campos Insuficientes"),
-                            message: Text("Preencha todos os campos \n de adição da peça!")
-                        )
-                    }.padding(10)
+//                    } label: {
+//                        Image("checkIcon")
+//                            .frame(width: 82, height: 70)
+//
+//
+//                    }.alert(isPresented: $showAlert) {
+//                        Alert(
+//                            title: Text("Campos Insuficientes"),
+//                            message: Text("Preencha todos os campos \n de adição da peça!")
+//                        )
+//                    }.padding(10)
                     
                 }
             }.onChange(of: tags) { newValue in
@@ -288,12 +297,12 @@ struct ContentView: View {
         text = ""
     }
     
-    func resetScreenObject (){
-        tags.removeAll()
-        text = ""
-        purchasedPrice = ""
-        imagePicker.image = nil
-    }
+//    func resetScreenObject (){
+//        tags.removeAll()
+//        text = ""
+//        purchasedPrice = ""
+//        imagePicker.image = nil
+//    }
 }
     
 
