@@ -153,30 +153,58 @@ struct ContentView: View {
                         }
                     }
                     
-                    Button {
-                        
-                        if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil){
-                            showAlert = true
-                           print("nao deu")
-                        }else {
-                            prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
-                            print(prod)
-                            resetScreenObject()
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
+                    
+                    HStack {
+                        Button {
+                            
+                            if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil){
+                                showAlert = true
+                                print("nao deu")
+                            }else {
+                                prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
+                                print(prod)
+                                resetScreenObject()
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
+                            
+                            
+                        } label: {
+                            Image("checkIcon")
+                                .frame(width: 82, height: 70)
+                            
+                            
+                        }.alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("Campos Insuficientes"),
+                                message: Text("Preencha todos os campos \n de adição da peça!")
+                            )
+                        }.padding(10)
+                        Button {
+                            
+                            if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil){
+                                showAlert = true
+                               print("nao deu")
+                            }else {
+                                prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
+                                print(prod)
+                                resetScreenObject()
+                                
+                            }
 
+                            
+                        } label: {
+                            Image(systemName: "plus")
+                                .frame(width: 82, height: 70)
+                                
+                                
+                        }.alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("Campos Insuficientes"),
+                                message: Text("Preencha todos os campos \n de adição da peça!")
+                            )
+                        }.padding(10)
                         
-                    } label: {
-                        Image("checkIcon")
-                            .frame(width: 82, height: 70)
-                            
-                            
-                    }.alert(isPresented: $showAlert) {
-                        Alert(
-                            title: Text("Campos Insuficientes"),
-                            message: Text("Preencha todos os campos \n de adição da peça!")
-                        )
-                    }.padding(10)
+                    }
                     
                 }
             }.onChange(of: tags) { newValue in

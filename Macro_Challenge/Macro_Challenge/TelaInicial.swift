@@ -49,7 +49,7 @@ struct TelaInicial: View {
                                         showingSheet.toggle()
                                         
                                     } label: {
-                                        Circle()
+                                       // Circle()
                                         switch index.status{
                                         case ProductStatus.acquarid: ButtonCircleYellow().position(x:60,y:20)
                                         case ProductStatus.sold: ButtonCircleGreen().position(x:60,y:20)
@@ -67,16 +67,55 @@ struct TelaInicial: View {
                                     
                                     
                                     }.sheet(isPresented: $showingSheet) {
-                                        Button("Press to dismiss") {
-                                         //   dismiss()
-                                            showingSheet.toggle()
-                                            prodVm.trocarEnum(objeto: index, novoEnum: .acquarid)
-                                            prodVm.printalista1()
+                                        VStack{
+                                            Button("Adquirido") {
+                                                //   dismiss()
+                                                showingSheet.toggle()
+                                                prodVm.trocarEnum(objeto: index, novoEnum: .acquarid)
+                                                prodVm.printalista1()
+                                                
+                                            }
+                                            .font(.title)
+                                            .padding()
+                                            Button("Lavando") {
+                                                //   dismiss()
+                                                showingSheet.toggle()
+                                                prodVm.trocarEnum(objeto: index, novoEnum: .washing)
+                                                prodVm.printalista1()
+                                                
+                                            }
+                                            .font(.title)
+                                            .padding()
+                                            Button("Manutenção") {
+                                                //   dismiss()
+                                                showingSheet.toggle()
+                                                prodVm.trocarEnum(objeto: index, novoEnum: .maintenance)
+                                                prodVm.printalista1()
+                                                
+                                            }
+                                            .font(.title)
+                                            .padding()
+                                            Button("Em loja") {
+                                                //   dismiss()
+                                                showingSheet.toggle()
+                                                prodVm.trocarEnum(objeto: index, novoEnum: .selling)
+                                                prodVm.printalista1()
+                                                
+                                            }
+                                            .font(.title)
+                                            .padding()
+                                            Button("Vendido") {
+                                                //   dismiss()
+                                                showingSheet.toggle()
+                                                prodVm.trocarEnum(objeto: index, novoEnum: .sold)
+                                                prodVm.printalista1()
+                                                
+                                            }
+                                            .font(.title)
+                                            .padding()
                                             
-                                        }
-                                        .font(.title)
-                                        .padding()
-                                        .background(.black)                                    }
+                                         }
+                                    }
                             }
                         }
                         
