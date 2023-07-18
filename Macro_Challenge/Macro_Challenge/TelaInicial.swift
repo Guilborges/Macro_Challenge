@@ -19,9 +19,10 @@ struct TelaInicial: View {
     @State private var showingSheet = false
   //  @Environment(\.dismiss) var dismiss
     var body: some View {
+        TabView{
             NavigationStack {
                 
-                VStack(alignment: .leading) { 
+                VStack(alignment: .leading) {
                     Text("Meu Brechó")
                         .bold()
                         .font(.system(size: 34, weight: .bold, design: .rounded))
@@ -29,93 +30,93 @@ struct TelaInicial: View {
                     Text("Total de Peças: \(prodVm.productsCount())")
                         .frame(maxWidth: .infinity, alignment: .center)
                     
-                  
+                    
                     List{
-                       
-                            ForEach(prodVm.productList, id: \.self){ index in
-                                
-                                HStack{
-                                    index.image
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width:120,height: 90)
-                                    VStack(alignment: .leading){
-                                        ForEach(index.tags) { tag in
-                                            Text(tag.name)}
+                        
+                        ForEach(prodVm.productList, id: \.self){ index in
+                            
+                            HStack{
+                                index.image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width:120,height: 90)
+                                VStack(alignment: .leading){
+                                    ForEach(index.tags) { tag in
+                                        Text(tag.name)}
+                                    
+                                    Text("\(index.purchasedPrice,specifier: "%.2f") R$").frame(width: 90)
+                                }
+                                Button {
+                                    showingSheet.toggle()
+                                    
+                                } label: {
+                                    // Circle()
+                                    switch index.status{
+                                    case ProductStatus.acquarid: ButtonCircleYellow().position(x:60,y:20)
+                                    case ProductStatus.sold: ButtonCircleGreen().position(x:60,y:20)
+                                    case ProductStatus.maintenance: ButtonCircleOrange().position(x:60,y:20)
+                                    case ProductStatus.selling: ButtonCirclePurple().position(x:60,y:20)
+                                    case ProductStatus.washing: ButtonCircleBlue().position(x:60,y:20)
                                         
-                                        Text("\(index.purchasedPrice,specifier: "%.2f") R$").frame(width: 90)
+                                    default: Circle()
+                                            .frame(width: 20)
+                                            .foregroundColor(.blue)
+                                        
                                     }
-                                    Button {
-                                        showingSheet.toggle()
-                                        
-                                    } label: {
-                                       // Circle()
-                                        switch index.status{
-                                        case ProductStatus.acquarid: ButtonCircleYellow().position(x:60,y:20)
-                                        case ProductStatus.sold: ButtonCircleGreen().position(x:60,y:20)
-                                        case ProductStatus.maintenance: ButtonCircleOrange().position(x:60,y:20)
-                                        case ProductStatus.selling: ButtonCirclePurple().position(x:60,y:20)
-                                        case ProductStatus.washing: ButtonCircleBlue().position(x:60,y:20)
-                                            
-                                        default: Circle()
-                                                .frame(width: 20)
-                                                .foregroundColor(.blue)
+                                    
+                                    
+                                    
+                                    
+                                }.sheet(isPresented: $showingSheet) {
+                                    VStack{
+                                        Button("Adquirido") {
+                                            //   dismiss()
+                                            showingSheet.toggle()
+                                            prodVm.trocarEnum(objeto: index, novoEnum: .acquarid)
+                                            prodVm.printalista1()
                                             
                                         }
-                                        
-                                    
-                                    
-                                    
-                                    }.sheet(isPresented: $showingSheet) {
-                                        VStack{
-                                            Button("Adquirido") {
-                                                //   dismiss()
-                                                showingSheet.toggle()
-                                                prodVm.trocarEnum(objeto: index, novoEnum: .acquarid)
-                                                prodVm.printalista1()
-                                                
-                                            }
-                                            .font(.title)
-                                            .padding()
-                                            Button("Lavando") {
-                                                //   dismiss()
-                                                showingSheet.toggle()
-                                                prodVm.trocarEnum(objeto: index, novoEnum: .washing)
-                                                prodVm.printalista1()
-                                                
-                                            }
-                                            .font(.title)
-                                            .padding()
-                                            Button("Manutenção") {
-                                                //   dismiss()
-                                                showingSheet.toggle()
-                                                prodVm.trocarEnum(objeto: index, novoEnum: .maintenance)
-                                                prodVm.printalista1()
-                                                
-                                            }
-                                            .font(.title)
-                                            .padding()
-                                            Button("Em loja") {
-                                                //   dismiss()
-                                                showingSheet.toggle()
-                                                prodVm.trocarEnum(objeto: index, novoEnum: .selling)
-                                                prodVm.printalista1()
-                                                
-                                            }
-                                            .font(.title)
-                                            .padding()
-                                            Button("Vendido") {
-                                                //   dismiss()
-                                                showingSheet.toggle()
-                                                prodVm.trocarEnum(objeto: index, novoEnum: .sold)
-                                                prodVm.printalista1()
-                                                
-                                            }
-                                            .font(.title)
-                                            .padding()
+                                        .font(.title)
+                                        .padding()
+                                        Button("Lavando") {
+                                            //   dismiss()
+                                            showingSheet.toggle()
+                                            prodVm.trocarEnum(objeto: index, novoEnum: .washing)
+                                            prodVm.printalista1()
                                             
-                                         }
+                                        }
+                                        .font(.title)
+                                        .padding()
+                                        Button("Manutenção") {
+                                            //   dismiss()
+                                            showingSheet.toggle()
+                                            prodVm.trocarEnum(objeto: index, novoEnum: .maintenance)
+                                            prodVm.printalista1()
+                                            
+                                        }
+                                        .font(.title)
+                                        .padding()
+                                        Button("Em loja") {
+                                            //   dismiss()
+                                            showingSheet.toggle()
+                                            prodVm.trocarEnum(objeto: index, novoEnum: .selling)
+                                            prodVm.printalista1()
+                                            
+                                        }
+                                        .font(.title)
+                                        .padding()
+                                        Button("Vendido") {
+                                            //   dismiss()
+                                            showingSheet.toggle()
+                                            prodVm.trocarEnum(objeto: index, novoEnum: .sold)
+                                            prodVm.printalista1()
+                                            
+                                        }
+                                        .font(.title)
+                                        .padding()
+                                        
                                     }
+                                }
                             }
                         }
                         
@@ -137,12 +138,21 @@ struct TelaInicial: View {
                     
                 }
                 .navigationViewStyle(.stack)
-                .frame(maxWidth: .infinity) // Define a largura máxima do VStack
+                .frame(maxWidth: .infinity) 
                 
             }
+            
             .navigationBarHidden(true)
-        
-    }
+            .tabItem {
+                Label("Lista 1", systemImage: "square.grid.2x2.fill")
+            }
+            
+            Text("Lista 2")
+                .tabItem {
+                    Label("Segunda", systemImage: "circle.fill")
+                }
+            
+        }}
     
     
     
