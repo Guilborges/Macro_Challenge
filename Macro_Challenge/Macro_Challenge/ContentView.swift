@@ -133,6 +133,8 @@ struct ContentView: View {
                     .padding(10)
                     VStack{
                         HStack {
+                            
+                            //icone adquirido
                             VStack {
                                 Button {
                                     status = ProductStatus.acquired
@@ -143,6 +145,7 @@ struct ContentView: View {
                                     }
                                 }
                             }
+                            //icone lavando
                             VStack{
                                 Button {
                                     status = ProductStatus.washing
@@ -151,6 +154,7 @@ struct ContentView: View {
                                     
                                 }
                             }
+                            //icone em manutencao
                             VStack {
                                 Button {
                                     status = ProductStatus.maintenance
@@ -158,7 +162,7 @@ struct ContentView: View {
                                     Image("onMaintenanceIcon")
                                 }
                             }
-                            
+                            //icone na loja
                             VStack {
                                 Button {
                                     status = ProductStatus.selling
@@ -166,6 +170,7 @@ struct ContentView: View {
                                     Image("onSellingIcon")
                                 }
                             }
+                            //icone vendido
                             VStack {
                                 Button {
                                     status = ProductStatus.sold
@@ -176,6 +181,35 @@ struct ContentView: View {
                                     //Text("Vendido")
                                 }
                             }
+                        }
+                        
+                        //texto em baixo
+                        HStack{
+                            
+                            //adquirido
+                            Text("Adquirido")
+                            .foregroundColor(Color("title"))
+                            .font(.system(size: 10, weight: .bold, design: .rounded))
+                            //lavando
+                            Text("Lavando")
+                            .foregroundColor(Color("title"))
+                            .font(.system(size: 10, weight: .bold, design: .rounded))
+                            //em manutencao
+                            //adquirido
+                            Text("Em manutenção")
+                            .foregroundColor(Color("title"))
+                            .font(.system(size: 10, weight: .bold, design: .rounded))
+                            //na loja
+                            Text("Na loja")
+                            .foregroundColor(Color("title"))
+                            .font(.system(size: 10, weight: .bold, design: .rounded))
+                            //vendido
+                            //adquirido
+                            Text("Vendido")
+                            .foregroundColor(Color("title"))
+                            .font(.system(size: 10, weight: .bold, design: .rounded))
+                            
+                            
                         }
                     }
                     

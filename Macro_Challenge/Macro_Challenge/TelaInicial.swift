@@ -152,12 +152,15 @@ struct TelaInicial: View {
                     Label("Segunda", systemImage: "circle.fill")
                 }
             
-        }}
+        }
+        
+    }
     
     
     
     
     }
+    
 
 
 
