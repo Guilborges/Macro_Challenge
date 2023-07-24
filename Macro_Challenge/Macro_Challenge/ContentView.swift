@@ -31,11 +31,12 @@ struct ContentView: View {
     
     
     var body: some View {
-        
+    
         ZStack {
-            .background(Color("background")
+           
             GeometryReader { sizeOfView in
                 VStack {
+                   
      
                     VStack(alignment: .leading) {
                         Text("Adicionar")
@@ -43,7 +44,7 @@ struct ContentView: View {
                             .bold()
                             .font(.system(size: 34, weight: .bold, design: .rounded))
                             .padding(25)
-                            .foregroundColor(.brown)
+                            .foregroundColor(Color("title"))
                         
                 
                     }
@@ -63,9 +64,9 @@ struct ContentView: View {
                                 Image(systemName: "photo")
                                     .resizable()
                                     .frame(width: 42, height: 30)
-                                
+
                                     .padding()
-                            }.foregroundColor(.gray)//cor do botao de adicionar foto
+                            }.foregroundColor(Color("elements"))//cor do botao de adicionar foto
                         }
                             
                         
@@ -74,55 +75,60 @@ struct ContentView: View {
                             .bold()
                             .font(.system(size: 17, weight: .bold, design: .rounded))
                             .padding(20)
-                            .foregroundColor(.brown)
+                            .foregroundColor(Color("elements"))
                         
                        
                     }
                     .frame(width:350, height:50)
                     //.cornerRadius(CGFloat:30)
-                    .background(.black)
+                    .background(Color("assetBackgroundLight"))
                     
                     VStack {
-                        HStack{
-                            ScrollView(.vertical, showsIndicators: false) {
-                                
-                                
-                                //Exibindo tags
-                                ForEach(getRows(),id: \.self) { rows in
-                                    
-                                    HStack(spacing:6){
-                                        
-                                        ForEach(rows) { row in
-                                            // Row view...
-                                            RowView(tag: row)
-                                            
-                                        }
-                                    }
-                                }.padding(10)
-                                
-                            }
-                        }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.3
-                        ).background(
-                            RoundedRectangle(cornerRadius: 10).strokeBorder(Color.purple)
-                        )
+                        
+                        //parte de exibicao das tags
+                        
                         
                         VStack {
                             Section(header: Text("Informe a(s) Tag(s) da peça")){
-                                TextField("Adicione uma tag", text: $text, onCommit: addTag ).padding(.leading).background(
-                                    Color(.lightGray)
+                                TextField("Adicione uma tag", text: $text, onCommit: addTag )
+                                    .padding(.leading)
+                                    .font(.system(size: 17, weight: .bold, design: .rounded))
+                                    .background(Color("assetBackgroundLight")
+                                        .foregroundColor(Color("title"))
                                         .cornerRadius(10).frame(height: 50)
                                 ).padding(10)
                                 
                             }
-                            Section(header: Text("Informe o preço pago").padding(10)){
-                                TextField("0.00", text: $purchasedPrice).padding(.leading).keyboardType(.decimalPad).background(
+                            
+                            //exibicao das tags
+                            HStack{
+                                ScrollView(.vertical, showsIndicators: false) {
                                     
-                                    Color(.lightGray)
+                                    
+                                    //Exibindo tags
+                                    ForEach(getRows(),id: \.self) { rows in
+                                        
+                                        HStack(spacing:6){
+                                            
+                                            ForEach(rows) { row in
+                                                // Row view...
+                                                RowView(tag: row)
+                                            }
+                                        }
+                                    }
+                                    .padding(10)
+                                }
+                            }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.3).background(
+                                RoundedRectangle(cornerRadius: 10).strokeBorder(Color.brown))
+                            Section(header: Text("Informe o preço pago").padding(10)){
+                                TextField("0.00", text: $purchasedPrice).padding(.leading).keyboardType(.decimalPad).background(Color(("assetBackgroundLight"))
                                         .cornerRadius(10).frame(height: 50)
                                     
                                 ).padding(10)
                             }
                         }
+                        
+                    
                     }
                     .padding(10)
                     VStack{
@@ -247,7 +253,7 @@ struct ContentView: View {
             .animation(.easeInOut, value: tags)
         }
         
-        .background(Color(.white))
+        .background(Color("background"))
         
     }
     @ViewBuilder
@@ -259,11 +265,7 @@ struct ContentView: View {
         // add capsula...
             .padding(.horizontal,14)
             .padding(.vertical,8)
-            .background(
-                
-                Capsule()
-                    .fill(Color(.gray))
-            )
+            .background(Capsule().fill(Color(.gray)))
             .foregroundColor(Color(.black))
             .lineLimit(1)
         //Deletar...
