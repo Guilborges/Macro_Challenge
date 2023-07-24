@@ -3,7 +3,7 @@
 //  Macro_Challenge
 //
 //  Created by Guilherme Borges on 22/05/23.
-//
+//tela de adicionar
 
 import SwiftUI
 import PhotosUI
@@ -43,25 +43,45 @@ struct ContentView: View {
                             .bold()
                             .font(.system(size: 34, weight: .bold, design: .rounded))
                             .padding(25)
+                            .foregroundColor(.brown)
+                        
+                
                     }
-                    
-                    if let image = imagePicker.image {
-                        PhotosPicker( selection: $imagePicker.imageSelection){
-                            image
-                                .resizable()
-                                .frame(width: 82, height: 70)
-                            
-                                .padding()
+                
+                    HStack{
+                        
+                        if let image = imagePicker.image {
+                            PhotosPicker( selection: $imagePicker.imageSelection){
+                                image
+                                    .resizable()
+                                    .frame(width: 42, height: 30)
+                                
+                                    .padding()
+                            }
+                        } else  {
+                            PhotosPicker( selection: $imagePicker.imageSelection){
+                                Image(systemName: "photo")
+                                    .resizable()
+                                    .frame(width: 42, height: 30)
+                                
+                                    .padding()
+                            }.foregroundColor(.gray)//cor do botao de adicionar foto
                         }
-                    } else  {
-                        PhotosPicker( selection: $imagePicker.imageSelection){
-                            Image(systemName: "photo")
-                                .resizable()
-                                .frame(width: 82, height: 70)
                             
-                                .padding()
-                        }.foregroundColor(.gray)
+                        
+                        Text("Adicionar foto da sua peça")
+                           // .position(x: 65, y:10)
+                            .bold()
+                            .font(.system(size: 17, weight: .bold, design: .rounded))
+                            .padding(20)
+                            .foregroundColor(.brown)
+                        
+                       
                     }
+                    .frame(width:350, height:50)
+                    //.cornerRadius(CGFloat:30)
+                    .background(.black)
+                    
                     VStack {
                         HStack{
                             ScrollView(.vertical, showsIndicators: false) {
