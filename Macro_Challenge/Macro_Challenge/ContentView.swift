@@ -33,7 +33,7 @@ struct ContentView: View {
     var body: some View {
         
         ZStack {
-            
+            .background(Color("background")
             GeometryReader { sizeOfView in
                 VStack {
      
