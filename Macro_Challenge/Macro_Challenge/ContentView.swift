@@ -14,7 +14,7 @@ struct ContentView: View {
     let formatter = NumberFormatter()
     var prod: ProductViewModel
     @State private var purchasedPrice = String()
-    @State private var status: ProductStatus = ProductStatus.acquarid
+    @State private var status: ProductStatus = ProductStatus.acquired
     @State private var double: Double = 0.0
     @State var imagepicker1 = Image(systemName: "")
     @StateObject var imagePicker = ImagePicker()
@@ -109,7 +109,7 @@ struct ContentView: View {
                         HStack {
                             VStack {
                                 Button {
-                                    status = ProductStatus.acquarid
+                                    status = ProductStatus.acquired
                                 } label: {
                                     HStack {
                                         Image("onAcquaridIcon")

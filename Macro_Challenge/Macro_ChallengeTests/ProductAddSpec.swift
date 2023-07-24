@@ -10,7 +10,7 @@ import XCTest
 
 final class ProductAddSpec: XCTestCase {
     var prod: Product!
-    var status: ProductStatus = ProductStatus.acquarid
+    var status: ProductStatus = ProductStatus.acquired
     
    
     

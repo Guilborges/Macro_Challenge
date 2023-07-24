@@ -10,7 +10,7 @@ import SwiftUI
 struct Teste: View {
     
     
-    var productList: [Product] = [Product(tags: [Tag(name: "branco")], purchasedPrice: 250.3, status: ProductStatus.acquarid, acessory: true, image: Image(systemName: "photo")),Product(tags: [Tag(name: "branco")], purchasedPrice: 250.3, status: ProductStatus.sold, acessory: true, image: Image(systemName: "photo")),Product(tags: [Tag(name: "branco")], purchasedPrice: 250.3, status: ProductStatus.selling, acessory: true, image: Image(systemName: "photo")),Product(tags: [Tag(name: "branco"),Tag(name: "branco"),Tag(name: "branco"),Tag(name: "lelo")], purchasedPrice: 250.3, status: ProductStatus.maintenance, acessory: true, image: Image(systemName: "photo")),Product(tags: [Tag(name: "branco"),Tag(name: "branco"),Tag(name: "branco"),Tag(name: "lelo")], purchasedPrice: 250.3, status: ProductStatus.washing, acessory: true, image: Image(systemName: "photo")),Product(tags: [Tag(name: "branco"),Tag(name: "branco"),Tag(name: "branco"),Tag(name: "lelo")], purchasedPrice: 250.3, status: ProductStatus.washing, acessory: true, image: Image(systemName: "photo"))]
+    var productList: [Product] = [Product(tags: [Tag(name: "branco")], purchasedPrice: 250.3, status: ProductStatus.acquired, acessory: true, image: Image(systemName: "photo")),Product(tags: [Tag(name: "branco")], purchasedPrice: 250.3, status: ProductStatus.sold, acessory: true, image: Image(systemName: "photo")),Product(tags: [Tag(name: "branco")], purchasedPrice: 250.3, status: ProductStatus.selling, acessory: true, image: Image(systemName: "photo")),Product(tags: [Tag(name: "branco"),Tag(name: "branco"),Tag(name: "branco"),Tag(name: "lelo")], purchasedPrice: 250.3, status: ProductStatus.maintenance, acessory: true, image: Image(systemName: "photo")),Product(tags: [Tag(name: "branco"),Tag(name: "branco"),Tag(name: "branco"),Tag(name: "lelo")], purchasedPrice: 250.3, status: ProductStatus.washing, acessory: true, image: Image(systemName: "photo")),Product(tags: [Tag(name: "branco"),Tag(name: "branco"),Tag(name: "branco"),Tag(name: "lelo")], purchasedPrice: 250.3, status: ProductStatus.washing, acessory: true, image: Image(systemName: "photo"))]
     
     
     var body: some View {
@@ -42,7 +42,7 @@ struct Teste: View {
                         } label: {
                             Circle()
                             switch index.status{
-                            case ProductStatus.acquarid: ButtonCircleYellow().position(x:80,y:20)
+                            case ProductStatus.acquired: ButtonCircleYellow().position(x:80,y:20)
                             case ProductStatus.sold: ButtonCircleGreen().position(x:80,y:20)
                             case ProductStatus.maintenance: ButtonCircleOrange().position(x:80,y:20)
                             case ProductStatus.selling: ButtonCirclePurple().position(x:80,y:20)

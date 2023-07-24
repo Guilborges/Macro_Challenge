@@ -52,7 +52,7 @@ struct TelaInicial: View {
                                 } label: {
                                     // Circle()
                                     switch index.status{
-                                    case ProductStatus.acquarid: ButtonCircleYellow().position(x:60,y:20)
+                                    case ProductStatus.acquired: ButtonCircleYellow().position(x:60,y:20)
                                     case ProductStatus.sold: ButtonCircleGreen().position(x:60,y:20)
                                     case ProductStatus.maintenance: ButtonCircleOrange().position(x:60,y:20)
                                     case ProductStatus.selling: ButtonCirclePurple().position(x:60,y:20)
@@ -72,7 +72,7 @@ struct TelaInicial: View {
                                         Button("Adquirido") {
                                             //   dismiss()
                                             showingSheet.toggle()
-                                            prodVm.trocarEnum(objeto: index, novoEnum: .acquarid)
+                                            prodVm.trocarEnum(objeto: index, novoEnum: .acquired)
                                             prodVm.printalista1()
                                             
                                         }

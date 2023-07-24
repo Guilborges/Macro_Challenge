@@ -27,6 +27,7 @@
 		0DC46DEA2A22A29900B48210 /* ProductStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC46DE92A22A29900B48210 /* ProductStatus.swift */; };
 		0DC46DEC2A25441500B48210 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC46DEB2A25441500B48210 /* PhotoPicker.swift */; };
 		0DC46DEE2A25449400B48210 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC46DED2A25449400B48210 /* PickerView.swift */; };
+		1EFD3D762A6ED0DB00DE9F76 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EFD3D752A6ED0DB00DE9F76 /* Media.xcassets */; };
 		817112152A254178001D1F6D /* ButtomStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817112142A254178001D1F6D /* ButtomStatus.swift */; };
 		817112172A269A0A001D1F6D /* ProductAddSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817112162A269A0A001D1F6D /* ProductAddSpec.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		0DC46DE92A22A29900B48210 /* ProductStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStatus.swift; sourceTree = "<group>"; };
 		0DC46DEB2A25441500B48210 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		0DC46DED2A25449400B48210 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		1EFD3D752A6ED0DB00DE9F76 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		817112142A254178001D1F6D /* ButtomStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtomStatus.swift; sourceTree = "<group>"; };
 		817112162A269A0A001D1F6D /* ProductAddSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +106,7 @@
 		056DA20E2A1BDF26005FD1F5 = {
 			isa = PBXGroup;
 			children = (
+				1EFD3D752A6ED0DB00DE9F76 /* Media.xcassets */,
 				056DA2192A1BDF26005FD1F5 /* Macro_Challenge */,
 				056DA22A2A1BDF27005FD1F5 /* Macro_ChallengeTests */,
 				056DA2342A1BDF27005FD1F5 /* Macro_ChallengeUITests */,
@@ -295,6 +298,7 @@
 			files = (
 				056DA2222A1BDF27005FD1F5 /* Preview Assets.xcassets in Resources */,
 				05C74E212A2FB5AA00F05822 /* Localizable.strings in Resources */,
+				1EFD3D762A6ED0DB00DE9F76 /* Media.xcassets in Resources */,
 				056DA21F2A1BDF27005FD1F5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
