@@ -12,14 +12,15 @@ import SwiftUI
 struct Macro_ChallengeApp: App {
     
     
-//    @State  var prod: ProductViewModel
+   // @State  var prod: ProductViewModel
+   
 
     var body: some Scene {
         
 
         WindowGroup {
 
-            TelaInicial(prodVm: ProductViewModel())
+            TelaInicial(prodVm: ProductViewModel(), setIndexProduct: 0)
 
 
         }

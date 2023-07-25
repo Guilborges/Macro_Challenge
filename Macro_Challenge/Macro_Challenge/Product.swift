@@ -2,24 +2,24 @@
 //  Product.swift
 //  Macro_Challenge
 //
-//  Created by Victor Levenetz Mariano on 27/05/23.
+// 
 //
 
 import Foundation
 import SwiftUI
 
-class Product: Identifiable, Hashable,ObservableObject{
+    class Product: Identifiable, Hashable,ObservableObject{
     static func == (lhs: Product, rhs: Product) -> Bool {
         
         return false
     }
     
-    let id = UUID()
-    var tags: [Tag] = []
-    public var purchasedPrice: Double
-    var status: ProductStatus
-    var acessory: Bool
-    var image: Image
+                   let id = UUID()
+        @Published var tags: [Tag] = []
+        @Published public var purchasedPrice: Double
+        @Published var status: ProductStatus
+        @Published var acessory: Bool
+        @Published var image: Image
     
     enum CodingKeys: String, CodingKey {
             case id, tags, purchasedPrice, status, accessory, image
@@ -42,7 +42,11 @@ class Product: Identifiable, Hashable,ObservableObject{
         hasher.combine(id)
     }
    
-    
+    //
+//        ForEach(Array(array.enumerated()), id: .offset) { index, element in
+//          // ...
+//        }/
+        
     
     
 

@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Macro_Challenge
 //
-//  Created by Guilherme Borges on 22/05/23.
+//  
 //
 
 import SwiftUI
@@ -39,11 +39,12 @@ struct ContentView: View {
     
     
     var body: some View {
-
-        ZStack {
-           
+        GeometryReader { sizeOfView in
+        ScrollView{
+            ZStack {
                 
-                GeometryReader { sizeOfView in
+                
+        
                     VStack {
                         
                         VStack(alignment: .leading) {
@@ -296,7 +297,7 @@ struct ContentView: View {
             }
             
             .background(Color(.white))
-            
+        }
         
     }
     @ViewBuilder

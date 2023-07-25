@@ -2,7 +2,7 @@
 //  ProductViewModel.swift
 //  Macro_Challenge
 //
-//  Created by Victor Levenetz Mariano on 13/06/23.
+//  
 //
 
 import Foundation
@@ -11,6 +11,7 @@ import Foundation
 import SwiftUI
 
 class ProductViewModel: ObservableObject {
+    
     @Published public var productList: [Product] = []
 
     
@@ -62,6 +63,7 @@ class ProductViewModel: ObservableObject {
     
     func trocarEnum(objeto: Product, novoEnum: ProductStatus) {
         objeto.status = novoEnum
+        
     }
     func printalista1(){
         
@@ -72,7 +74,10 @@ class ProductViewModel: ObservableObject {
     }
     
     
+    
     func deleteProduct(indexSet: IndexSet){
         productList.remove(atOffsets: indexSet)
     }
+    
+    
 }
