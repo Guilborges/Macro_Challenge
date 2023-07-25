@@ -119,7 +119,9 @@ struct TelaInicial: View {
                                 }
                             }
                         }
-                        
+                            
+                            .onDelete(perform: prodVm.deleteProduct)
+                            
                         
                     }
                     

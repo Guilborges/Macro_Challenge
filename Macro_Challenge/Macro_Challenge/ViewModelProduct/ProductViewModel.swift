@@ -71,4 +71,8 @@ class ProductViewModel: ObservableObject {
         }
     }
     
+    
+    func deleteProduct(indexSet: IndexSet){
+        productList.remove(atOffsets: indexSet)
+    }
 }

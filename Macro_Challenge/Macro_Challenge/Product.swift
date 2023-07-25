@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Product:Identifiable, Hashable,ObservableObject{
+class Product: Identifiable, Hashable,ObservableObject{
     static func == (lhs: Product, rhs: Product) -> Bool {
         
         return false
@@ -20,6 +20,12 @@ class Product:Identifiable, Hashable,ObservableObject{
     var status: ProductStatus
     var acessory: Bool
     var image: Image
+    
+    enum CodingKeys: String, CodingKey {
+            case id, tags, purchasedPrice, status, accessory, image
+        }
+    
+    
     
     init(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool,image:Image) {
         

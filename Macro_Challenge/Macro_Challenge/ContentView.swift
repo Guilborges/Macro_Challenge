@@ -14,10 +14,18 @@ struct ContentView: View {
     let formatter = NumberFormatter()
     var prod: ProductViewModel
     @State private var purchasedPrice = String()
-    @State private var status: ProductStatus = ProductStatus.acquarid
+    @State private var status: ProductStatus = ProductStatus.nullo
     @State private var double: Double = 0.0
     @State var imagepicker1 = Image(systemName: "")
     @StateObject var imagePicker = ImagePicker()
+    
+    @State private var buttonBoolAcquarid = false
+    @State private var buttonBoolMaintenance = false
+    @State private var buttonBoolSelling = false
+    @State private var buttonBoolSold = false
+    @State private var buttonBoolWashing = false
+
+    
     
     //Variaveis das tags
     @Binding var tags: [Tag]
@@ -31,203 +39,264 @@ struct ContentView: View {
     
     
     var body: some View {
-        
+
         ZStack {
-            
-            GeometryReader { sizeOfView in
-                VStack {
-     
-                    VStack(alignment: .leading) {
-                        Text("Adicionar")
-                            .position(x: 65, y:10)
-                            .bold()
-                            .font(.system(size: 34, weight: .bold, design: .rounded))
-                            .padding(25)
-                    }
-                    
-                    if let image = imagePicker.image {
-                        PhotosPicker( selection: $imagePicker.imageSelection){
-                            image
-                                .resizable()
-                                .frame(width: 82, height: 70)
-                            
-                                .padding()
-                        }
-                    } else  {
-                        PhotosPicker( selection: $imagePicker.imageSelection){
-                            Image(systemName: "photo")
-                                .resizable()
-                                .frame(width: 82, height: 70)
-                            
-                                .padding()
-                        }.foregroundColor(.gray)
-                    }
+           
+                
+                GeometryReader { sizeOfView in
                     VStack {
-                        HStack{
-                            ScrollView(.vertical, showsIndicators: false) {
+                        
+                        VStack(alignment: .leading) {
+                            Text("Adicionar")
+                                .position(x: 65, y:10)
+                                .bold()
+                                .font(.system(size: 34, weight: .bold, design: .rounded))
+                                .padding(25)
+                        }
+                        
+                        if let image = imagePicker.image {
+                            PhotosPicker( selection: $imagePicker.imageSelection){
+                                image
+                                    .resizable()
+                                    .frame(width: 82, height: 80)
                                 
+                                    .padding()
+                            }
+                        } else  {
+                            PhotosPicker( selection: $imagePicker.imageSelection){
+                                Image(systemName: "photo")
+                                    .resizable()
+                                    .frame(width: 82, height: 70)
                                 
-                                //Exibindo tags
-                                ForEach(getRows(),id: \.self) { rows in
+                                    .padding()
+                            }.foregroundColor(.gray)
+                        }
+                        VStack {
+                            HStack{
+                                ScrollView(.vertical, showsIndicators: false) {
                                     
-                                    HStack(spacing:6){
+                                    
+                                    //Exibindo tags
+                                    ForEach(getRows(),id: \.self) { rows in
                                         
-                                        ForEach(rows) { row in
-                                            // Row view...
-                                            RowView(tag: row)
+                                        HStack(spacing:6){
+                                            
+                                            ForEach(rows) { row in
+                                                // Row view...
+                                                RowView(tag: row)
+                                                
+                                            }
+                                        }
+                                    }.padding(10)
+                                    
+                                }
+                            }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.3
+                            ).background(
+                                RoundedRectangle(cornerRadius: 10).strokeBorder(Color.purple)
+                            )
+                            
+                            VStack {
+                                Section(header: Text("Informe a(s) Tag(s) da peça")){
+                                    TextField("Adicione uma tag", text: $text, onCommit: addTag ).padding(.leading).background(
+                                        Color(.lightGray)
+                                            .cornerRadius(10).frame(height: 50)
+                                    ).padding(10)
+                                    
+                                }
+                                Section(header: Text("Informe o preço pago").padding(10)){
+                                    TextField("0.00", text: $purchasedPrice).padding(.leading).keyboardType(.decimalPad).background(
+                                        
+                                        Color(.lightGray)
+                                            .cornerRadius(10).frame(height: 50)
+                                        
+                                    ).padding(10)
+                                }
+                            }
+                        }
+                        .padding(10)
+                        VStack{
+                            HStack {
+                                VStack {
+                                    Button {
+                                        buttonBoolAcquarid = true
+                                        
+                                        status = ProductStatus.acquarid
+                                        
+                                        buttonBoolSold = false
+                                        buttonBoolSelling = false
+                                        buttonBoolWashing = false
+                                        buttonBoolMaintenance = false
+                                    } label: {
+                                        HStack {
+                                            if buttonBoolAcquarid == true{
+                                                Image("onAcquaridIcon")
+                                            }
+                                            else{
+                                                Image("acquaridIcon")
+                                            }
                                             
                                         }
                                     }
-                                }.padding(10)
-                                
-                            }
-                        }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.3
-                        ).background(
-                            RoundedRectangle(cornerRadius: 10).strokeBorder(Color.purple)
-                        )
-                        
-                        VStack {
-                            Section(header: Text("Informe a(s) Tag(s) da peça")){
-                                TextField("Adicione uma tag", text: $text, onCommit: addTag ).padding(.leading).background(
-                                    Color(.lightGray)
-                                        .cornerRadius(10).frame(height: 50)
-                                ).padding(10)
-                                
-                            }
-                            Section(header: Text("Informe o preço pago").padding(10)){
-                                TextField("0.00", text: $purchasedPrice).padding(.leading).keyboardType(.decimalPad).background(
-                                    
-                                    Color(.lightGray)
-                                        .cornerRadius(10).frame(height: 50)
-                                    
-                                ).padding(10)
-                            }
-                        }
-                    }
-                    .padding(10)
-                    VStack{
-                        HStack {
-                            VStack {
-                                Button {
-                                    status = ProductStatus.acquarid
-                                } label: {
-                                    HStack {
-                                        Image("onAcquaridIcon")
+                                }
+                                VStack{
+                                    Button {
+                                        buttonBoolWashing = true
+                                        status = ProductStatus.washing
+                                        buttonBoolSold = false
+                                        buttonBoolSelling = false
+                                        buttonBoolAcquarid = false
+                                        buttonBoolMaintenance = false
+                                    } label: {
+                                        if buttonBoolWashing == true{
+                                            Image("onWashingIcon")
+                                        }
+                                        else{
+                                            Image("washingIcon")
+                                        }
+                                        
                                         
                                     }
                                 }
-                            }
-                            VStack{
-                                Button {
-                                    status = ProductStatus.washing
-                                } label: {
-                                    Image("onWashingIcon")
-                                    
+                                VStack {
+                                    Button {
+                                        buttonBoolMaintenance = true
+                                        status = ProductStatus.maintenance
+                                        buttonBoolSold = false
+                                        buttonBoolSelling = false
+                                        buttonBoolAcquarid = false
+                                        
+                                        buttonBoolWashing = false
+                                        
+                                    } label: {
+                                        if buttonBoolMaintenance == true{
+                                            Image("onMaintenanceIcon")
+                                        }
+                                        else{
+                                            Image("maintenanceIcon")
+                                        }
+                                        
+                                    }
                                 }
-                            }
-                            VStack {
-                                Button {
-                                    status = ProductStatus.maintenance
-                                } label: {
-                                    Image("onMaintenanceIcon")
+                                
+                                VStack {
+                                    Button {
+                                        buttonBoolSelling = true
+                                        status = ProductStatus.selling
+                                        buttonBoolSold = false
+                                        buttonBoolAcquarid = false
+                                        buttonBoolMaintenance = false
+                                        buttonBoolWashing = false
+                                    } label: {
+                                        if buttonBoolSelling == true{
+                                            Image("onSellingIcon")
+                                        }
+                                        else{
+                                            Image("sellingIcon")
+                                            
+                                        }
+                                    }
                                 }
-                            }
-                            
-                            VStack {
-                                Button {
-                                    status = ProductStatus.selling
-                                } label: {
-                                    Image("onSellingIcon")
-                                }
-                            }
-                            VStack {
-                                Button {
-                                    status = ProductStatus.sold
-                                } label: {
-                                    
-                                    Image( "onSoldIcon")
-                                    
-                                    //Text("Vendido")
+                                VStack {
+                                    Button {
+                                        buttonBoolSelling = false
+                                        buttonBoolAcquarid = false
+                                        buttonBoolMaintenance = false
+                                        buttonBoolWashing = false
+                                        buttonBoolSold = true
+                                        
+                                        status = ProductStatus.sold
+                                        
+                                        
+                                    } label: {
+                                        if buttonBoolSold == true {
+                                            Image( "onSoldIcon")
+                                        }
+                                        else{
+                                            Image( "soldIcon")
+                                            
+                                        }
+                                        //Text("Vendido")
+                                    }
                                 }
                             }
                         }
-                    }
-                    
-                    
-                    HStack {
-                        Button {
-                            
-                            if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil){
-                                showAlert = true
-                                print("nao deu")
-                            }else {
-                                prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
-                                print(prod)
-                                resetScreenObject()
-                                self.presentationMode.wrappedValue.dismiss()
-                            }
-                            
-                            
-                        } label: {
-                            Image("checkIcon")
-                                .frame(width: 82, height: 70)
-                            
-                            
-                        }.alert(isPresented: $showAlert) {
-                            Alert(
-                                title: Text("Campos Insuficientes"),
-                                message: Text("Preencha todos os campos \n de adição da peça!")
-                            )
-                        }.padding(10)
-                        Button {
-                            
-                            if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil){
-                                showAlert = true
-                               print("nao deu")
-                            }else {
-                                prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
-                                print(prod)
-                                resetScreenObject()
+                        
+                        
+                        HStack {
+                            Button {
                                 
-                            }
-
-                            
-                        } label: {
-                            Image(systemName: "plus")
-                                .frame(width: 82, height: 70)
+                                if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil || status == ProductStatus.nullo){
+                                    showAlert = true
+                                    print("nao deu")
+                                }else {
+                                    prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
+                                    print(prod)
+                                    resetScreenObject()
+                                    self.presentationMode.wrappedValue.dismiss()
+                                }
                                 
                                 
-                        }.alert(isPresented: $showAlert) {
-                            Alert(
-                                title: Text("Campos Insuficientes"),
-                                message: Text("Preencha todos os campos \n de adição da peça!")
-                            )
-                        }.padding(10)
+                            } label: {
+                                Image("checkIcon")
+                                    .frame(width: 82, height: 70)
+                                
+                                
+                            }.alert(isPresented: $showAlert) {
+                                Alert(
+                                    title: Text("Campos Insuficientes"),
+                                    message: Text("Preencha todos os campos \n de adição da peça!")
+                                )
+                            }.padding(10)
+                            Button {
+                                
+                                if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil){
+                                    showAlert = true
+                                    print("nao deu")
+                                }else {
+                                    prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
+                                    print(prod)
+                                    resetScreenObject()
+                                    
+                                }
+                                
+                                
+                            } label: {
+                                Image(systemName: "plus")
+                                    .frame(width: 82, height: 70)
+                                
+                                
+                            }.alert(isPresented: $showAlert) {
+                                Alert(
+                                    title: Text("Campos Insuficientes"),
+                                    message: Text("Preencha todos os campos \n de adição da peça!")
+                                )
+                            }.padding(10)
+                            
+                        }
                         
                     }
+                }.onChange(of: tags) { newValue in
+                    //Obtendo novo valor inserido...
+                    guard let last = tags.last else{
+                        return
+                    }
+                    //Obtendo o tamanho do texto...
+                    let font = UIFont.systemFont(ofSize: 16)
                     
+                    let atributes = [NSAttributedString.Key.font: font]
+                    
+                    let size = (last.name as NSString).size(withAttributes: atributes)
+                    
+                    
+                    //atualizando tamanho...
+                    tags[getIndex(tag: last)].size = size.width * 2
                 }
-            }.onChange(of: tags) { newValue in
-                //Obtendo novo valor inserido...
-                guard let last = tags.last else{
-                    return
-                }
-                //Obtendo o tamanho do texto...
-                let font = UIFont.systemFont(ofSize: 16)
-                
-                let atributes = [NSAttributedString.Key.font: font]
-                
-                let size = (last.name as NSString).size(withAttributes: atributes)
-                
-                
-                //atualizando tamanho...
-                tags[getIndex(tag: last)].size = size.width * 2
+                // Animacao...
+                .animation(.easeInOut, value: tags)
             }
-            // Animacao...
-            .animation(.easeInOut, value: tags)
-        }
-        
-        .background(Color(.white))
+            
+            .background(Color(.white))
+            
         
     }
     @ViewBuilder
@@ -327,7 +396,3 @@ struct ContentView: View {
         imagePicker.image = nil
     }
 }
-    
-
-
-

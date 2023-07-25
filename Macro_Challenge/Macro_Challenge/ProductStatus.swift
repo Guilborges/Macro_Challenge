@@ -15,5 +15,6 @@ enum ProductStatus: String{
     case selling = "Vendendo"
     case acquarid = "Adquirido"
     case sold = "Vendido"
+    case nullo = "null"
     
 }
