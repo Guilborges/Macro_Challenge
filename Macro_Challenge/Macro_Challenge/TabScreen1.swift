@@ -218,7 +218,35 @@ struct TabScreen1: View {
             
             }
         }
+    func fetchProduto() {
+           let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
+           do {
+               produto = try CoreDataManager.shared.persistentContainer.viewContext.fetch(fetchRequest)
+           } catch {
+               fatalError("Erro ao buscar produtos: \(error)")
+           }
+       }
+
+       func salvarProduto() {
+           // Aqui eu acredito que pode adicionar nossos produtos ao vetor 'produto'
+           // Aqui eu acredito que colocariamos nosso produto, mas n sei ao certo se seria assim
+           //produto.append(novoProduto)
+
+           CoreDataManager.shared.saveContext()
+       }
     
+    //ai esse novoProduto seria uma nova variavel que passaria o core como contexto, pelo exemplo que vi, seria tipo isso
+    //let newProduct = Product(context: CoreDataManager.shared.persistentContainer.viewContext)
+   // newProduct.name = "Nome do produto"
+   // newProduct.price = 9.99
+    // ai colocaria outros atributos se tiver
+
+    CoreDataManager.shared.saveContext() // Aqui salva o contextolet newProduct = Product(context: CoreDataManager.shared.persistentContainer.viewContext)
+    newProduct.name = "Nome do produto"
+    newProduct.price = 9.99
+    // Atribua outros atributos, se houver
+
+    CoreDataManager.shared.saveContext() // Salve o contexto após adicionar o produto após adicionar o produto
     
     
     }
