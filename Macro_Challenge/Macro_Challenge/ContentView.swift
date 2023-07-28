@@ -51,65 +51,91 @@ struct ContentView: View {
                                 .bold()
                                 .font(.system(size: 34, weight: .bold, design: .rounded))
                                 .padding(25)
+                                .foregroundColor(Color("title"))
+                            
+                    
                         }
-                        if let image = imagePicker.image {
-                            PhotosPicker( selection: $imagePicker.imageSelection){
-                                image
-                                    .resizable()
-                                    .frame(width: 82, height: 80)
-                                
-                                    .padding()
-                            }
-                        } else  {
-                            PhotosPicker( selection: $imagePicker.imageSelection){
-                                Image(systemName: "photo")
-                                    .resizable()
-                                    .frame(width: 82, height: 70)
-                                
-                                    .padding()
-                            }.foregroundColor(.gray)
-                        }
-                        VStack {
-                            HStack{
-                                ScrollView(.vertical, showsIndicators: false) {
+                    
+                        HStack{
+                            
+                            if let image = imagePicker.image {
+                                PhotosPicker( selection: $imagePicker.imageSelection){
+                                    image
+                                        .resizable()
+                                        .frame(width: 42, height: 30)
                                     
-                                    
-                                    //Exibindo tags
-                                    ForEach(getRows(),id: \.self) { rows in
-                                        
-                                        HStack(spacing:6){
-                                            
-                                            ForEach(rows) { row in
-                                                // Row view...
-                                                RowView(tag: row)
-                                                
-                                            }
-                                        }
-                                    }.padding(10)
-                                    
+                                        .padding()
                                 }
-                            }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.3
-                            ).background(
-                                RoundedRectangle(cornerRadius: 10).strokeBorder(Color.purple)
-                            )
+                            } else  {
+                                PhotosPicker( selection: $imagePicker.imageSelection){
+                                    Image(systemName: "photo")
+                                        .resizable()
+                                        .frame(width: 42, height: 30)
+
+                                        .padding()
+                                }.foregroundColor(Color("elements"))//cor do botao de adicionar foto
+                            }
+                                
+                            
+                            Text("Adicionar foto da sua peça")
+                               // .position(x: 65, y:10)
+                                .bold()
+                                .font(.system(size: 17, weight: .bold, design: .rounded))
+                                .padding(20)
+                                .foregroundColor(Color("elements"))
+                            
+                           
+                        }
+                        .frame(width:350, height:50)
+                        //.cornerRadius(CGFloat:30)
+                        .background(Color("assetBackgroundLight"))
+                        
+                        VStack {
+                            
+                            //parte de exibicao das tags
+                            
                             
                             VStack {
                                 Section(header: Text("Informe a(s) Tag(s) da peça")){
-                                    TextField("Adicione uma tag", text: $text, onCommit: addTag ).padding(.leading).background(
-                                        Color(.lightGray)
+                                    TextField("Adicione uma tag", text: $text, onCommit: addTag )
+                                        .padding(.leading)
+                                        .font(.system(size: 17, weight: .bold, design: .rounded))
+                                        .background(Color("assetBackgroundLight")
+                                            .foregroundColor(Color("title"))
                                             .cornerRadius(10).frame(height: 50)
                                     ).padding(10)
                                     
                                 }
-                                Section(header: Text("Informe o preço pago").padding(10)){
-                                    TextField("0.00", text: $purchasedPrice).padding(.leading).keyboardType(.decimalPad).background(
+                                
+                                //exibicao das tags
+                                HStack{
+                                    ScrollView(.vertical, showsIndicators: false) {
                                         
-                                        Color(.lightGray)
+                                        
+                                        //Exibindo tags
+                                        ForEach(getRows(),id: \.self) { rows in
+                                            
+                                            HStack(spacing:6){
+                                                
+                                                ForEach(rows) { row in
+                                                    // Row view...
+                                                    RowView(tag: row)
+                                                }
+                                            }
+                                        }
+                                        .padding(10)
+                                    }
+                                }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.3).background(
+                                    RoundedRectangle(cornerRadius: 10).strokeBorder(Color.brown))
+                                Section(header: Text("Informe o preço pago").padding(10)){
+                                    TextField("0.00", text: $purchasedPrice).padding(.leading).keyboardType(.decimalPad).background(Color(("assetBackgroundLight"))
                                             .cornerRadius(10).frame(height: 50)
                                         
                                     ).padding(10)
                                 }
                             }
+                            
+                        
                         }
                         .padding(10)
                         VStack{
