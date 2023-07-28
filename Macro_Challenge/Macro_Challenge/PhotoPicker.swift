@@ -15,7 +15,6 @@ class ImagePicker: ObservableObject{
     @Published var image: Image?
     @Published var imageSelection: PhotosPickerItem?{
         
-    
         didSet {
             if let imageSelection {
                 Task {
@@ -25,9 +24,7 @@ class ImagePicker: ObservableObject{
         }
     }
     
-    
-   @MainActor func loadTransferable(from imageSelection: PhotosPickerItem?) async throws{
-        
+    @MainActor func loadTransferable(from imageSelection: PhotosPickerItem?) async throws{
         do{
             if let image = try await imageSelection?.loadTransferable(type: Image.self){
                 self.image = image

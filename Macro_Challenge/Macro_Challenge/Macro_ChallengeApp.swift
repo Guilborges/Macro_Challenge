@@ -10,20 +10,9 @@ import SwiftUI
 @main
 
 struct Macro_ChallengeApp: App {
-    
-    
-   // @State  var prod: ProductViewModel
-   
-
     var body: some Scene {
-        
-
         WindowGroup {
-
             TelaInicial(prodVm: ProductViewModel(), setIndexProduct: 0)
-
-
         }
-        
     }
 }

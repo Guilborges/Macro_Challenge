@@ -23,6 +23,9 @@ class ProductViewModel: ObservableObject {
     public func addProduct(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool,image:Image) {
     productList.append(Product(tags: tags, purchasedPrice: purchasedPrice, status: status.self, acessory: true,image: image))
         printalista()
+        objectWillChange.send()
+
+        
     }
 
     func printalista(){
@@ -61,10 +64,18 @@ class ProductViewModel: ObservableObject {
 
    
     
-    func trocarEnum(objeto: Product, novoEnum: ProductStatus) {
-        objeto.status = novoEnum
+     func trocarEnum(objeto: Product, novoEnum: ProductStatus) {
         
+         
+             objeto.status = novoEnum
+        
+        print(objeto.tags[0])
+        print(objeto.status)
+         
+       
+         objectWillChange.send()
     }
+        
     func printalista1(){
         
         for i in productList{
@@ -79,5 +90,8 @@ class ProductViewModel: ObservableObject {
         productList.remove(atOffsets: indexSet)
     }
     
-    
+    func createdelete(){
+        addProduct(tags: [Tag(name: "branco")], purchasedPrice: 250.3, status: ProductStatus.acquarid, acessory: true, image: Image(systemName: "photo"))
+        
+    }
 }

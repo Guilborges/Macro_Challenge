@@ -10,7 +10,6 @@ import SwiftUI
 
     class Product: Identifiable, Hashable,ObservableObject{
     static func == (lhs: Product, rhs: Product) -> Bool {
-        
         return false
     }
     
@@ -24,8 +23,6 @@ import SwiftUI
     enum CodingKeys: String, CodingKey {
             case id, tags, purchasedPrice, status, accessory, image
         }
-    
-    
     
     init(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool,image:Image) {
         
@@ -41,13 +38,4 @@ import SwiftUI
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-   
-    //
-//        ForEach(Array(array.enumerated()), id: .offset) { index, element in
-//          // ...
-//        }/
-        
-    
-    
-
 }

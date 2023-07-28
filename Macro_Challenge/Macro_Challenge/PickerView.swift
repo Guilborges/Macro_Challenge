@@ -22,33 +22,18 @@ struct SingleImagePicker: View {
                         image
                                 .resizable()
                                 .frame(width: 82, height: 70)
-                                
                                 .padding()
-                            
-                             
-                            
-                    
-                        }
-                    
+                            }
                 } else  {
-                   // let cameraPhoto = cameraPicker.sourceType
-                        
-                    
                         PhotosPicker( selection: $imagePicker.imageSelection){
                         Image(systemName: "photo")
                                 .resizable()
                                 .frame(width: 82, height: 70)
-                                
                                 .padding()
-                            
-                             
-                            
-                    
                         } .foregroundColor(.gray)
                 }
             }
             .padding()
-            
         }
     }
 }

@@ -11,17 +11,14 @@ struct TagView: View {
     var maxLimit: Int
     @Binding var tags: [Tag]
     
-    
-    
     var body: some View {
-        
         VStack(alignment: .leading, spacing:  15){
             
             Text("adicione uma tag")
                 .font(.callout)
                 .foregroundColor(Color(.white))
             
-            //ScrollView
+            
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack(alignment: .leading, spacing: 10){

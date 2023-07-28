@@ -19,12 +19,14 @@ struct ContentView: View {
     @State var imagepicker1 = Image(systemName: "")
     @StateObject var imagePicker = ImagePicker()
     
+    
+    //Variaves do botão de status
     @State private var buttonBoolAcquarid = false
     @State private var buttonBoolMaintenance = false
     @State private var buttonBoolSelling = false
     @State private var buttonBoolSold = false
     @State private var buttonBoolWashing = false
-
+    
     
     
     //Variaveis das tags
@@ -35,18 +37,14 @@ struct ContentView: View {
     //Variaveis da tela
     @Environment(\.presentationMode) var presentationMode
     @State private var showAlert = false
-
+    
     
     
     var body: some View {
         GeometryReader { sizeOfView in
-        ScrollView{
-            ZStack {
-                
-                
-        
+            ScrollView{
+                ZStack {
                     VStack {
-                        
                         VStack(alignment: .leading) {
                             Text("Adicionar")
                                 .position(x: 65, y:10)
@@ -54,7 +52,6 @@ struct ContentView: View {
                                 .font(.system(size: 34, weight: .bold, design: .rounded))
                                 .padding(25)
                         }
-                        
                         if let image = imagePicker.image {
                             PhotosPicker( selection: $imagePicker.imageSelection){
                                 image
@@ -216,7 +213,6 @@ struct ContentView: View {
                                             Image( "soldIcon")
                                             
                                         }
-                                        //Text("Vendido")
                                     }
                                 }
                             }

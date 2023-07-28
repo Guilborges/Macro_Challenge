@@ -40,7 +40,7 @@ struct Teste: View {
                         Button {
                             print("ssss")
                         } label: {
-                            Circle()
+                            
                             switch index.status{
                             case ProductStatus.acquarid: ButtonCircleYellow().position(x:80,y:20)
                             case ProductStatus.sold: ButtonCircleGreen().position(x:80,y:20)
