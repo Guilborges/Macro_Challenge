@@ -142,22 +142,24 @@ struct ContentView: View {
                             HStack {
                                 VStack {
                                     Button {
+    
                                         buttonBoolAcquarid = true
-                                        
                                         status = ProductStatus.acquarid
-                                        
                                         buttonBoolSold = false
                                         buttonBoolSelling = false
                                         buttonBoolWashing = false
                                         buttonBoolMaintenance = false
                                     } label: {
-                                        HStack {
+                                        VStack {
                                             if buttonBoolAcquarid == true{
                                                 Image("onAcquaridIcon")
                                             }
                                             else{
                                                 Image("acquaridIcon")
                                             }
+                                            Text("Adquirido")
+                                            .foregroundColor(Color("title"))
+                                            .font(.system(size: 10, weight: .bold, design: .rounded))
                                             
                                         }
                                     }
@@ -171,12 +173,17 @@ struct ContentView: View {
                                         buttonBoolAcquarid = false
                                         buttonBoolMaintenance = false
                                     } label: {
+                                        VStack{
                                         if buttonBoolWashing == true{
                                             Image("onWashingIcon")
                                         }
                                         else{
                                             Image("washingIcon")
                                         }
+                                            Text("Lavando")
+                                            .foregroundColor(Color("title"))
+                                            .font(.system(size: 10, weight: .bold, design: .rounded))
+                                    }
                                         
                                         
                                     }
@@ -192,11 +199,17 @@ struct ContentView: View {
                                         buttonBoolWashing = false
                                         
                                     } label: {
-                                        if buttonBoolMaintenance == true{
-                                            Image("onMaintenanceIcon")
-                                        }
-                                        else{
-                                            Image("maintenanceIcon")
+                                        VStack{
+                                            if buttonBoolMaintenance == true{
+                                                Image("onMaintenanceIcon")
+                                            }
+                                            else{
+                                                Image("maintenanceIcon")
+                                            }
+                                            
+                                            Text("Em manutenção")
+                                            .foregroundColor(Color("title"))
+                                            .font(.system(size: 10, weight: .bold, design: .rounded))
                                         }
                                         
                                     }
@@ -211,12 +224,17 @@ struct ContentView: View {
                                         buttonBoolMaintenance = false
                                         buttonBoolWashing = false
                                     } label: {
-                                        if buttonBoolSelling == true{
-                                            Image("onSellingIcon")
-                                        }
-                                        else{
-                                            Image("sellingIcon")
-                                            
+                                        VStack{
+                                            if buttonBoolSelling == true{
+                                                Image("onSellingIcon")
+                                            }
+                                            else{
+                                                Image("sellingIcon")
+                                                
+                                            }
+                                            Text("Na loja")
+                                            .foregroundColor(Color("title"))
+                                            .font(.system(size: 10, weight: .bold, design: .rounded))
                                         }
                                     }
                                 }
@@ -232,11 +250,17 @@ struct ContentView: View {
                                         
                                         
                                     } label: {
-                                        if buttonBoolSold == true {
-                                            Image( "onSoldIcon")
-                                        }
-                                        else{
-                                            Image( "soldIcon")
+                                        VStack{
+                                            if buttonBoolSold == true {
+                                                Image( "onSoldIcon")
+                                            }
+                                            else{
+                                                Image( "soldIcon")
+                                                
+                                            }
+                                            Text("Vendido")
+                                            .foregroundColor(Color("title"))
+                                            .font(.system(size: 10, weight: .bold, design: .rounded))
                                             
                                         }
                                     }
@@ -318,7 +342,7 @@ struct ContentView: View {
                 .animation(.easeInOut, value: tags)
             }
             
-            .background(Color(.white))
+            .background(Color("background"))
         }
         
     }
