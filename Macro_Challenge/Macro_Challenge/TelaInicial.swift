@@ -15,17 +15,17 @@ struct TelaInicial: View {
     
     var body: some View {
         TabView {
-            TabScreen1(prod: prodVm)
+            PrincipalList(prod: prodVm)
                 .tabItem {
                     Image(systemName: "globe")
                 }
             
-            TabScreen2(prod: prodVm)
+            WashingList(prod: prodVm)
                 .tabItem {
                     Image(systemName: "globe")
                 }
             
-            ContentView(prod: prodVm, tags: $tags)
+            MaintenanceList(prod: prodVm)
                 .tabItem {
                     Image(systemName: "globe")
                 }

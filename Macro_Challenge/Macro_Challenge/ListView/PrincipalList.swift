@@ -14,7 +14,7 @@ import Foundation
 
 import SwiftUI
 
-struct TabScreen1: View {
+struct PrincipalList: View {
     @State private var tags: [Tag] = []
     @State var imagePicker = ImagePicker()
     @State var imagepicker1 = Image(systemName: "")
@@ -66,13 +66,71 @@ struct ProductButton: View {
         Button(action: {
             // Ação ao clicar no botão
         }, label: {
-            VStack {
+            ZStack {
+               
                 product.image
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
+                    .scaledToFill()
+                    .frame(width: 85, height: 85)
                     .border(Color.black, width: 2)
+                    .clipped()
+               TriangleColor(product: product)
+                
             }
         })
+    }
+}
+
+struct Triangle: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+                let width = rect.width
+                let height = rect.height
+                
+                path.move(to: CGPoint(x: 0, y: 0))           // Canto superior esquerdo
+                path.addLine(to: CGPoint(x: width, y: 0))    // Canto superior direito
+                path.addLine(to: CGPoint(x: width, y: height)) // Canto inferior direito
+                
+                return path
+    }
+}
+
+struct TriangleColor: View {
+    let product: Product
+
+    var body: some View {
+        
+        switch product.status{
+        case ProductStatus.acquarid: Triangle()
+                .fill(Color("aquired"))
+                .frame(width: 30, height: 30)
+                .position(x: 73, y: 15)
+                .rotationEffect(Angle(degrees: 90))
+        case ProductStatus.sold: Triangle()
+                .fill(Color("sold"))
+                .frame(width: 30, height: 30)
+                .position(x: 73, y: 15)
+                .rotationEffect(Angle(degrees: 90))
+        case ProductStatus.maintenance: Triangle()
+                .fill(Color("maintenance"))
+                .frame(width: 30, height: 30)
+                .position(x: 73, y: 15)
+                .rotationEffect(Angle(degrees: 90))
+        case ProductStatus.selling: Triangle()
+                .fill(Color("selling"))
+                .frame(width: 30, height: 30)
+                .position(x: 73, y: 15)
+                .rotationEffect(Angle(degrees: 90))
+        case ProductStatus.washing: Triangle()
+                .fill(Color("washing"))
+                .frame(width: 30, height: 30)
+                .position(x: 73, y: 15)
+                .rotationEffect(Angle(degrees: 90))
+            
+        default: Circle()
+                .frame(width: 20)
+                .foregroundColor(.blue)
+            
+        }
     }
 }

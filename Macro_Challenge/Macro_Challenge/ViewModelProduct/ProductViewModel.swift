@@ -22,19 +22,28 @@ class ProductViewModel: ObservableObject {
     
     public func addProduct(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool,image:Image) {
     productList.append(Product(tags: tags, purchasedPrice: purchasedPrice, status: status.self, acessory: true,image: image))
-        printalista()
+       // printalista()
         objectWillChange.send()
 
         
     }
-
-    func printalista(){
-        
-        for i in productList{
-          
-            print("\(i ) ")
+    public func addProductMock() {
+        for i in 1...10{
+            productList.append(Product(tags: [Tag(name: "branco")], purchasedPrice: 250.3, status: ProductStatus.acquarid, acessory: true, image: Image(systemName: "photo")))
+            //printalista()
+            objectWillChange.send()
+            
         }
     }
+    
+
+//    func printalista(){
+//
+//        for i in productList{
+//
+//            print("\(i ) ")
+//        }
+//    }
     
     func productsCount() -> Int {
         var contador = 0
@@ -46,6 +55,36 @@ class ProductViewModel: ObservableObject {
         
     }
     
+    func productsCountWashing() -> Int {
+        var contador = 0
+        for _ in productList.filter({ product in
+            if product.status == .washing{
+                contador = contador+1
+                return true
+            }
+            return false
+        }){}
+            
+            
+        
+       return contador
+        
+    }
+    func productsCountMaintenance() -> Int {
+        var contador = 0
+        for _ in productList.filter({ product in
+            if product.status == .maintenance{
+                contador = contador+1
+                return true
+            }
+            return false
+        }){}
+            
+            
+        
+       return contador
+        
+    }
 
      public func convertStringToDouble(text: String) -> Double {
          let formatter = NumberFormatter()
@@ -69,20 +108,14 @@ class ProductViewModel: ObservableObject {
          
              objeto.status = novoEnum
         
-        print(objeto.tags[0])
-        print(objeto.status)
+      //  print(objeto.tags[0])
+      //  print(objeto.status)
          
        
          objectWillChange.send()
     }
         
-    func printalista1(){
-        
-        for i in productList{
-          
-            print("\(i.status ) ")
-        }
-    }
+
     
     
     

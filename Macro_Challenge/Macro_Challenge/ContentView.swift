@@ -87,6 +87,7 @@ struct ContentView: View {
                            
                         }
                         .frame(width:350, height:50)
+                        
                         //.cornerRadius(CGFloat:30)
                         .background(Color("assetBackgroundLight"))
                         
@@ -102,7 +103,8 @@ struct ContentView: View {
                                         .font(.system(size: 17, weight: .bold, design: .rounded))
                                         .background(Color("assetBackgroundLight")
                                             .foregroundColor(Color("title"))
-                                            .cornerRadius(10).frame(height: 50)
+                                            .cornerRadius(10)
+                                            .frame(height: 50)
                                     ).padding(10)
                                     
                                 }
@@ -277,7 +279,7 @@ struct ContentView: View {
                                     print("nao deu")
                                 }else {
                                     prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
-                                    print(prod)
+                                    //print(prod)
                                     resetScreenObject()
                                     self.presentationMode.wrappedValue.dismiss()
                                 }
@@ -301,11 +303,21 @@ struct ContentView: View {
                                     print("nao deu")
                                 }else {
                                     prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
-                                    print(prod)
+                                   // print(prod)
                                     resetScreenObject()
                                     
                                 }
                                 
+                                
+                            } label: {
+                                Image(systemName: "plus")
+                                    .frame(width: 82, height: 70)
+                                
+                                
+                            }
+                            Button {
+                                
+                                prod.addProductMock()
                                 
                             } label: {
                                 Image(systemName: "plus")

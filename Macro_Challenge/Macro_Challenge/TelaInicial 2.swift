@@ -1,53 +1,58 @@
-
-
-import Foundation
-
+//
+//  TelaInicial.swift
+//  Macro_Challenge
+//
+//  Created by Guilherme Borges on 06/06/23.
+//
 
 import SwiftUI
 
-struct PrincipalListView: View {
+struct TelaInicial: View {
     @State private var tags: [Tag] = []
     @State var imagePicker = ImagePicker()
     @State var imagepicker1 = Image(systemName: "")
-    @ObservedObject var prod: ProductViewModel
-    @State var setIndexProduct: Int = 0
+    public var productList = [Product]()
+    @ObservedObject var prodVm: ProductViewModel
+    
+    
+    
     @State private var showingSheet = false
+  //  @Environment(\.dismiss) var dismiss
     var body: some View {
-        
+        TabView{
             NavigationStack {
+                
                 VStack(alignment: .leading) {
                     Text("Meu Brechó")
                         .bold()
                         .font(.system(size: 34, weight: .bold, design: .rounded))
                         .padding(25)
-                    Text("Total de Peças: \(prod.productsCount())")
+                    Text("Total de Peças: \(prodVm.productsCount())")
                         .frame(maxWidth: .infinity, alignment: .center)
                     
                     
                     List{
-                        ForEach(Array(prod.productList.enumerated()), id: \.offset) { index, element in
-                            ForEach(element.tags) { tag in
-                                Text(tag.name)}
+                        
+                        ForEach(prodVm.productList, id: \.self){ index in
+                            
                             HStack{
-                                element.image
+                                index.image
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width:120,height: 90)
                                 VStack(alignment: .leading){
-                                    ForEach(element.tags) { tag in
+                                    ForEach(index.tags) { tag in
                                         Text(tag.name)}
                                     
-                                    Text("\(element.purchasedPrice,specifier: "%.2f") R$").frame(width: 90)
+                                    Text("\(index.purchasedPrice,specifier: "%.2f") R$").frame(width: 90)
                                 }
                                 Button {
-                                    setIndexProduct = index
-                                    print(setIndexProduct)
                                     showingSheet.toggle()
                                     
-                                    
                                 } label: {
-                                    switch element.status{
-                                    case ProductStatus.acquarid: ButtonCircleYellow().position(x:60,y:20)
+                                    // Circle()
+                                    switch index.status{
+                                    case ProductStatus.acquired: ButtonCircleYellow().position(x:60,y:20)
                                     case ProductStatus.sold: ButtonCircleGreen().position(x:60,y:20)
                                     case ProductStatus.maintenance: ButtonCircleOrange().position(x:60,y:20)
                                     case ProductStatus.selling: ButtonCirclePurple().position(x:60,y:20)
@@ -58,47 +63,53 @@ struct PrincipalListView: View {
                                             .foregroundColor(.blue)
                                         
                                     }
-                                }
-                                .sheet(isPresented: $showingSheet) {
+                                    
+                                    
+                                    
+                                    
+                                }.sheet(isPresented: $showingSheet) {
                                     VStack{
                                         Button("Adquirido") {
+                                            //   dismiss()
+                                            showingSheet.toggle()
+                                            prodVm.trocarEnum(objeto: index, novoEnum: .acquired)
+                                            prodVm.printalista1()
                                             
-                                                prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .acquarid)
-                                               
-                                                showingSheet.toggle()
-                                            
-                                        
                                         }
                                         .font(.title)
                                         .padding()
                                         Button("Lavando") {
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .washing)
-                                           
+                                            //   dismiss()
                                             showingSheet.toggle()
+                                            prodVm.trocarEnum(objeto: index, novoEnum: .washing)
+                                            prodVm.printalista1()
                                             
                                         }
                                         .font(.title)
                                         .padding()
                                         Button("Manutenção") {
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .maintenance)
-                                            
+                                            //   dismiss()
                                             showingSheet.toggle()
+                                            prodVm.trocarEnum(objeto: index, novoEnum: .maintenance)
+                                            prodVm.printalista1()
                                             
                                         }
                                         .font(.title)
                                         .padding()
                                         Button("Em loja") {
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .selling)
-                                       
+                                            //   dismiss()
                                             showingSheet.toggle()
+                                            prodVm.trocarEnum(objeto: index, novoEnum: .selling)
+                                            prodVm.printalista1()
                                             
                                         }
                                         .font(.title)
                                         .padding()
                                         Button("Vendido") {
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .sold)
-                                            
+                                            //   dismiss()
                                             showingSheet.toggle()
+                                            prodVm.trocarEnum(objeto: index, novoEnum: .sold)
+                                            prodVm.printalista1()
                                             
                                         }
                                         .font(.title)
@@ -108,22 +119,52 @@ struct PrincipalListView: View {
                                 }
                             }
                         }
-                        .onDelete(perform: prod.deleteProduct)
+                        
+                        
                     }
+                    
+                    
                     
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: ContentView(prod: prod, tags: $tags)) {
+                            NavigationLink(destination: ContentView(prod: prodVm, tags: $tags)) {
                                 Image(systemName: "plus")
                             }
                         }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                     .padding()
+                    
+                    
                 }
                 .navigationViewStyle(.stack)
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity) 
+                
             }
+            
             .navigationBarHidden(true)
+            .tabItem {
+                Label("Lista 1", systemImage: "square.grid.2x2.fill")
+            }
+            
+            Text("Lista 2")
+                .tabItem {
+                    Label("Segunda", systemImage: "circle.fill")
+                }
+            
         }
+        
     }
+    
+    
+    
+    
+    }
+    
+
+
+
+//
+
+
+
