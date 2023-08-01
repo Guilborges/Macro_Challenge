@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct MaintenanceList: View {
+struct SoldList: View {
     @State private var tags: [Tag] = []
     @State var imagePicker = ImagePicker()
     @State var imagepicker1 = Image(systemName: "")
@@ -24,13 +24,15 @@ struct MaintenanceList: View {
                     .bold()
                     .font(.system(size: 34, weight: .bold, design: .rounded))
                     .padding(25)
-                Text("Total de Peças: \(prod.productsCountMaintenance())")
+                Text("Total de Peças: \(prod.productsCountSold())")
+                    .frame(maxWidth: .infinity, alignment: .center)
+                Text("Quantia total das vendas R$:\(String(format: "%.2f", prod.totalPriceForCurrentStatus()))")
                     .frame(maxWidth: .infinity, alignment: .center)
                 
                 
                 List{
                     ForEach(Array(prod.productList.enumerated()), id: \.offset) { index, element in
-                        if element.status == .maintenance{
+                        if element.status == .sold{
                             
                             HStack{
                                 element.image
@@ -120,7 +122,7 @@ struct MaintenanceList: View {
             
         }
         
-        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(false)
         
         
     }

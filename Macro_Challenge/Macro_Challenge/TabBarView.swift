@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TelaInicial: View {
+struct TabBarView: View {
     @StateObject var prodVm: ProductViewModel
     @State private var tags: [Tag] = []
     public var setIndexProduct: Int
@@ -30,7 +30,7 @@ struct TelaInicial: View {
                     Image(systemName: "globe")
                 }
             
-            PrincipalListView(prod: prodVm)
+            SellingList(prod: prodVm)
                 .tabItem {
                     Image(systemName: "globe")
                 }

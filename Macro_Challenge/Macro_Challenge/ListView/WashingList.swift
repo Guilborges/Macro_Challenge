@@ -49,7 +49,9 @@ struct WashingList: View {
                                     
                                     
                                 } label: {
-                                    ButtonCircleBlue().position(x:100,y:20)                                }
+                                    ButtonCircleBlue().position(x:100,y:20)
+                                    
+                                }
                                 .sheet(isPresented: $showingSheet) {
                                     VStack{
                                         Button("Adquirido") {

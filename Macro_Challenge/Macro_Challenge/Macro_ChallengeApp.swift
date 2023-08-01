@@ -12,7 +12,7 @@ import SwiftUI
 struct Macro_ChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            TelaInicial(prodVm: ProductViewModel(), setIndexProduct: 0)
+            TabBarView(prodVm: ProductViewModel(), setIndexProduct: 0)
         }
     }
 }

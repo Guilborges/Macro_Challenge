@@ -70,6 +70,36 @@ class ProductViewModel: ObservableObject {
        return contador
         
     }
+    func productsCountSelling() -> Int {
+        var contador = 0
+        for _ in productList.filter({ product in
+            if product.status == .selling{
+                contador = contador+1
+                return true
+            }
+            return false
+        }){}
+            
+            
+        
+       return contador
+        
+    }
+    func productsCountSold() -> Int {
+        var contador = 0
+        for _ in productList.filter({ product in
+            if product.status == .sold{
+                contador = contador+1
+                return true
+            }
+            return false
+        }){}
+            
+            
+        
+       return contador
+        
+    }
     func productsCountMaintenance() -> Int {
         var contador = 0
         for _ in productList.filter({ product in
@@ -117,7 +147,19 @@ class ProductViewModel: ObservableObject {
         
 
     
-    
+    func totalPriceForCurrentStatus() -> Double {
+        var totalPrice: Double = 0.0
+        
+        for _ in productList.filter({ product in
+            if product.status == .sold{
+                totalPrice = totalPrice+product.purchasedPrice
+                return true
+            }
+            return false
+        }){}
+        
+        return totalPrice
+    }
     
     func deleteProduct(indexSet: IndexSet){
         productList.remove(atOffsets: indexSet)

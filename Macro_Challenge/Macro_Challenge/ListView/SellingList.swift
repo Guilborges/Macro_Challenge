@@ -1,20 +1,14 @@
-//  TabScreen1.swift
+//
+//  SoldList.swift
 //  Macro_Challenge
 //
-//  Created by Victor Levenetz Mariano on 25/07/23.
+//  Created by Victor Levenetz Mariano on 01/08/23.
 //
 
 import Foundation
-//
-//  TelaInicial.swift
-//  Macro_Challenge
-//
-//  Created by Guilherme Borges on 06/06/23.
-//
-
 import SwiftUI
 
-struct PrincipalList: View {
+struct SellingList: View {
     @State private var tags: [Tag] = []
     @State var imagePicker = ImagePicker()
     @State var imagepicker1 = Image(systemName: "")
@@ -25,39 +19,46 @@ struct PrincipalList: View {
         
             NavigationStack {
                 VStack(alignment: .leading) {
-                    Text("Meu Brechó")
+                    Text("Produtos em Loja")
                         .bold()
                         .font(.system(size: 34, weight: .bold, design: .rounded))
                         .padding(25)
-                    Text("Total de Peças: \(prod.productsCount())")
+                    Text("Total de Peças: \(prod.productsCountSelling())")
                         .frame(maxWidth: .infinity, alignment: .center)
                     
                     
                     ScrollView {
                                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 3), spacing: 16) {
                                     ForEach(Array(prod.productList.enumerated()), id: \.offset) { index, product in
-                                        Button(action: {
-                                            
-                                            setIndexProduct = index
-                                            showingSheet.toggle()
-                                        }, label: {
-                                            ZStack {
-                                               
-                                                product.image
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .frame(width: 85, height: 85)
-                                                    .border(Color.black, width: 1.2)
-                                                    .clipped()
-                                                
-                                               TriangleColor(product: product)
-                                                
+                                        if product.status == .selling{
+                                            Button(action: {
+                                                setIndexProduct = index
+                                                showingSheet.toggle()
+                                            }) {
+                                                VStack(spacing: 8) {
+                                                    product.image
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .frame(width: 70, height: 70)
+                                                        .cornerRadius(10)
+                                                    
+                                                    Divider() // Linha que separa a foto do preço
+                                                    
+                                                    
+                                                    Text("R$:\(String(format: "%.2f", product.purchasedPrice))") // Preço com símbolo de moeda
+                                                        .font(.footnote)
+                                                    
+                                                    
+                                                }
+                                                .padding()
+                                                .foregroundColor(.primary)
+                                                .background(Color.white)
+                                                .cornerRadius(10)
+                                                .overlay(
+                                                    RoundedRectangle(cornerRadius: 10)
+                                                        .stroke(Color.gray, lineWidth: 1)
+                                                )
                                             }
-                                        })
-                                        
-                                        
-                                        
-                                        
                                             .sheet(isPresented: $showingSheet) {
                                                 VStack{
                                                     Button("Adquirido") {
@@ -110,6 +111,8 @@ struct PrincipalList: View {
                                                     
                                                 }
                                             }
+                                            .buttonStyle(PlainButtonStyle())
+                                        }
                                     }
                                 }
                                 .padding()
@@ -117,7 +120,7 @@ struct PrincipalList: View {
                     
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: ContentView(prod: prod, tags: $tags)) {
+                            NavigationLink(destination: SoldList(prod: prod)) {
                                 Image(systemName: "plus")
                             }
                         }
@@ -132,79 +135,37 @@ struct PrincipalList: View {
         }
     }
 
-struct ProductButton: View {
+struct SoldButton: View {
     let product: Product
-
+    
     var body: some View {
         Button(action: {
-            // Ação ao clicar no botão
-        }, label: {
-            ZStack {
-               
+           
+        }) {
+            VStack(spacing: 8) {
                 product.image
                     .resizable()
-                    .scaledToFill()
-                    .frame(width: 85, height: 85)
-                    .border(Color.black, width: 1.2)
-                    .clipped()
+                    .scaledToFit()
+                    .frame(width: 70, height: 70)
+                    .cornerRadius(10)
                 
-               TriangleColor(product: product)
+                Divider() // Linha que separa a foto do preço
+                
+                    
+                Text("R$:\(String(format: "%.2f", product.purchasedPrice))") // Preço com símbolo de moeda
+                    .font(.footnote)
+                    
                 
             }
-        })
-    }
-}
-
-struct Triangle: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-                let width = rect.width
-                let height = rect.height
-                
-                path.move(to: CGPoint(x: 0, y: 0))           // Canto superior esquerdo
-                path.addLine(to: CGPoint(x: width, y: 0))    // Canto superior direito
-                path.addLine(to: CGPoint(x: width, y: height)) // Canto inferior direito
-                
-                return path
-    }
-}
-
-struct TriangleColor: View {
-    let product: Product
-
-    var body: some View {
-        
-        switch product.status{
-        case ProductStatus.acquarid: Triangle()
-                .fill(Color("aquired"))
-                .frame(width: 30, height: 30)
-                .position(x: 75, y: 16)
-                .rotationEffect(Angle(degrees: 90))
-        case ProductStatus.sold: Triangle()
-                .fill(Color("sold"))
-                .frame(width: 30, height: 30)
-                .position(x: 75, y: 16)
-                .rotationEffect(Angle(degrees: 90))
-        case ProductStatus.maintenance: Triangle()
-                .fill(Color("maintenance"))
-                .frame(width: 30, height: 30)
-                .position(x: 75, y: 16)
-                .rotationEffect(Angle(degrees: 90))
-        case ProductStatus.selling: Triangle()
-                .fill(Color("selling"))
-                .frame(width: 30, height: 30)
-                .position(x: 75, y: 16)
-                .rotationEffect(Angle(degrees: 90))
-        case ProductStatus.washing: Triangle()
-                .fill(Color("washing"))
-                .frame(width: 30, height: 30)
-                .position(x: 75, y: 16)
-                .rotationEffect(Angle(degrees: 90))
-            
-        default: Circle()
-                .frame(width: 20)
-                .foregroundColor(.blue)
-            
+            .padding()
+            .foregroundColor(.primary)
+            .background(Color.white)
+            .cornerRadius(10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.gray, lineWidth: 1)
+            )
         }
+        .buttonStyle(PlainButtonStyle())
     }
 }
