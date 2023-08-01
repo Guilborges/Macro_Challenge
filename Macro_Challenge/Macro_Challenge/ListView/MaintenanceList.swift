@@ -17,13 +17,14 @@ struct MaintenanceList: View {
     @ObservedObject var prod: ProductViewModel
 
     var body: some View {
-        NavigationStack {
+        
             
             VStack(alignment: .leading) {
                 Text("Manutenção")
                     .bold()
                     .font(.system(size: 34, weight: .bold, design: .rounded))
                     .padding(25)
+                    .foregroundColor(Color("title"))
                 Text("Total de Peças: \(prod.productsCountMaintenance())")
                     .frame(maxWidth: .infinity, alignment: .center)
                 
@@ -38,9 +39,7 @@ struct MaintenanceList: View {
                                     .scaledToFit()
                                     .frame(width:90,height: 90)
                                 VStack(alignment: .leading){
-                                    ForEach(element.tags) { tag in
-                                        Text(tag.name)}
-                                    
+                                    Text("\(element.tags[0].name)") 
                                     Text("\(element.purchasedPrice,specifier: "%.2f") R$").frame(width: 90)
                                 }
                                 Button {
@@ -111,19 +110,18 @@ struct MaintenanceList: View {
                     }
                     
                     .onDelete(perform: prod.deleteProduct)
+                    
                 }
                 
                 
             }
             .navigationViewStyle(.stack)
             .frame(maxWidth: .infinity)
+           
+       
+        
             
-        }
-        
-        .navigationBarHidden(true)
-        
-        
     }
-    
+        
     }
 

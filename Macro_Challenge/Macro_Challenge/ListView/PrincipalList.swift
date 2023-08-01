@@ -29,6 +29,7 @@ struct PrincipalList: View {
                         .bold()
                         .font(.system(size: 34, weight: .bold, design: .rounded))
                         .padding(25)
+                        .foregroundColor(Color("title"))
                     Text("Total de Peças: \(prod.productsCount())")
                         .frame(maxWidth: .infinity, alignment: .center)
                     

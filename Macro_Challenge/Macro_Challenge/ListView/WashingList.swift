@@ -24,6 +24,7 @@ struct WashingList: View {
                     .bold()
                     .font(.system(size: 34, weight: .bold, design: .rounded))
                     .padding(25)
+                    .foregroundColor(Color("title"))
                 Text("Total de Peças: \(prod.productsCountWashing())")
                     .frame(maxWidth: .infinity, alignment: .center)
                 
@@ -38,9 +39,7 @@ struct WashingList: View {
                                     .scaledToFit()
                                     .frame(width:90,height: 90)
                                 VStack(alignment: .leading){
-                                    ForEach(element.tags) { tag in
-                                        Text(tag.name)}
-                                    
+                                    Text("\(element.tags[0].name)") 
                                     Text("\(element.purchasedPrice,specifier: "%.2f") R$").frame(width: 90)
                                 }
                                 Button {
@@ -56,11 +55,11 @@ struct WashingList: View {
                                     VStack{
                                         Button("Adquirido") {
                                             //   dismiss()
-                                            DispatchQueue.main.async{
+                                           
                                                 prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .acquarid)
                                                 
                                                 showingSheet.toggle()
-                                            }
+                                            
                                             
                                         }
                                         .font(.title)
@@ -123,6 +122,6 @@ struct WashingList: View {
         
         
     }
-    
+      
     }
 

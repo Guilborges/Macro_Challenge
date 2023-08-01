@@ -20,10 +20,11 @@ struct SoldList: View {
         NavigationStack {
             
             VStack(alignment: .leading) {
-                Text("Manutenção")
+                Text("Vendidos")
                     .bold()
                     .font(.system(size: 34, weight: .bold, design: .rounded))
                     .padding(25)
+                    .foregroundColor(Color("title"))
                 Text("Total de Peças: \(prod.productsCountSold())")
                     .frame(maxWidth: .infinity, alignment: .center)
                 Text("Quantia total das vendas R$:\(String(format: "%.2f", prod.totalPriceForCurrentStatus()))")
@@ -40,8 +41,7 @@ struct SoldList: View {
                                     .scaledToFit()
                                     .frame(width:90,height: 90)
                                 VStack(alignment: .leading){
-                                    ForEach(element.tags) { tag in
-                                        Text(tag.name)}
+                                    Text("\(element.tags[0].name)") 
                                     
                                     Text("\(element.purchasedPrice,specifier: "%.2f") R$").frame(width: 90)
                                 }
@@ -126,6 +126,6 @@ struct SoldList: View {
         
         
     }
-    
+
     }
 

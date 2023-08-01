@@ -23,6 +23,7 @@ struct SellingList: View {
                         .bold()
                         .font(.system(size: 34, weight: .bold, design: .rounded))
                         .padding(25)
+                        .foregroundColor(Color("title"))
                     Text("Total de Peças: \(prod.productsCountSelling())")
                         .frame(maxWidth: .infinity, alignment: .center)
                     
@@ -62,12 +63,11 @@ struct SellingList: View {
                                             .sheet(isPresented: $showingSheet) {
                                                 VStack{
                                                     Button("Adquirido") {
-                                                        //   dismiss()
-                                                        DispatchQueue.main.async{
+                                                       
                                                             prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .acquarid)
                                                             
                                                             showingSheet.toggle()
-                                                        }
+                                                        
                                                         
                                                     }
                                                     .font(.title)
@@ -121,7 +121,7 @@ struct SellingList: View {
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             NavigationLink(destination: SoldList(prod: prod)) {
-                                Image(systemName: "plus")
+                                Text("Vendidos")
                             }
                         }
                     }
@@ -132,7 +132,9 @@ struct SellingList: View {
                 .frame(maxWidth: .infinity)
             }
             .navigationBarHidden(true)
+           
         }
+       
     }
 
 struct SoldButton: View {
