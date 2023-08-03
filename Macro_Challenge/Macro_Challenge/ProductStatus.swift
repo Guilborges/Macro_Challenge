@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum ProductStatus: String{
+enum ProductStatus: String, Codable{
     
     case washing = "Lavando"
     case maintenance = "Manuteção"

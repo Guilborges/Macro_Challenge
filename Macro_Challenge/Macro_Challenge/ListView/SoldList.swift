@@ -36,10 +36,12 @@ struct SoldList: View {
                         if element.status == .sold{
                             
                             HStack{
-                                element.image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width:90,height: 90)
+                                if let image = element.image{
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width:90,height: 90)
+                                }
                                 VStack(alignment: .leading){
                                     Text("\(element.tags[0].name)") 
                                     
@@ -51,19 +53,18 @@ struct SoldList: View {
                                     
                                     
                                 } label: {
-                                    ButtonCircleOrange().position(x:100,y:20)
+                                    ButtonCircleGreen().position(x:100,y:20)
                                         
                                     
                                 }
                                 .sheet(isPresented: $showingSheet) {
                                     VStack{
                                         Button("Adquirido") {
-                                            //   dismiss()
-                                            DispatchQueue.main.async{
+                                            
                                                 prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .acquarid)
                                               
                                                 showingSheet.toggle()
-                                            }
+                                            
                                             
                                         }
                                         .font(.title)

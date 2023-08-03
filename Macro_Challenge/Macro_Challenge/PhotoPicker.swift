@@ -12,7 +12,7 @@ import Combine
 
 class ImagePicker: ObservableObject{
     
-    @Published var image: Image?
+    @Published var image: UIImage?
     @Published var imageSelection: PhotosPickerItem?{
         
         didSet {
@@ -26,8 +26,11 @@ class ImagePicker: ObservableObject{
     
     @MainActor func loadTransferable(from imageSelection: PhotosPickerItem?) async throws{
         do{
-            if let image = try await imageSelection?.loadTransferable(type: Image.self){
-                self.image = image
+            if let data = try await imageSelection?.loadTransferable(type: Data.self){
+                if let image = UIImage(data: data){
+                    self.image = image
+                }
+         
             }
         } catch {
             print(error.localizedDescription)

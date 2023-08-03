@@ -34,10 +34,12 @@ struct MaintenanceList: View {
                         if element.status == .maintenance{
                             
                             HStack{
-                                element.image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width:90,height: 90)
+                                if let image = element.image{
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width:90,height: 90)
+                                }
                                 VStack(alignment: .leading){
                                     Text("\(element.tags[0].name)") 
                                     Text("\(element.purchasedPrice,specifier: "%.2f") R$").frame(width: 90)

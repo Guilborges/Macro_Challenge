@@ -5,12 +5,7 @@
 //
 
 import Foundation
-//
-//  TelaInicial.swift
-//  Macro_Challenge
-//
-//  Created by Guilherme Borges on 06/06/23.
-//
+
 
 import SwiftUI
 
@@ -43,16 +38,20 @@ struct PrincipalList: View {
                                             showingSheet.toggle()
                                         }, label: {
                                             ZStack {
-                                               
-                                                product.image
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .frame(width: 85, height: 85)
-                                                    .border(Color.black, width: 1.2)
-                                                    .clipped()
-                                                
-                                               TriangleColor(product: product)
-                                                
+                                                if let image = product.image{
+                                                    
+                                                    
+                                                    Image(uiImage: image)
+                                                    
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .frame(width: 85, height: 85)
+                                                        .border(Color.black, width: 1.2)
+                                                        .clipped()
+                                                    
+                                                    TriangleColor(product: product)
+                                                    
+                                                }
                                             }
                                         })
                                         
@@ -141,16 +140,17 @@ struct ProductButton: View {
             // Ação ao clicar no botão
         }, label: {
             ZStack {
-               
-                product.image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 85, height: 85)
-                    .border(Color.black, width: 1.2)
-                    .clipped()
-                
-               TriangleColor(product: product)
-                
+                if let image = product.image{
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 85, height: 85)
+                        .border(Color.black, width: 1.2)
+                        .clipped()
+                    
+                    TriangleColor(product: product)
+                    
+                }
             }
         })
     }

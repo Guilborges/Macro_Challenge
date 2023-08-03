@@ -13,7 +13,7 @@ struct ButtonCircleYellow: View {
     var body: some View{
         Circle()
                 .frame(width: 20)
-                .foregroundColor(.yellow)
+                .foregroundColor(Color("aquired"))
        
     }
 }
@@ -22,7 +22,7 @@ struct ButtonCirclePurple: View {
     var body: some View{
         Circle()
                 .frame(width: 20)
-                .foregroundColor(.purple)
+                .foregroundColor(Color("selling"))
        
     }
 }
@@ -31,7 +31,7 @@ struct ButtonCircleBlue: View {
     var body: some View{
         Circle()
                 .frame(width: 20)
-                .foregroundColor(.blue)
+                .foregroundColor(Color("washing"))
         
     }
 }
@@ -40,7 +40,7 @@ struct ButtonCircleGreen: View {
     var body: some View{
         Circle()
                 .frame(width: 20)
-                .foregroundColor(.green)
+                .foregroundColor(Color("sold"))
 
     }
 }
@@ -48,7 +48,7 @@ struct ButtonCircleOrange: View {
     var body: some View{
         Circle()
                 .frame(width: 20)
-                .foregroundColor(.orange)
+                .foregroundColor(Color("maintenance"))
  
     }
 }

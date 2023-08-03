@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ProductData" representedClassName="ProductData" syncable="YES" codeGenerationType="class">
+        <attribute name="idData" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <attribute name="purchasedPriceData" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="status" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StatusData"/>
+        <relationship name="tags" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TagsData"/>
+    </entity>
+    <entity name="StatusData" representedClassName="StatusData" syncable="YES" codeGenerationType="class">
+        <attribute name="statusData" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="TagsData" representedClassName="TagsData" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+</model>

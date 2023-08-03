@@ -37,16 +37,16 @@ struct SellingList: View {
                                                 showingSheet.toggle()
                                             }) {
                                                 VStack(spacing: 8) {
-                                                    product.image
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                        .frame(width: 70, height: 70)
-                                                        .cornerRadius(10)
+                                                    if let image = product.image{
+                                                        Image(uiImage: image)
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .frame(width: 70, height: 70)
+                                                            .cornerRadius(10)
+                                                    }
+                                                    Divider()
                                                     
-                                                    Divider() // Linha que separa a foto do preço
-                                                    
-                                                    
-                                                    Text("R$:\(String(format: "%.2f", product.purchasedPrice))") // Preço com símbolo de moeda
+                                                    Text("R$:\(String(format: "%.2f", product.purchasedPrice))")
                                                         .font(.footnote)
                                                     
                                                     
@@ -145,11 +145,13 @@ struct SoldButton: View {
            
         }) {
             VStack(spacing: 8) {
-                product.image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 70, height: 70)
-                    .cornerRadius(10)
+                if let image = product.image{
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 70, height: 70)
+                        .cornerRadius(10)
+                }
                 
                 Divider() // Linha que separa a foto do preço
                 

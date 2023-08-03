@@ -14,46 +14,38 @@ class ProductViewModel: ObservableObject {
     
     @Published public var productList: [Product] = []
 
+    var userDefault = UserDefaultModel()
     
-    init(productList: [Product] = [Product]()) {
-        self.productList = productList
+    init() {
+        self.productList = userDefault.product
     }
     
     
-    public func addProduct(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool,image:Image) {
+    public func addProduct(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool,image:UIImage) {
     productList.append(Product(tags: tags, purchasedPrice: purchasedPrice, status: status.self, acessory: true,image: image))
+        userDefault.updateProducts(products: self.productList)
        // printalista()
         objectWillChange.send()
 
         
     }
-    public func addProductMock() {
-        for i in 1...10{
-            productList.append(Product(tags: [Tag(name: "branco")], purchasedPrice: 250.3, status: ProductStatus.acquarid, acessory: true, image: Image(systemName: "photo")))
-            //printalista()
-            objectWillChange.send()
-            
-        }
-    }
+
     
 
-//    func printalista(){
-//
-//        for i in productList{
-//
-//            print("\(i ) ")
-//        }
-//    }
+
     
     func productsCount() -> Int {
         var contador = 0
         for i in productList{
             contador = contador+1
-            print("\(i)")
         }
        return contador
         
     }
+    
+    
+    
+    
     
     func productsCountWashing() -> Int {
         var contador = 0
@@ -143,6 +135,7 @@ class ProductViewModel: ObservableObject {
          
        
          objectWillChange.send()
+         userDefault.updateProducts(products: self.productList)
     }
         
 
@@ -163,10 +156,9 @@ class ProductViewModel: ObservableObject {
     
     func deleteProduct(indexSet: IndexSet){
         productList.remove(atOffsets: indexSet)
+        userDefault.updateProducts(products: self.productList)
     }
     
-    func createdelete(){
-        addProduct(tags: [Tag(name: "branco")], purchasedPrice: 250.3, status: ProductStatus.acquarid, acessory: true, image: Image(systemName: "photo"))
-        
-    }
+    
+    
 }

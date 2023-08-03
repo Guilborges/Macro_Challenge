@@ -16,7 +16,7 @@ struct ContentView: View {
     @State private var purchasedPrice = String()
     @State private var status: ProductStatus = ProductStatus.nullo
     @State private var double: Double = 0.0
-    @State var imagepicker1 = Image(systemName: "")
+    @State var imagepicker1 = UIImage(systemName: "")
     @StateObject var imagePicker = ImagePicker()
     
     
@@ -60,7 +60,7 @@ struct ContentView: View {
                             
                             if let image = imagePicker.image {
                                 PhotosPicker( selection: $imagePicker.imageSelection){
-                                    image
+                                    Image(uiImage: image)
                                         .resizable()
                                         .frame(width: 42, height: 30)
                                     
@@ -278,7 +278,7 @@ struct ContentView: View {
                                     showAlert = true
                                     print("nao deu")
                                 }else {
-                                    prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
+                                    prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: ((imagePicker.image ?? imagepicker1)!))
                                     //print(prod)
                                     resetScreenObject()
                                     self.presentationMode.wrappedValue.dismiss()
@@ -302,7 +302,7 @@ struct ContentView: View {
                                     showAlert = true
                                     print("nao deu")
                                 }else {
-                                    prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: imagePicker.image ?? imagepicker1)
+                                    prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: ((imagePicker.image ?? imagepicker1)!))
                                    // print(prod)
                                     resetScreenObject()
                                     
@@ -317,7 +317,7 @@ struct ContentView: View {
                             }
                             Button {
                                 
-                                prod.addProductMock()
+                               // prod.addProductMock()
                                 
                             } label: {
                                 Image(systemName: "plus")
