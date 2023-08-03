@@ -24,7 +24,8 @@ struct PrincipalList: View {
                         .bold()
                         .font(.system(size: 34, weight: .bold, design: .rounded))
                         .padding(25)
-                        .foregroundColor(Color("title"))
+//                        .foregroundColor(Color("title"))
+                        .foregroundColor(Color(.black))
                     Text("Total de Peças: \(prod.productsCount())")
                         .frame(maxWidth: .infinity, alignment: .center)
                     
@@ -127,6 +128,7 @@ struct PrincipalList: View {
                 }
                 .navigationViewStyle(.stack)
                 .frame(maxWidth: .infinity)
+                .background(Color("background"))
             }
             .navigationBarHidden(true)
         }

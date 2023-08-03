@@ -24,7 +24,8 @@ struct MaintenanceList: View {
                     .bold()
                     .font(.system(size: 34, weight: .bold, design: .rounded))
                     .padding(25)
-                    .foregroundColor(Color("title"))
+//                    .foregroundColor(Color("title"))
+                    .foregroundColor(Color(.black))
                 Text("Total de Peças: \(prod.productsCountMaintenance())")
                     .frame(maxWidth: .infinity, alignment: .center)
                 

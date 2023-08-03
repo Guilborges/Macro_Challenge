@@ -24,7 +24,8 @@ struct WashingList: View {
                     .bold()
                     .font(.system(size: 34, weight: .bold, design: .rounded))
                     .padding(25)
-                    .foregroundColor(Color("title"))
+//                    .foregroundColor(Color("title"))
+                    .foregroundColor(Color(.black))
                 Text("Total de Peças: \(prod.productsCountWashing())")
                     .frame(maxWidth: .infinity, alignment: .center)
                 
