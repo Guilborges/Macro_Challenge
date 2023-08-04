@@ -60,56 +60,34 @@ struct SellingList: View {
                                                         .stroke(Color.gray, lineWidth: 1)
                                                 )
                                             }
-                                            .sheet(isPresented: $showingSheet) {
-                                                VStack{
-                                                    Button("Adquirido") {
-                                                       
-                                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .acquarid)
-                                                            
-                                                            showingSheet.toggle()
-                                                        
-                                                        
-                                                    }
-                                                    .font(.title)
-                                                    .padding()
-                                                    Button("Lavando") {
-                                                        //   dismiss()
-                                                        showingSheet.toggle()
-                                                        prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .washing)
-                                                        
-                                                        
-                                                    }
-                                                    .font(.title)
-                                                    .padding()
-                                                    Button("Manutenção") {
-                                                        //   dismiss()
-                                                        showingSheet.toggle()
-                                                        prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .maintenance)
-                                                        
-                                                        
-                                                    }
-                                                    .font(.title)
-                                                    .padding()
-                                                    Button("Em loja") {
-                                                        //   dismiss()
-                                                        showingSheet.toggle()
-                                                        prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .selling)
-                                                        
-                                                        
-                                                    }
-                                                    .font(.title)
-                                                    .padding()
-                                                    Button("Vendido") {
-                                                        //   dismiss()
-                                                        showingSheet.toggle()
-                                                        prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .sold)
-                                                        
-                                                        
-                                                    }
-                                                    .font(.title)
-                                                    .padding()
-                                                    
-                                                }
+                                            .actionSheet(isPresented: $showingSheet) {
+                                                ActionSheet(title: Text("Mude o Status da sua peça"), message: nil, buttons: [ // 4
+                                                                .default(Text("Adiquirido"), action: { // 5
+                                                                    prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .acquarid)
+                                                                    
+
+                                                                }),
+                                                                .default(Text("Lavando"), action: {
+                                                                    prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .washing)
+                                                                    
+                                                               
+                                                                }),
+                                                                .default(Text("Manutenção"), action: {
+                                                                    prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .maintenance)
+                                                                    
+                                                                  
+                                                                }),
+                                                                .default(Text("Em Loja"), action: {
+                                                                    prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .selling)
+              
+                                                                }),
+                                                                .default(Text("Vendido"), action: {
+                                                                    prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .sold)
+                                                                    
+                                                                }),
+                                                                .cancel() 
+                                                             ]
+                                                             )
                                             }
                                             .buttonStyle(PlainButtonStyle())
                                         }

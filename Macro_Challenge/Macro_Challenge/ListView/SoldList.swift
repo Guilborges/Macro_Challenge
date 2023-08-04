@@ -27,8 +27,7 @@ struct SoldList: View {
                     .foregroundColor(Color("title"))
                 Text("Total de Peças: \(prod.productsCountSold())")
                     .frame(maxWidth: .infinity, alignment: .center)
-                Text("Quantia total das vendas R$:\(String(format: "%.2f", prod.totalPriceForCurrentStatus()))")
-                    .frame(maxWidth: .infinity, alignment: .center)
+
                 
                 
                 List{
@@ -43,70 +42,53 @@ struct SoldList: View {
                                         .frame(width:90,height: 90)
                                 }
                                 VStack(alignment: .leading){
-                                    Text("\(element.tags[0].name)") 
+                                    Text("\(element.tags[0].name)")
                                     
                                     Text("\(element.purchasedPrice,specifier: "%.2f") R$").frame(width: 90)
+                                       
+                                    
                                 }
+                                
                                 Button {
                                     setIndexProduct = index
                                     showingSheet.toggle()
                                     
                                     
                                 } label: {
-                                    ButtonCircleGreen().position(x:100,y:20)
+                                ButtonCircleGreen().position(x:100,y:20)
                                         
                                     
                                 }
-                                .sheet(isPresented: $showingSheet) {
-                                    VStack{
-                                        Button("Adquirido") {
-                                            
-                                                prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .acquarid)
-                                              
-                                                showingSheet.toggle()
-                                            
-                                            
-                                        }
-                                        .font(.title)
-                                        .padding()
-                                        Button("Lavando") {
-                                            //   dismiss()
-                                            showingSheet.toggle()
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .washing)
-                                            
-                                            
-                                        }
-                                        .font(.title)
-                                        .padding()
-                                        Button("Manutenção") {
-                                            //   dismiss()
-                                            showingSheet.toggle()
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .maintenance)
-                                          
-                                            
-                                        }
-                                        .font(.title)
-                                        .padding()
-                                        Button("Em loja") {
-                                            //   dismiss()
-                                            showingSheet.toggle()
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .selling)
-                                           
-                                            
-                                        }
-                                        .font(.title)
-                                        .padding()
-                                        Button("Vendido") {
-                                            //   dismiss()
-                                            showingSheet.toggle()
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .sold)
-                                          
-                                            
-                                        }
-                                        .font(.title)
-                                        .padding()
-                                        
-                                    }
+                                .actionSheet(isPresented: $showingSheet) {
+                                    ActionSheet(title: Text("Mude o Status da sua peça"), message: nil, buttons: [ // 4
+                                                    .default(Text("Adiquirido"), action: { // 5
+                                                        prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .acquarid)
+                                                        
+                                                        //showingSheet.toggle()
+                                                      //  self.coffeeConsumptionTime = "Morning"
+                                                    }),
+                                                    .default(Text("Lavando"), action: {
+                                                        prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .washing)
+                                                        
+                                                   
+                                                      //  self.coffeeConsumptionTime = "Afternoon"
+                                                    }),
+                                                    .default(Text("Manutenção"), action: {
+                                                        prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .maintenance)
+                                                        
+                                                      
+                                                    }),
+                                                    .default(Text("Em Loja"), action: {
+                                                        prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .selling)
+  
+                                                    }),
+                                                    .default(Text("Vendido"), action: {
+                                                        prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .sold)
+                                                        
+                                                    }),
+                                                    .cancel() // 6
+                                                 ]
+                                                 )
                                 }
                                 
                             }

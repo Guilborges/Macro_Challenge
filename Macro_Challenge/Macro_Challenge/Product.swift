@@ -15,17 +15,12 @@ class Product: Identifiable, Hashable,ObservableObject,Codable{
         return false
     }
     
-    let id: UUID
-        var tags: [Tag] = []
-        public var purchasedPrice: Double
-        var status: ProductStatus
-        var acessory: Bool
+                      let id: UUID
+                      var tags: [Tag] = []
+               public var purchasedPrice: Double
+                      var status: ProductStatus
+                      var acessory: Bool
         @CodableImage var image: UIImage?
-    
-    
-    
-
-    
     
     
     init(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool,image:UIImage) {

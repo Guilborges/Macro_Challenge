@@ -129,13 +129,8 @@ class ProductViewModel: ObservableObject {
         
          
              objeto.status = novoEnum
-        
-      //  print(objeto.tags[0])
-      //  print(objeto.status)
-         
-       
-         objectWillChange.send()
-         userDefault.updateProducts(products: self.productList)
+             objectWillChange.send()
+             userDefault.updateProducts(products: self.productList)
     }
         
 
@@ -154,11 +149,15 @@ class ProductViewModel: ObservableObject {
         return totalPrice
     }
     
+    
     func deleteProduct(indexSet: IndexSet){
         productList.remove(atOffsets: indexSet)
         userDefault.updateProducts(products: self.productList)
     }
     
-    
+    func deleteProductIndex(indexList: Int){
+        productList.remove(at: indexList)
+        userDefault.updateProducts(products: self.productList)
+    }
     
 }
