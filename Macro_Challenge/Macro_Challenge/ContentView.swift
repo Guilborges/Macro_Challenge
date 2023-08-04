@@ -87,6 +87,7 @@ struct ContentView: View {
                            
                         }
                         .frame(width:350, height:50)
+                        
                         //.cornerRadius(CGFloat:30)
                         .background(Color("assetBackgroundLight"))
                         
@@ -151,11 +152,13 @@ struct ContentView: View {
                                         buttonBoolMaintenance = false
                                     } label: {
                                         VStack {
+                                            //pressed
                                             if buttonBoolAcquarid == true{
-                                                Image("onAcquaridIcon")
+                                                Image("iconAquiredPressed")
                                             }
                                             else{
-                                                Image("acquaridIcon")
+                                                //default
+                                                Image("Group 10")
                                             }
                                             Text("Adquirido")
                                             .foregroundColor(Color("title"))
