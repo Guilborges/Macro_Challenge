@@ -111,7 +111,7 @@ struct ContentView: View {
                                         // Código para limpar o TextField aqui
                                         text = ""
                                     }
-                                    
+
                                 }
                                 
                                 //exibicao das tags
@@ -139,6 +139,16 @@ struct ContentView: View {
                                             .cornerRadius(10).frame(height: 50)
                                         
                                     ).padding(10)
+                                        .toolbar {
+                                            // Adicionar o botão "Dismiss" ao teclado
+                                            ToolbarItem(placement: .keyboard) {
+                                                Button("Fechar") {
+                                                    // Esconde o teclado quando o botão "Fechar" é pressionado
+                                                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                                                }
+                                            }
+                                            
+                                        }
                                 }
                             
                             
