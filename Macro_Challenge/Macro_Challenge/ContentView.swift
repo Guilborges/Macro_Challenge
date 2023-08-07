@@ -96,16 +96,21 @@ struct ContentView: View {
                             //parte de exibicao das tags
                             
                             
-                            VStack {
-                                Section(header: Text("Descreva sua Peça")){
-                                    TextField("Adicione uma tag", text: $text, onCommit: addTag )
-                                        .padding(.leading)
-                                        .font(.system(size: 17, weight: .bold, design: .rounded))
-                                        .background(Color("assetBackgroundLight")
+                            Section(header: Text("Informe a(s) Tag(s) da peça")) {
+                                TextField("Adicione uma tag", text: $text, onCommit: addTag)
+                                    .padding(.leading)
+                                    .font(.system(size: 17, weight: .bold, design: .rounded))
+                                    .background(
+                                        Color("assetBackgroundLight")
                                             .foregroundColor(Color("title"))
                                             .cornerRadius(10)
                                             .frame(height: 50)
-                                    ).padding(10)
+                                    )
+                                    .padding(10)
+                                    .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+                                        // Código para limpar o TextField aqui
+                                        text = ""
+                                    }
                                     
                                 }
                                 
@@ -127,7 +132,7 @@ struct ContentView: View {
                                         }
                                         .padding(10)
                                     }
-                                }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.3).background(
+                                }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.1).background(
                                     RoundedRectangle(cornerRadius: 10).strokeBorder(Color.brown))
                                 Section(header: Text("Informe o preço pago na peça").padding(10)){
                                     TextField("0.00", text: $purchasedPrice).padding(.leading).keyboardType(.decimalPad).background(Color(("assetBackgroundLight"))
@@ -135,7 +140,7 @@ struct ContentView: View {
                                         
                                     ).padding(10)
                                 }
-                            }
+                            
                             
                         
                         }

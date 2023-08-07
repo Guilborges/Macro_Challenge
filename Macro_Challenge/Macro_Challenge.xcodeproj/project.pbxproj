@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05671ECB2A817DF10046E8F8 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05671ECA2A817DF10046E8F8 /* Media.xcassets */; };
 		056DA21B2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */; };
 		056DA21D2A1BDF26005FD1F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA21C2A1BDF26005FD1F5 /* ContentView.swift */; };
 		056DA21F2A1BDF27005FD1F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056DA21E2A1BDF27005FD1F5 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05671ECA2A817DF10046E8F8 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../../../Downloads/Media.xcassets; sourceTree = "<group>"; };
 		056DA2172A1BDF26005FD1F5 /* Macro_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Macro_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_ChallengeApp.swift; sourceTree = "<group>"; };
 		056DA21C2A1BDF26005FD1F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		056DA20E2A1BDF26005FD1F5 = {
 			isa = PBXGroup;
 			children = (
+				05671ECA2A817DF10046E8F8 /* Media.xcassets */,
 				056DA2192A1BDF26005FD1F5 /* Macro_Challenge */,
 				056DA22A2A1BDF27005FD1F5 /* Macro_ChallengeTests */,
 				056DA2342A1BDF27005FD1F5 /* Macro_ChallengeUITests */,
@@ -309,6 +312,7 @@
 			files = (
 				056DA2222A1BDF27005FD1F5 /* Preview Assets.xcassets in Resources */,
 				0D29D41E2A7445BA005C813F /* Media.xcassets in Resources */,
+				05671ECB2A817DF10046E8F8 /* Media.xcassets in Resources */,
 				056DA21F2A1BDF27005FD1F5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,7 +514,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro_Challenge/Preview Content\"";
-				DEVELOPMENT_TEAM = 7857H4YLGF;
+				DEVELOPMENT_TEAM = TNPTQGXSA4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
@@ -540,7 +544,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro_Challenge/Preview Content\"";
-				DEVELOPMENT_TEAM = 7857H4YLGF;
+				DEVELOPMENT_TEAM = TNPTQGXSA4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
