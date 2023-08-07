@@ -15,7 +15,7 @@ class ProductViewModel: ObservableObject {
     @Published public var productList: [Product] = []
 
     var userDefault = UserDefaultModel()
-    
+
     init() {
         self.productList = userDefault.product
     }
@@ -24,7 +24,7 @@ class ProductViewModel: ObservableObject {
     public func addProduct(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool,image:UIImage) {
     productList.append(Product(tags: tags, purchasedPrice: purchasedPrice, status: status.self, acessory: true,image: image))
         userDefault.updateProducts(products: self.productList)
-       // printalista()
+       
         objectWillChange.send()
 
         

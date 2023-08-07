@@ -14,8 +14,12 @@ struct PrincipalList: View {
     @State var imagePicker = ImagePicker()
     @State var imagepicker1 = Image(systemName: "")
     @ObservedObject var prod: ProductViewModel
-    @State var setIndexProduct: Int = 0
+    @State private var setIndexProduct: Int = 0
     @State private var showingSheet = false
+    
+    
+    
+    
     var body: some View {
         
         NavigationStack {
@@ -46,7 +50,7 @@ struct PrincipalList: View {
                                             .resizable()
                                             .scaledToFill()
                                             .frame(width: 100, height: 100)
-                                           // .border(Color.black, width: 1.2)
+                                            .border(Color.black, width: 1.2)
                                             .clipped()
                                             .cornerRadius(5)
                                         
@@ -110,29 +114,7 @@ struct PrincipalList: View {
     }
 }
 
-struct ProductButton: View {
-    let product: Product
-    
-    var body: some View {
-        Button(action: {
-            // Ação ao clicar no botão
-        }, label: {
-            ZStack {
-                if let image = product.image{
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 85, height: 85)
-                        .border(Color.black, width: 1.2)
-                        .clipped()
-                    
-                    TriangleColor(product: product)
-                    
-                }
-            }
-        })
-    }
-}
+
 
 struct Triangle: Shape {
     func path(in rect: CGRect) -> Path {
@@ -140,9 +122,9 @@ struct Triangle: Shape {
         let width = rect.width
         let height = rect.height
         
-        path.move(to: CGPoint(x: 0, y: 0))           // Canto superior esquerdo
-        path.addLine(to: CGPoint(x: width, y: 0))    // Canto superior direito
-        path.addLine(to: CGPoint(x: width, y: height)) // Canto inferior direito
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: width, y: 0))
+        path.addLine(to: CGPoint(x: width, y: height))
         
         return path
     }
@@ -157,31 +139,31 @@ struct TriangleColor: View {
         case ProductStatus.acquarid: Triangle()
                 .fill(Color("aquired"))
                 .frame(width: 30, height: 30)
-                .position(x: 85, y: 16)
+                .position(x: 84, y: 16)
                 .cornerRadius(4)
                 .rotationEffect(Angle(degrees: 90))
         case ProductStatus.sold: Triangle()
                 .fill(Color("sold"))
                 .frame(width: 30, height: 30)
-                .position(x: 85, y: 16)
+                .position(x: 84, y: 16)
                 .cornerRadius(4)
                 .rotationEffect(Angle(degrees: 90))
         case ProductStatus.maintenance: Triangle()
                 .fill(Color("maintenance"))
                 .frame(width: 30, height: 30)
-                .position(x: 85, y: 16)
+                .position(x: 84, y: 16)
                 .cornerRadius(4)
                 .rotationEffect(Angle(degrees: 90))
         case ProductStatus.selling: Triangle()
                 .fill(Color("selling"))
                 .frame(width: 30, height: 30)
-                .position(x: 85, y: 16)
+                .position(x: 84, y: 16)
                 .cornerRadius(4)
                 .rotationEffect(Angle(degrees: 90))
         case ProductStatus.washing: Triangle()
                 .fill(Color("washing"))
                 .frame(width: 30, height: 30)
-                .position(x: 85, y: 16)
+                .position(x: 84, y: 16)
                 .cornerRadius(4)
                 .rotationEffect(Angle(degrees: 90))
                 
