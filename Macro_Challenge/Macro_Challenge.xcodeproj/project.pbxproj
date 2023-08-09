@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05671ECB2A817DF10046E8F8 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05671ECA2A817DF10046E8F8 /* Media.xcassets */; };
 		056DA21B2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */; };
 		056DA21D2A1BDF26005FD1F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA21C2A1BDF26005FD1F5 /* ContentView.swift */; };
 		056DA21F2A1BDF27005FD1F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056DA21E2A1BDF27005FD1F5 /* Assets.xcassets */; };
@@ -54,7 +53,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05671ECA2A817DF10046E8F8 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../../../Downloads/Media.xcassets; sourceTree = "<group>"; };
 		056DA2172A1BDF26005FD1F5 /* Macro_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Macro_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_ChallengeApp.swift; sourceTree = "<group>"; };
 		056DA21C2A1BDF26005FD1F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,7 +68,7 @@
 		0D1038682A83DCD70095B33A /* ProductDataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProductDataBase.xcdatamodel; sourceTree = "<group>"; };
 		0D1E03252A78C2750062B13F /* SellingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellingList.swift; sourceTree = "<group>"; };
 		0D1E03272A78CD950062B13F /* SoldList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoldList.swift; sourceTree = "<group>"; };
-		0D2418072A84052400F4F3AC /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../../../../../Downloads/Media.xcassets; sourceTree = "<group>"; };
+		0D2418102A8427C600F4F3AC /* ProductDataBase 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ProductDataBase 2.xcdatamodel"; sourceTree = "<group>"; };
 		0D29D41D2A7445BA005C813F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../../../../../Media.xcassets; sourceTree = "<group>"; };
 		0D29D41F2A74D84F005C813F /* MaintenanceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceList.swift; sourceTree = "<group>"; };
 		0D3D662B2A38FF1200B462FA /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 			children = (
 				0D8AA9E42A82BA7300E885CA /* Models */,
 				0D8AA9E02A82B35500E885CA /* DataBase */,
-				05671ECA2A817DF10046E8F8 /* Media.xcassets */,
 				056DA2192A1BDF26005FD1F5 /* Macro_Challenge */,
 				056DA22A2A1BDF27005FD1F5 /* Macro_ChallengeTests */,
 				056DA2342A1BDF27005FD1F5 /* Macro_ChallengeUITests */,
@@ -158,7 +155,6 @@
 			children = (
 				056DA21E2A1BDF27005FD1F5 /* Assets.xcassets */,
 				056DA2212A1BDF27005FD1F5 /* Preview Assets.xcassets */,
-				0D2418072A84052400F4F3AC /* Media.xcassets */,
 				0D29D41D2A7445BA005C813F /* Media.xcassets */,
 			);
 			path = "Preview Content";
@@ -336,7 +332,6 @@
 			files = (
 				056DA2222A1BDF27005FD1F5 /* Preview Assets.xcassets in Resources */,
 				0D29D41E2A7445BA005C813F /* Media.xcassets in Resources */,
-				05671ECB2A817DF10046E8F8 /* Media.xcassets in Resources */,
 				056DA21F2A1BDF27005FD1F5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,6 +708,7 @@
 		0D1038672A83DCD70095B33A /* ProductDataBase.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0D2418102A8427C600F4F3AC /* ProductDataBase 2.xcdatamodel */,
 				0D1038682A83DCD70095B33A /* ProductDataBase.xcdatamodel */,
 			);
 			currentVersion = 0D1038682A83DCD70095B33A /* ProductDataBase.xcdatamodel */;

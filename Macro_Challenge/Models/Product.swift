@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Product: Identifiable, Hashable,ObservableObject,Codable{
+class Product: Identifiable, Hashable,Codable{
     
     
     static func == (lhs: Product, rhs: Product) -> Bool {

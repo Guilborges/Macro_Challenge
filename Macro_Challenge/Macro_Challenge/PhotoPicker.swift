@@ -23,7 +23,7 @@ class ImagePicker: ObservableObject{
         }
     }
     
-    @MainActor func loadTransferable(from imageSelection: PhotosPickerItem?) async throws{
+    @MainActor   func loadTransferable(from imageSelection: PhotosPickerItem?) async throws{
         do{
             if let data = try await imageSelection?.loadTransferable(type: Data.self){
                 if let image = UIImage(data: data){

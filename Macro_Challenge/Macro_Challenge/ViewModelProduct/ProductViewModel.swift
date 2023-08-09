@@ -51,11 +51,7 @@ class ProductViewModel: ObservableObject {
             self.userDefault.updateProducts(products: self.productList)
             print("Função executando em uma thread secundária.")
             
-            // Exemplo: Simular um processamento demorado
-            for i in 1...5 {
-                print("Iteração \(i)")
-                sleep(1)
-            }
+            
         }
         
         backgroundThread.start()
