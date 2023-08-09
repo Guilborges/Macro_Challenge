@@ -91,15 +91,16 @@ struct ContentView: View {
                         //.cornerRadius(CGFloat:30)
                         .background(Color("assetBackgroundLight"))
                         
-                        VStack {
+                        VStack(alignment: .leading) {
                             
                             //parte de exibicao das tags
                             
                             
-                            Section(header: Text("Informe a(s) Tag(s) da peça")) {
+                            Section(header: Text("Descreva sua peça")) {
                                 TextField("Adicione uma tag", text: $text, onCommit: addTag)
                                     .padding(.leading)
                                     .font(.system(size: 17, weight: .bold, design: .rounded))
+                                Text("Adicione tags como: Azul, Camiseta, Algodão")
                                     .background(
                                         Color("assetBackgroundLight")
                                             .foregroundColor(Color("title"))
@@ -132,7 +133,7 @@ struct ContentView: View {
                                         }
                                         .padding(10)
                                     }
-                                }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.1).background(
+                                }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.08) .background(
                                     RoundedRectangle(cornerRadius: 10).strokeBorder(Color.brown))
                                 Section(header: Text("Informe o preço pago na peça").padding(10)){
                                     TextField("0.00", text: $purchasedPrice).padding(.leading).keyboardType(.decimalPad).background(Color(("assetBackgroundLight"))
