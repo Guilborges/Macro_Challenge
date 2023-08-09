@@ -298,68 +298,6 @@ struct ContentView: View {
                                     }
                                 }
                         }
-                        HStack {
-                            Button {
-                                
-                                if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil || status == ProductStatus.nullo){
-                                    showAlert = true
-                                    print("nao deu")
-                                }else {
-                                    prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: ((imagePicker.image ?? imagepicker1)!))
-                                    //print(prod)
-                                    resetScreenObject()
-                                    self.presentationMode.wrappedValue.dismiss()
-                                }
-                                
-                                
-                            } label: {
-                                Image("checkIcon")
-                                    .frame(width: 82, height: 70)
-                                
-                                
-                            }.alert(isPresented: $showAlert) {
-                                Alert(
-                                    title: Text("Campos Insuficientes"),
-                                    message: Text("Preencha todos os campos \n de adição da peça!")
-                                )
-                            }.padding(10)
-                            Button {
-                                
-                                if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil){
-                                    showAlert = true
-                                    print("nao deu")
-                                }else {
-                                    prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: ((imagePicker.image ?? imagepicker1)!))
-                                   // print(prod)
-                                    resetScreenObject()
-                                    
-                                }
-                                
-                                
-                            } label: {
-                                Image(systemName: "plus")
-                                    .frame(width: 82, height: 70)
-                                
-                                
-                            }
-                            Button {
-                                
-                               // prod.addProductMock()
-                                
-                            } label: {
-                                Image(systemName: "plus")
-                                    .frame(width: 82, height: 70)
-                                
-                                
-                            }.alert(isPresented: $showAlert) {
-                                Alert(
-                                    title: Text("Campos Insuficientes"),
-                                    message: Text("Preencha todos os campos \n de adição da peça!")
-                                )
-                            }.padding(10)
-                            
-                        }
-                        
                     }
                 }.onChange(of: tags) { newValue in
                     //Obtendo novo valor inserido...
@@ -387,18 +325,29 @@ struct ContentView: View {
                     .navigationBarItems(
                         leading:
                             Button(action: {
-                                // Handle cancel action here
+                              
                                 self.presentationMode.wrappedValue.dismiss()
                             }) {
                                 Text("")
                             },
                         trailing:
                             Button(action: {
-                                // Handle save action here
-                                // You can put your save logic here
+                                if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil || status == ProductStatus.nullo){
+                                    showAlert = true
+                                    print("nao deu")
+                                }else {
+                                    prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: ((imagePicker.image ?? imagepicker1)!))
+                                    //print(prod)
+                                    resetScreenObject()
+                                    self.presentationMode.wrappedValue.dismiss()
+                                }
                             }) {
                                 Text("Salvar")
-                            }
+                            }.alert(isPresented: $showAlert) {
+                                Alert(
+                                    title: Text("Campos Insuficientes"),
+                                    message: Text("Preencha todos os campos \n de adição da peça!")
+                                )}
                     )
         
     }
