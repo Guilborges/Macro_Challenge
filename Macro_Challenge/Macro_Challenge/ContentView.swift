@@ -157,7 +157,7 @@ struct ContentView: View {
                         .padding(10)
                         
                         
-                        VStack{
+                        VStack(alignment: .leading){
                             Section(header: Text("Status")
                                 
                                 .padding(10)){
