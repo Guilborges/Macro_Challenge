@@ -175,9 +175,13 @@ struct ContentView: View {
                         
                         VStack(alignment: .leading) {
                             Section(header: Text("Status")
+//                                .position(x:-500,y:0 )
                                 .bold()
                                 .padding(10)) {
                                     Text("Em qual etapa do processo sua peça está?")
+//                                        .position(x:100,y:30 )
+
+                                    
                                         .font(.subheadline)
                                     
                                     HStack(spacing: 10) {
