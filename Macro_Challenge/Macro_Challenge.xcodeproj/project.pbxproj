@@ -70,6 +70,7 @@
 		0D1038682A83DCD70095B33A /* ProductDataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProductDataBase.xcdatamodel; sourceTree = "<group>"; };
 		0D1E03252A78C2750062B13F /* SellingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellingList.swift; sourceTree = "<group>"; };
 		0D1E03272A78CD950062B13F /* SoldList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoldList.swift; sourceTree = "<group>"; };
+		0D2418072A84052400F4F3AC /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../../../../../Downloads/Media.xcassets; sourceTree = "<group>"; };
 		0D29D41D2A7445BA005C813F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../../../../../Media.xcassets; sourceTree = "<group>"; };
 		0D29D41F2A74D84F005C813F /* MaintenanceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceList.swift; sourceTree = "<group>"; };
 		0D3D662B2A38FF1200B462FA /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
@@ -157,6 +158,7 @@
 			children = (
 				056DA21E2A1BDF27005FD1F5 /* Assets.xcassets */,
 				056DA2212A1BDF27005FD1F5 /* Preview Assets.xcassets */,
+				0D2418072A84052400F4F3AC /* Media.xcassets */,
 				0D29D41D2A7445BA005C813F /* Media.xcassets */,
 			);
 			path = "Preview Content";
@@ -538,7 +540,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro_Challenge/Preview Content\"";
-				DEVELOPMENT_TEAM = TNPTQGXSA4;
+				DEVELOPMENT_TEAM = 7857H4YLGF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
@@ -568,7 +570,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro_Challenge/Preview Content\"";
-				DEVELOPMENT_TEAM = TNPTQGXSA4;
+				DEVELOPMENT_TEAM = 7857H4YLGF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";

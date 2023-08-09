@@ -13,7 +13,7 @@ import SwiftUI
 class ProductViewModel: ObservableObject {
     
     @Published public var productList: [Product] = []
-
+    @Published public var productListDb: [ProductDb] = []
     var userDefault = UserDefaultModel()
 
     init() {
@@ -23,7 +23,7 @@ class ProductViewModel: ObservableObject {
     
     public func addProduct(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool,image:UIImage) {
     productList.append(Product(tags: tags, purchasedPrice: purchasedPrice, status: status.self, acessory: true,image: image))
-        userDefault.updateProducts(products: self.productList)
+        saveUserDefault()
        
         objectWillChange.send()
 
@@ -36,7 +36,7 @@ class ProductViewModel: ObservableObject {
     
     func productsCount() -> Int {
         var contador = 0
-        for i in productList{
+        for _ in productList{
             contador = contador+1
         }
        return contador
@@ -45,7 +45,21 @@ class ProductViewModel: ObservableObject {
     
     
     
-    
+    func saveUserDefault() {
+        let backgroundThread = Thread {
+            // Coloque o código da função que você deseja executar em uma thread secundária aqui
+            self.userDefault.updateProducts(products: self.productList)
+            print("Função executando em uma thread secundária.")
+            
+            // Exemplo: Simular um processamento demorado
+            for i in 1...5 {
+                print("Iteração \(i)")
+                sleep(1)
+            }
+        }
+        
+        backgroundThread.start()
+    }
     
     func productsCountWashing() -> Int {
         var contador = 0
@@ -130,7 +144,7 @@ class ProductViewModel: ObservableObject {
          
              objeto.status = novoEnum
              objectWillChange.send()
-             userDefault.updateProducts(products: self.productList)
+             saveUserDefault()
     }
         
 
@@ -152,12 +166,12 @@ class ProductViewModel: ObservableObject {
     
     func deleteProduct(indexSet: IndexSet){
         productList.remove(atOffsets: indexSet)
-        userDefault.updateProducts(products: self.productList)
+        saveUserDefault()
     }
     
     func deleteProductIndex(indexList: Int){
         productList.remove(at: indexList)
-        userDefault.updateProducts(products: self.productList)
+        saveUserDefault()
     }
     
 }
