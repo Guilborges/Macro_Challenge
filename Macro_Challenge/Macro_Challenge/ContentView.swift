@@ -45,16 +45,16 @@ struct ContentView: View {
             ScrollView{
                 ZStack {
                     VStack {
-                        VStack(alignment: .leading) {
-                            Text("Adicionar")
-//                                .position(x: 65, y:10)
-//                                .bold()
-                                .font(.system(size: 34, weight: .bold, design: .rounded))
-                                .padding(25)
-//                                .foregroundColor(Color("title"))
-                            
-                    
-                        }
+//                        VStack(alignment: .leading) {
+//                            Text("Adicionar")
+////                                .position(x: 65, y:10)
+////                                .bold()
+//                                .font(.system(size: 34, weight: .bold, design: .rounded))
+//                                .padding(25)
+////                                .foregroundColor(Color("title"))
+//
+//
+//                        }
                     
                         HStack{
                             
@@ -99,6 +99,7 @@ struct ContentView: View {
                             Section(header: Text("Descreva sua peça").bold()) {
                                 Text("Adicione tags como: Azul, Camiseta, Algodão")
                                     .font(.subheadline)
+                                Spacer(minLength: 30)
                                 TextField("Adicione uma tag", text: $text, onCommit: addTag)
                                     .padding(.leading)
                                     .font(.system(size: 17, weight: .bold, design: .rounded))
@@ -108,6 +109,7 @@ struct ContentView: View {
                                             .cornerRadius(10)
                                             .frame(height: 50)
                                     )
+                                    .position(x: 166, y:10)
                                     .padding(10)
                                     .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
                                         // Código para limpar o TextField aqui
@@ -115,7 +117,7 @@ struct ContentView: View {
                                     }
 
                                 }
-                                
+                            Spacer(minLength: 20)
                                 //exibicao das tags
                                 HStack{
                                     ScrollView(.vertical, showsIndicators: false) {
@@ -137,8 +139,12 @@ struct ContentView: View {
                                 }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.08) .background(
                                     RoundedRectangle(cornerRadius: 10).strokeBorder(Color.gray))
                             
-                            Section(header: Text("Preço de venda").bold().padding(10)){
+                            Section(header: Text("Preço de venda")
+                                .bold()
+                                .padding(10)
+                                .position(x:63, y:35)){
                                 Text("Qual será o preço de venda \nde sua peça?")
+                                    .font(.system(size: 16, design: .rounded))
                                     TextField("0.00", text: $purchasedPrice)
                                     .position(x: 420, y:-45)
                                     .padding(.trailing)
@@ -373,6 +379,23 @@ struct ContentView: View {
             
             .background(Color("background"))
         }
+        .navigationBarTitle("Nova peça", displayMode: .large)
+                    .navigationBarItems(
+                        leading:
+                            Button(action: {
+                                // Handle cancel action here
+                                self.presentationMode.wrappedValue.dismiss()
+                            }) {
+                                Text("")
+                            },
+                        trailing:
+                            Button(action: {
+                                // Handle save action here
+                                // You can put your save logic here
+                            }) {
+                                Text("Salvar")
+                            }
+                    )
         
     }
     @ViewBuilder
