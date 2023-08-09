@@ -96,11 +96,12 @@ struct ContentView: View {
                             //parte de exibicao das tags
                             
                             
-                            Section(header: Text("Descreva sua peça")) {
+                            Section(header: Text("Descreva sua peça").bold()) {
+                                Text("Adicione tags como: Azul, Camiseta, Algodão")
+                                    .font(.subheadline)
                                 TextField("Adicione uma tag", text: $text, onCommit: addTag)
                                     .padding(.leading)
                                     .font(.system(size: 17, weight: .bold, design: .rounded))
-                                Text("Adicione tags como: Azul, Camiseta, Algodão")
                                     .background(
                                         Color("assetBackgroundLight")
                                             .foregroundColor(Color("title"))
