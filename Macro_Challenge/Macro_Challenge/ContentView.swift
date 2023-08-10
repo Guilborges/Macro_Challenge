@@ -108,7 +108,7 @@ struct ContentView: View {
                                         Color("assetBackgroundLight")
                                             .foregroundColor(Color("title"))
                                             .cornerRadius(10)
-                                            .frame(height: 50)
+                                            .frame(height: 40)
                                     )
                                     .position(x: 173, y:10)
                                     .padding(10)
@@ -137,7 +137,7 @@ struct ContentView: View {
                                         }
                                         .padding(10)
                                     }
-                                }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.08) .background(
+                                }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.06) .background(
                                     RoundedRectangle(cornerRadius: 10).strokeBorder(Color.gray)                                    .position(x: 182, y:20))
                             
                             Section(header: Text("Preço de venda")
