@@ -213,7 +213,7 @@ struct ContentView: View {
                                                     }
                                                     Text("Adquirido")
                                                         .foregroundColor(Color("title"))
-                                                        .font(.system(size: 13, weight: .bold, design: .rounded))
+                                                        .font(.system(size: 11, weight: .bold, design: .rounded))
                                                 }
                                             }
                                         }
@@ -241,7 +241,7 @@ struct ContentView: View {
                                                     }
                                                     Text("Lavando")
                                                         .foregroundColor(Color("title"))
-                                                        .font(.system(size: 13, weight: .bold, design: .rounded))
+                                                        .font(.system(size: 11, weight: .bold, design: .rounded))
                                                 }
                                             }
                                         }
@@ -269,7 +269,7 @@ struct ContentView: View {
                                                     }
                                                     Text("Manutenção")
                                                         .foregroundColor(Color("title"))
-                                                        .font(.system(size: 13, weight: .bold, design: .rounded))
+                                                        .font(.system(size: 11, weight: .bold, design: .rounded))
                                                 }
                                             }
                                         }
@@ -297,7 +297,7 @@ struct ContentView: View {
                                                     }
                                                     Text("Na loja")
                                                         .foregroundColor(Color("title"))
-                                                        .font(.system(size: 13, weight: .bold, design: .rounded))
+                                                        .font(.system(size: 11, weight: .bold, design: .rounded))
                                                 }
                                             }
                                         }
@@ -325,7 +325,7 @@ struct ContentView: View {
                                                     }
                                                     Text("Vendido")
                                                         .foregroundColor(Color("title"))
-                                                        .font(.system(size: 13, weight: .bold, design: .rounded))
+                                                        .font(.system(size: 11, weight: .bold, design: .rounded))
                                                 }
                                             }
                                         }
