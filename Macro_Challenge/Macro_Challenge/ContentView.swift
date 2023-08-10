@@ -81,7 +81,7 @@ struct ContentView: View {
                             Text("Adicionar foto da sua peça")
                                // .position(x: 65, y:10)
                                 .bold()
-                                .font(.system(size: 13, weight: .bold, design: .rounded))
+                                .font(.system(size: 15, weight: .bold, design: .rounded))
                                 .padding(10)
                                 .foregroundColor(Color("elements"))
                             
@@ -110,7 +110,7 @@ struct ContentView: View {
                                             .cornerRadius(10)
                                             .frame(height: 50)
                                     )
-                                    .position(x: 166, y:10)
+                                    .position(x: 173, y:10)
                                     .padding(10)
                                     .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
                                         // Código para limpar o TextField aqui
@@ -138,7 +138,7 @@ struct ContentView: View {
                                         .padding(10)
                                     }
                                 }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.08) .background(
-                                    RoundedRectangle(cornerRadius: 10).strokeBorder(Color.gray))
+                                    RoundedRectangle(cornerRadius: 10).strokeBorder(Color.gray)                                    .position(x: 182, y:20))
                             
                             Section(header: Text("Preço de venda")
                                 .bold()
@@ -209,7 +209,7 @@ struct ContentView: View {
                                                     }
                                                     Text("Adquirido")
                                                         .foregroundColor(Color("title"))
-                                                        .font(.system(size: 15, weight: .bold, design: .rounded))
+                                                        .font(.system(size: 13, weight: .bold, design: .rounded))
                                                 }
                                             }
                                         }
@@ -237,7 +237,7 @@ struct ContentView: View {
                                                     }
                                                     Text("Lavando")
                                                         .foregroundColor(Color("title"))
-                                                        .font(.system(size: 15, weight: .bold, design: .rounded))
+                                                        .font(.system(size: 13, weight: .bold, design: .rounded))
                                                 }
                                             }
                                         }
@@ -265,7 +265,7 @@ struct ContentView: View {
                                                     }
                                                     Text("Manutenção")
                                                         .foregroundColor(Color("title"))
-                                                        .font(.system(size: 15, weight: .bold, design: .rounded))
+                                                        .font(.system(size: 13, weight: .bold, design: .rounded))
                                                 }
                                             }
                                         }
@@ -293,7 +293,7 @@ struct ContentView: View {
                                                     }
                                                     Text("Na loja")
                                                         .foregroundColor(Color("title"))
-                                                        .font(.system(size: 15, weight: .bold, design: .rounded))
+                                                        .font(.system(size: 13, weight: .bold, design: .rounded))
                                                 }
                                             }
                                         }
@@ -320,7 +320,7 @@ struct ContentView: View {
                                                     }
                                                     Text("Vendido")
                                                         .foregroundColor(Color("title"))
-                                                        .font(.system(size: 15, weight: .bold, design: .rounded))
+                                                        .font(.system(size: 13, weight: .bold, design: .rounded))
                                                 }
                                             }
                                         }
