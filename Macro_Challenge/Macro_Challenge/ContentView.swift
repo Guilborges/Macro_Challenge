@@ -97,7 +97,7 @@ struct ContentView: View {
                             //parte de exibicao das tags
                             
                             
-                            Section(header: Text("Descreva sua peça").bold()) {
+                            Section(header: Text("Descreva sua peça").bold().font(.system(size: 15, weight: .bold, design: .rounded)).foregroundColor(Color("elements"))) {
                                 Text("Adicione tags como: Azul, Camiseta, Algodão")
                                     .font(.subheadline)
                                 Spacer(minLength: 30)
@@ -141,6 +141,8 @@ struct ContentView: View {
                                     RoundedRectangle(cornerRadius: 10).strokeBorder(Color.gray)                                    .position(x: 182, y:20))
                             
                             Section(header: Text("Preço de venda")
+                                .font(.system(size: 17, weight: .bold, design: .rounded))
+                                .foregroundColor(Color("elements"))
                                 .bold()
                                 .padding(10)
                                 .position(x:63, y:35)){
@@ -176,6 +178,8 @@ struct ContentView: View {
                         
                         VStack() {
                             Section(header: Text("Status")
+                                .font(.system(size: 17, weight: .bold, design: .rounded))
+                                .foregroundColor(Color("elements"))
 //                                .position(x:40,y:0 )
                                 .position(x:30,y:0 )
 
