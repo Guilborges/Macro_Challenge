@@ -199,12 +199,12 @@ struct ContentView: View {
                                                     if buttonBoolAcquarid == true {
                                                         Image("iconeAdquiridoClicado")
                                                             .resizable()
-                                                            .frame(width: 60, height: 60)
+                                                            .frame(width: 53, height: 53 )
 
                                                     } else {
                                                         Image("iconeAdquirido")
                                                             .resizable()
-                                                            .frame(width: 60, height: 60)
+                                                            .frame(width: 53, height: 53)
 
                                                     }
                                                     Text("Adquirido")
@@ -227,12 +227,12 @@ struct ContentView: View {
                                                     if buttonBoolWashing == true {
                                                         Image("iconeLavandoClicado")
                                                             .resizable()
-                                                            .frame(width: 60, height: 60)
+                                                            .frame(width: 53, height: 53)
 
                                                     } else {
                                                         Image("iconeLavando")
                                                             .resizable()
-                                                            .frame(width: 60, height: 60)
+                                                            .frame(width: 53, height: 53)
 
                                                     }
                                                     Text("Lavando")
@@ -255,12 +255,12 @@ struct ContentView: View {
                                                     if buttonBoolMaintenance == true {
                                                         Image("iconeManutencaoClicado")
                                                             .resizable()
-                                                            .frame(width: 60, height: 60)
+                                                            .frame(width: 53, height: 53)
 
                                                     } else {
                                                         Image("iconeManutencao")
                                                             .resizable()
-                                                            .frame(width: 60, height: 60)
+                                                            .frame(width: 53, height: 53)
 
                                                     }
                                                     Text("Manutenção")
@@ -283,12 +283,12 @@ struct ContentView: View {
                                                     if buttonBoolSelling == true {
                                                         Image("iconeNaLojaClicado")
                                                             .resizable()
-                                                            .frame(width: 60, height: 60)
+                                                            .frame(width: 53, height: 53)
 
                                                     } else {
                                                         Image("iconeNaLoja")
                                                             .resizable()
-                                                            .frame(width: 60, height: 60)
+                                                            .frame(width: 53, height: 53)
 
                                                     }
                                                     Text("Na loja")
@@ -312,11 +312,12 @@ struct ContentView: View {
                                                     if buttonBoolSold == true {
                                                         Image("iconeVendidoClicado")
                                                             .resizable()
-                                                            .frame(width: 60, height: 60)
+                                                            .frame(width: 53, height: 53)
                                                     } else {
                                                         Image("iconeVendido")
                                                             .resizable()
-                                                            .frame(width: 60, height: 60)
+                                                            .frame(width: 53, height: 53)
+//                                                            .position(x: 40, y:27)
                                                     }
                                                     Text("Vendido")
                                                         .foregroundColor(Color("title"))
