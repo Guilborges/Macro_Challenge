@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Macro_Challenge
 //
-//  
+//
 //
 
 import SwiftUI
@@ -18,7 +18,8 @@ struct ContentView: View {
     @State private var double: Double = 0.0
     @State var imagepicker1 = UIImage(systemName: "")
     @StateObject var imagePicker = ImagePicker()
-    
+    @State private var number = "000.00"
+    @State private var isKeyboardVisible: Bool = false
     
     //Variaves do botão de status
     @State private var buttonBoolAcquarid = false
@@ -116,60 +117,62 @@ struct ContentView: View {
                                         // Código para limpar o TextField aqui
                                         text = ""
                                     }
-
-                                }
+                                
+                            }
                             Spacer(minLength: 20)
-                                //exibicao das tags
-                                HStack{
-                                    ScrollView(.vertical, showsIndicators: false) {
+                            //exibicao das tags
+                            HStack{
+                                ScrollView(.vertical, showsIndicators: false) {
+                                    
+                                    
+                                    //Exibindo tags
+                                    ForEach(getRows(),id: \.self) { rows in
                                         
-                                        
-                                        //Exibindo tags
-                                        ForEach(getRows(),id: \.self) { rows in
+                                        HStack(spacing:6){
                                             
-                                            HStack(spacing:6){
-                                                
-                                                ForEach(rows) { row in
-                                                    // Row view...
-                                                    RowView(tag: row)
-                                                }
+                                            ForEach(rows) { row in
+                                                // Row view...
+                                                RowView(tag: row)
                                             }
                                         }
-                                        .padding(10)
                                     }
-                                }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.06) .background(
-                                    RoundedRectangle(cornerRadius: 10).strokeBorder(Color.gray)                                    .position(x: 182, y:20))
-                            
+                                    .padding(10)
+                                }
+                            }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.06) .background(
+                                RoundedRectangle(cornerRadius: 10).strokeBorder(Color.gray)                                    .position(x: 182, y:20))
+                        
                             Section(header: Text("Preço de venda")
                                 .font(.system(size: 17, weight: .bold, design: .rounded))
                                 .foregroundColor(Color("elements"))
                                 .bold()
                                 .padding(10)
                                 .position(x:63, y:35)){
-                                Text("Qual será o preço de venda \nde sua peça?")
-                                    .font(.system(size: 16, design: .rounded))
-                                    TextField("0.00", text: $purchasedPrice)
-                                    .position(x: 420, y:-45)
-                                    .padding(.trailing)
-                                    .keyboardType(.decimalPad).background(Color(("assetBackgroundLight"))
-                                        .cornerRadius(10)
-                                        .frame(width: 130, height: 40)
-                                        .position(x: 295, y:-45)
-//                                        .frame(height: 50)
-                                        
-                                    )
-                                        .toolbar {
-                                            // Adicionar o botão "Dismiss" ao teclado
-                                            ToolbarItem(placement: .keyboard) {
-                                                Button("Fechar") {
-                                                    // Esconde o teclado quando o botão "Fechar" é pressionado
-                                                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                                                }
-                                            }
-                                            
-                                        }
+                                    Text("Qual será o preço de venda \nde sua peça?")
+                                        .font(.system(size: 16, design: .rounded))
+                                    TextField("0.00", text: $number, onEditingChanged: { isEditing in
+                                        isKeyboardVisible = isEditing
+                                    })
+                                        .position(x: 420, y: -45)
+                                        .padding(.trailing)
+                                        .keyboardType(.decimalPad)
+                                        .background(
+                                            Color("assetBackgroundLight")
+                                                .cornerRadius(10)
+                                                .frame(width: 130, height: 40)
+                                                .position(x: 295, y: -45)
+                                        )
                                 }
-                            
+                                .onChange(of: number) { newValue in
+                                    let numericValue = newValue.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+                                    
+                                    let formattedValue = String(format: "%05d", Int(numericValue) ?? 0)
+                                    let integerPart = formattedValue.prefix(3)
+                                    let decimalPart = formattedValue.suffix(2)
+                                    
+                                    number = "\(integerPart).\(decimalPart)"
+                                }
+                        
+                                
                             
                         
                         }
@@ -354,6 +357,10 @@ struct ContentView: View {
             }
             
             .background(Color("background"))
+        }.onTapGesture {
+            if isKeyboardVisible {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            }
         }
         .navigationBarTitle("Nova peça", displayMode: .large)
                     .navigationBarItems(
