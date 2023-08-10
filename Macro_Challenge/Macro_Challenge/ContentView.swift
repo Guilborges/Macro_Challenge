@@ -55,7 +55,7 @@ struct ContentView: View {
 //
 //
 //                        }
-                    
+                        Spacer(minLength: 30)
                         HStack{
                             
                             if let image = imagePicker.image {
@@ -81,16 +81,17 @@ struct ContentView: View {
                             Text("Adicionar foto da sua peça")
                                // .position(x: 65, y:10)
                                 .bold()
-                                .font(.system(size: 17, weight: .bold, design: .rounded))
-                                .padding(20)
+                                .font(.system(size: 13, weight: .bold, design: .rounded))
+                                .padding(10)
                                 .foregroundColor(Color("elements"))
                             
                            
                         }
-                        .frame(width:350, height:50)
+//                        .frame(width:350, height:50)
                         //.cornerRadius(CGFloat:30)
                         .background(Color("assetBackgroundLight"))
                         .cornerRadius(10)
+                        Spacer(minLength: 30)
                         VStack(alignment: .leading) {
                             
                             //parte de exibicao das tags
