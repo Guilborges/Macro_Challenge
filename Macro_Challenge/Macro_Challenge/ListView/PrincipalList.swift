@@ -65,7 +65,7 @@ struct PrincipalList: View {
                             
                             .actionSheet(isPresented: $showingSheet) {
                                 ActionSheet(title: Text("Mude o Status da sua peça"), message: nil, buttons: [ // 4
-                                    .default(Text("Adiquirido"), action: { // 5
+                                    .default(Text("Adquirido"), action: { // 5
                                         prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .acquarid)
                                         
                                     }),
