@@ -174,15 +174,15 @@ struct ContentView: View {
                         .padding(10)
                         
                         
-                        VStack(alignment: .leading) {
+                        VStack() {
                             Section(header: Text("Status")
-//                                .position(x:-500,y:0 )
+//                                .position(x:40,y:0 )
+                                .position(x:30,y:0 )
+
                                 .bold()
                                 .padding(10)) {
                                     Text("Em qual etapa do processo sua peça está?")
-//                                        .position(x:100,y:30 )
-
-                                    
+                                        .position(x:160,y:-15 )
                                         .font(.subheadline)
                                     
                                     HStack(spacing: 10) {
@@ -198,12 +198,18 @@ struct ContentView: View {
                                                 VStack {
                                                     if buttonBoolAcquarid == true {
                                                         Image("iconeAdquiridoClicado")
+                                                            .resizable()
+                                                            .frame(width: 60, height: 60)
+
                                                     } else {
                                                         Image("iconeAdquirido")
+                                                            .resizable()
+                                                            .frame(width: 60, height: 60)
+
                                                     }
                                                     Text("Adquirido")
                                                         .foregroundColor(Color("title"))
-                                                        .font(.system(size: 10, weight: .bold, design: .rounded))
+                                                        .font(.system(size: 15, weight: .bold, design: .rounded))
                                                 }
                                             }
                                         }
@@ -220,12 +226,18 @@ struct ContentView: View {
                                                 VStack {
                                                     if buttonBoolWashing == true {
                                                         Image("iconeLavandoClicado")
+                                                            .resizable()
+                                                            .frame(width: 60, height: 60)
+
                                                     } else {
                                                         Image("iconeLavando")
+                                                            .resizable()
+                                                            .frame(width: 60, height: 60)
+
                                                     }
                                                     Text("Lavando")
                                                         .foregroundColor(Color("title"))
-                                                        .font(.system(size: 10, weight: .bold, design: .rounded))
+                                                        .font(.system(size: 15, weight: .bold, design: .rounded))
                                                 }
                                             }
                                         }
@@ -242,12 +254,18 @@ struct ContentView: View {
                                                 VStack {
                                                     if buttonBoolMaintenance == true {
                                                         Image("iconeManutencaoClicado")
+                                                            .resizable()
+                                                            .frame(width: 60, height: 60)
+
                                                     } else {
                                                         Image("iconeManutencao")
+                                                            .resizable()
+                                                            .frame(width: 60, height: 60)
+
                                                     }
                                                     Text("Manutenção")
                                                         .foregroundColor(Color("title"))
-                                                        .font(.system(size: 10, weight: .bold, design: .rounded))
+                                                        .font(.system(size: 15, weight: .bold, design: .rounded))
                                                 }
                                             }
                                         }
@@ -264,12 +282,18 @@ struct ContentView: View {
                                                 VStack {
                                                     if buttonBoolSelling == true {
                                                         Image("iconeNaLojaClicado")
+                                                            .resizable()
+                                                            .frame(width: 60, height: 60)
+
                                                     } else {
                                                         Image("iconeNaLoja")
+                                                            .resizable()
+                                                            .frame(width: 60, height: 60)
+
                                                     }
                                                     Text("Na loja")
                                                         .foregroundColor(Color("title"))
-                                                        .font(.system(size: 10, weight: .bold, design: .rounded))
+                                                        .font(.system(size: 15, weight: .bold, design: .rounded))
                                                 }
                                             }
                                         }
@@ -287,12 +311,16 @@ struct ContentView: View {
                                                 VStack {
                                                     if buttonBoolSold == true {
                                                         Image("iconeVendidoClicado")
+                                                            .resizable()
+                                                            .frame(width: 60, height: 60)
                                                     } else {
                                                         Image("iconeVendido")
+                                                            .resizable()
+                                                            .frame(width: 60, height: 60)
                                                     }
                                                     Text("Vendido")
                                                         .foregroundColor(Color("title"))
-                                                        .font(.system(size: 10, weight: .bold, design: .rounded))
+                                                        .font(.system(size: 15, weight: .bold, design: .rounded))
                                                 }
                                             }
                                         }
