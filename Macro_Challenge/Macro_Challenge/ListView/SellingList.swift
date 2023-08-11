@@ -19,13 +19,12 @@ struct SellingList: View {
         
             NavigationStack {
                 VStack(alignment: .leading) {
-                    Text("Produtos em Loja")
+                    Text("Sua Loja")
                         .bold()
                         .font(.system(size: 34, weight: .bold, design: .rounded))
                         .padding(25)
                         .foregroundColor(Color("title"))
-                    Text("Total de Peças: \(prod.productsCountSelling())")
-                        .frame(maxWidth: .infinity, alignment: .center)
+                    
                     
                     
                     ScrollView {
@@ -36,29 +35,31 @@ struct SellingList: View {
                                                 setIndexProduct = index
                                                 showingSheet.toggle()
                                             }) {
-                                                VStack(spacing: 8) {
-                                                    if let image = product.image{
-                                                        Image(uiImage: image)
-                                                            .resizable()
-                                                            .scaledToFit()
-                                                            .frame(width: 70, height: 70)
-                                                            .cornerRadius(10)
+                                                
+                                                VStack {
+                                                    Section{
+                                                        if let image = product.image{
+                                                            Image(uiImage: image)
+                                                                .resizable()
+                                                                .scaledToFill()
+                                                            
+                                                                .frame(width: 90, height: 90)
+                                                            
+                                                                
+                                                                .clipped()
+                                                               
+                                                        }
+
+                                                        
+                                                        Text("R$:\(String(format: "%.2f", product.purchasedPrice))")
+                                                            .font(.footnote)
                                                     }
-                                                    Divider()
-                                                    
-                                                    Text("R$:\(String(format: "%.2f", product.purchasedPrice))")
-                                                        .font(.footnote)
-                                                    
                                                     
                                                 }
-                                                .padding()
                                                 .foregroundColor(.primary)
                                                 .background(Color.white)
                                                 .cornerRadius(10)
-                                                .overlay(
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                        .stroke(Color.gray, lineWidth: 1)
-                                                )
+                                                
                                             }
                                             .actionSheet(isPresented: $showingSheet) {
                                                 ActionSheet(title: Text("Mude o Status da sua peça"), message: nil, buttons: [ // 4
@@ -95,11 +96,11 @@ struct SellingList: View {
                                 }
                                 .padding()
                             }
-                    
+                   // .background(Color("background"))
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: SoldList(prod: prod)) {
-                                Text("Vendidos")
+                            NavigationLink(destination: ContentView(prod: prod, tags: $tags)) {
+                                Text("Adicionar Peça").foregroundColor(Color("elements"))
                             }
                         }
                     }
@@ -108,8 +109,9 @@ struct SellingList: View {
                 }
                 .navigationViewStyle(.stack)
                 .frame(maxWidth: .infinity)
+                .background(Color("background"))
             }
-            .navigationBarHidden(true)
+           
            
         }
        

@@ -25,7 +25,7 @@ class ProductViewModel: ObservableObject {
     productList.append(Product(tags: tags, purchasedPrice: purchasedPrice, status: status.self, acessory: true,image: image))
         saveUserDefault()
        
-        objectWillChange.send()
+  
 
         
     }

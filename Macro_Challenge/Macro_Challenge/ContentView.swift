@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Macro_Challenge
 //
-//  
+//
 //
 
 import SwiftUI
@@ -14,11 +14,13 @@ struct ContentView: View {
     let formatter = NumberFormatter()
     var prod: ProductViewModel
     @State private var purchasedPrice = String()
-    @State private var status: ProductStatus = ProductStatus.nullo
+    @State private var status: ProductStatus = ProductStatus.acquarid
     @State private var double: Double = 0.0
     @State var imagepicker1 = UIImage(systemName: "")
     @StateObject var imagePicker = ImagePicker()
     
+    
+    @State private var isKeyboardVisible: Bool = false
     
     //Variaves do botão de status
     @State private var buttonBoolAcquarid = false
@@ -45,25 +47,25 @@ struct ContentView: View {
             ScrollView{
                 ZStack {
                     VStack {
-                        VStack(alignment: .leading) {
-                            Text("Adicionar")
-                                .position(x: 65, y:10)
-                                .bold()
-                                .font(.system(size: 34, weight: .bold, design: .rounded))
-                                .padding(25)
-                                .foregroundColor(Color("title"))
-                            
-                    
-                        }
-                    
+//                        VStack(alignment: .leading) {
+//                            Text("Adicionar")
+////                                .position(x: 65, y:10)
+////                                .bold()
+//                                .font(.system(size: 34, weight: .bold, design: .rounded))
+//                                .padding(25)
+////                                .foregroundColor(Color("title"))
+//
+//
+//                        }
+                        Spacer(minLength: 30)
                         HStack{
                             
                             if let image = imagePicker.image {
-                                PhotosPicker( selection: $imagePicker.imageSelection){
+                                PhotosPicker( selection: $imagePicker.imageSelection)
+                                    {
                                     Image(uiImage: image)
                                         .resizable()
                                         .frame(width: 42, height: 30)
-                                    
                                         .padding()
                                 }
                             } else  {
@@ -71,32 +73,36 @@ struct ContentView: View {
                                     Image(systemName: "photo")
                                         .resizable()
                                         .frame(width: 42, height: 30)
-
+                                        
                                         .padding()
-                                }.foregroundColor(Color("elements"))//cor do botao de adicionar foto
+                                }
+                                .foregroundColor(Color("elements"))//cor do botao de adicionar foto
                             }
                                 
                             
                             Text("Adicionar foto da sua peça")
                                // .position(x: 65, y:10)
                                 .bold()
-                                .font(.system(size: 17, weight: .bold, design: .rounded))
-                                .padding(20)
+                                .font(.system(size: 15, weight: .bold, design: .rounded))
+                                .padding(10)
                                 .foregroundColor(Color("elements"))
                             
                            
                         }
-                        .frame(width:350, height:50)
-                        
+//                        .frame(width:350, height:50)
                         //.cornerRadius(CGFloat:30)
                         .background(Color("assetBackgroundLight"))
-                        
-                        VStack {
+                        .cornerRadius(10)
+                        Spacer(minLength: 30)
+                        VStack(alignment: .leading) {
                             
                             //parte de exibicao das tags
                             
                             
-                            Section(header: Text("Informe a(s) Tag(s) da peça")) {
+                            Section(header: Text("Descreva sua peça").bold().font(.system(size: 15, weight: .bold, design: .rounded)).foregroundColor(Color("elements"))) {
+                                Text("Adicione tags como: Azul, Camiseta, Algodão")
+                                    .font(.subheadline)
+                                Spacer(minLength: 30)
                                 TextField("Adicione uma tag", text: $text, onCommit: addTag)
                                     .padding(.leading)
                                     .font(.system(size: 17, weight: .bold, design: .rounded))
@@ -104,8 +110,9 @@ struct ContentView: View {
                                         Color("assetBackgroundLight")
                                             .foregroundColor(Color("title"))
                                             .cornerRadius(10)
-                                            .frame(height: 50)
+                                            .frame(height: 40)
                                     )
+                                    .position(x: 173, y:10)
                                     .padding(10)
                                     .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
                                         // Código para limpar o TextField aqui
@@ -113,7 +120,7 @@ struct ContentView: View {
                                     }
 
                                 }
-                                
+                            Spacer(minLength: 20)
                                 //exibicao das tags
                                 HStack{
                                     ScrollView(.vertical, showsIndicators: false) {
@@ -132,23 +139,39 @@ struct ContentView: View {
                                         }
                                         .padding(10)
                                     }
-                                }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.1).background(
-                                    RoundedRectangle(cornerRadius: 10).strokeBorder(Color.brown))
-                                Section(header: Text("Informe o preço pago na peça").padding(10)){
-                                    TextField("0.00", text: $purchasedPrice).padding(.leading).keyboardType(.decimalPad).background(Color(("assetBackgroundLight"))
-                                            .cornerRadius(10).frame(height: 50)
+                                }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.06) .background(
+                                    RoundedRectangle(cornerRadius: 10).strokeBorder(Color.gray)                                    .position(x: 182, y:20))
+                            
+                            Section(header: Text("Preço de venda")
+                                .font(.system(size: 17, weight: .bold, design: .rounded))
+                                .foregroundColor(Color("elements"))
+                                .bold()
+                                .padding(10)
+                                .position(x:63, y:35)){
+                                Text("Qual será o preço de venda \nde sua peça?")
+                                    .font(.system(size: 16, design: .rounded))
+                                    TextField("0.00", text: $purchasedPrice, onEditingChanged: { isEditing in
+                                        isKeyboardVisible = true
+                                    })
+                                    .position(x: 420, y:-45)
+                                    .padding(.trailing)
+                                    .keyboardType(.decimalPad).background(Color(("assetBackgroundLight"))
+                                        .cornerRadius(10)
+                                        .frame(width: 130, height: 40)
+                                        .position(x: 295, y:-45)
+//                                        .frame(height: 50)
                                         
-                                    ).padding(10)
-                                        .toolbar {
-                                            // Adicionar o botão "Dismiss" ao teclado
-                                            ToolbarItem(placement: .keyboard) {
-                                                Button("Fechar") {
-                                                    // Esconde o teclado quando o botão "Fechar" é pressionado
-                                                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                                                }
-                                            }
-                                            
-                                        }
+                                    )
+//                                        .toolbar {
+//                                            // Adicionar o botão "Dismiss" ao teclado
+//                                            ToolbarItem(placement: .keyboard) {
+//                                                Button("Fechar") {
+//                                                    // Esconde o teclado quando o botão "Fechar" é pressionado
+//                                                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+//                                                }
+//                                            }
+//
+//                                        }
                                 }
                             
                             
@@ -157,206 +180,162 @@ struct ContentView: View {
                         .padding(10)
                         
                         
-                        VStack{
+                        VStack() {
                             Section(header: Text("Status")
-                                
-                                .padding(10)){
-                                
-                                                                                                                                
-                                
-                                
-                                HStack {
-                                    VStack {
-                                        Button {
-                                            
-                                            buttonBoolAcquarid = true
-                                            status = ProductStatus.acquarid
-                                            buttonBoolSold = false
-                                            buttonBoolSelling = false
-                                            buttonBoolWashing = false
-                                            buttonBoolMaintenance = false
-                                        } label: {
-                                            VStack {
-                                                if buttonBoolAcquarid == true{
-                                                    Image("onAcquaridIcon")
-                                                }
-                                                else{
-                                                    Image("acquaridIcon")
-                                                }
-                                                Text("Adquirido")
-                                                    .foregroundColor(Color("title"))
-                                                    .font(.system(size: 10, weight: .bold, design: .rounded))
-                                                
-                                            }
-                                        }
-                                    }
-                                    VStack{
-                                        Button {
-                                            buttonBoolWashing = true
-                                            status = ProductStatus.washing
-                                            buttonBoolSold = false
-                                            buttonBoolSelling = false
-                                            buttonBoolAcquarid = false
-                                            buttonBoolMaintenance = false
-                                        } label: {
-                                            VStack{
-                                                if buttonBoolWashing == true{
-                                                    Image("onWashingIcon")
-                                                }
-                                                else{
-                                                    Image("washingIcon")
-                                                }
-                                                Text("Lavando")
-                                                    .foregroundColor(Color("title"))
-                                                    .font(.system(size: 10, weight: .bold, design: .rounded))
-                                            }
-                                            
-                                            
-                                        }
-                                    }
-                                    VStack {
-                                        Button {
-                                            buttonBoolMaintenance = true
-                                            status = ProductStatus.maintenance
-                                            buttonBoolSold = false
-                                            buttonBoolSelling = false
-                                            buttonBoolAcquarid = false
-                                            
-                                            buttonBoolWashing = false
-                                            
-                                        } label: {
-                                            VStack{
-                                                if buttonBoolMaintenance == true{
-                                                    Image("onMaintenanceIcon")
-                                                }
-                                                else{
-                                                    Image("maintenanceIcon")
-                                                }
-                                                
-                                                Text("Em manutenção")
-                                                    .foregroundColor(Color("title"))
-                                                    .font(.system(size: 10, weight: .bold, design: .rounded))
-                                            }
-                                            
-                                        }
-                                    }
+                                .font(.system(size: 17, weight: .bold, design: .rounded))
+                                .foregroundColor(Color("elements"))
+//                                .position(x:40,y:0 )
+                                .position(x:30,y:0 )
+
+                                .bold()
+                                .padding(10)) {
+                                    Text("Em qual etapa do processo sua peça está?")
+                                        .position(x:160,y:-15 )
+                                        .font(.subheadline)
                                     
-                                    VStack {
-                                        Button {
-                                            buttonBoolSelling = true
-                                            status = ProductStatus.selling
-                                            buttonBoolSold = false
-                                            buttonBoolAcquarid = false
-                                            buttonBoolMaintenance = false
-                                            buttonBoolWashing = false
-                                        } label: {
-                                            VStack{
-                                                if buttonBoolSelling == true{
-                                                    Image("onSellingIcon")
+                                    HStack(spacing: 10) {
+                                        VStack {
+                                            Button {
+                                                buttonBoolAcquarid = true
+                                                status = ProductStatus.acquarid
+                                                buttonBoolSold = false
+                                                buttonBoolSelling = false
+                                                buttonBoolWashing = false
+                                                buttonBoolMaintenance = false
+                                            } label: {
+                                                VStack {
+                                                    if buttonBoolAcquarid == true {
+                                                        Image("iconeAdquiridoClicado")
+                                                            .resizable()
+                                                            .frame(width: 53, height: 53 )
+
+                                                    } else {
+                                                        Image("iconeAdquirido")
+                                                            .resizable()
+                                                            .frame(width: 53, height: 53)
+
+                                                    }
+                                                    Text("Adquirido")
+                                                        .foregroundColor(Color("title"))
+                                                        .font(.system(size: 11, weight: .bold, design: .rounded))
                                                 }
-                                                else{
-                                                    Image("sellingIcon")
-                                                    
-                                                }
-                                                Text("Na loja")
-                                                    .foregroundColor(Color("title"))
-                                                    .font(.system(size: 10, weight: .bold, design: .rounded))
                                             }
                                         }
-                                    }
-                                    VStack {
-                                        Button {
-                                            buttonBoolSelling = false
-                                            buttonBoolAcquarid = false
-                                            buttonBoolMaintenance = false
-                                            buttonBoolWashing = false
-                                            buttonBoolSold = true
-                                            
-                                            status = ProductStatus.sold
-                                            
-                                            
-                                        } label: {
-                                            VStack{
-                                                if buttonBoolSold == true {
-                                                    Image( "onSoldIcon")
+                                        
+                                        VStack {
+                                            Button {
+                                                buttonBoolWashing = true
+                                                status = ProductStatus.washing
+                                                buttonBoolSold = false
+                                                buttonBoolSelling = false
+                                                buttonBoolAcquarid = false
+                                                buttonBoolMaintenance = false
+                                            } label: {
+                                                VStack {
+                                                    if buttonBoolWashing == true {
+                                                        Image("iconeLavandoClicado")
+                                                            .resizable()
+                                                            .frame(width: 53, height: 53)
+
+                                                    } else {
+                                                        Image("iconeLavando")
+                                                            .resizable()
+                                                            .frame(width: 53, height: 53)
+
+                                                    }
+                                                    Text("Lavando")
+                                                        .foregroundColor(Color("title"))
+                                                        .font(.system(size: 11, weight: .bold, design: .rounded))
                                                 }
-                                                else{
-                                                    Image( "soldIcon")
-                                                    
+                                            }
+                                        }
+                                        
+                                        VStack {
+                                            Button {
+                                                buttonBoolMaintenance = true
+                                                status = ProductStatus.maintenance
+                                                buttonBoolSold = false
+                                                buttonBoolSelling = false
+                                                buttonBoolAcquarid = false
+                                                buttonBoolWashing = false
+                                            } label: {
+                                                VStack {
+                                                    if buttonBoolMaintenance == true {
+                                                        Image("iconeManutencaoClicado")
+                                                            .resizable()
+                                                            .frame(width: 53, height: 53)
+
+                                                    } else {
+                                                        Image("iconeManutencao")
+                                                            .resizable()
+                                                            .frame(width: 53, height: 53)
+
+                                                    }
+                                                    Text("Manutenção")
+                                                        .foregroundColor(Color("title"))
+                                                        .font(.system(size: 11, weight: .bold, design: .rounded))
                                                 }
-                                                Text("Vendido")
-                                                    .foregroundColor(Color("title"))
-                                                    .font(.system(size: 10, weight: .bold, design: .rounded))
+                                            }
+                                        }
+                                        
+                                        VStack {
+                                            Button {
+                                                buttonBoolSelling = true
+                                                status = ProductStatus.selling
+                                                buttonBoolSold = false
+                                                buttonBoolAcquarid = false
+                                                buttonBoolMaintenance = false
+                                                buttonBoolWashing = false
+                                            } label: {
+                                                VStack {
+                                                    if buttonBoolSelling == true {
+                                                        Image("iconeNaLojaClicado")
+                                                            .resizable()
+                                                            .frame(width: 53, height: 53)
+
+                                                    } else {
+                                                        Image("iconeNaLoja")
+                                                            .resizable()
+                                                            .frame(width: 53, height: 53)
+
+                                                    }
+                                                    Text("Na loja")
+                                                        .foregroundColor(Color("title"))
+                                                        .font(.system(size: 11, weight: .bold, design: .rounded))
+                                                }
+                                            }
+                                        }
+                                        
+                                        VStack {
+                                            Button {
+                                                buttonBoolSelling = false
+                                                buttonBoolAcquarid = false
+                                                buttonBoolMaintenance = false
+                                                buttonBoolWashing = false
+                                                buttonBoolSold = true
                                                 
+                                                status = ProductStatus.sold
+                                            } label: {
+                                                VStack {
+                                                    if buttonBoolSold == true {
+                                                        Image("iconeVendidoClicado")
+                                                            .resizable()
+                                                            .frame(width: 53, height: 53)
+                                                    } else {
+                                                        Image("iconeVendido")
+                                                            .resizable()
+                                                            .frame(width: 53, height: 53)
+//                                                            .position(x: 40, y:27)
+                                                    }
+                                                    Text("Vendido")
+                                                        .foregroundColor(Color("title"))
+                                                        .font(.system(size: 11, weight: .bold, design: .rounded))
+                                                }
                                             }
                                         }
                                     }
                                 }
-                            }
-                            
                         }
-                        HStack {
-                            Button {
-                                
-                                if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil || status == ProductStatus.nullo){
-                                    showAlert = true
-                                    print("nao deu")
-                                }else {
-                                    prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: ((imagePicker.image ?? imagepicker1)!))
-                                    //print(prod)
-                                    resetScreenObject()
-                                    self.presentationMode.wrappedValue.dismiss()
-                                }
-                                
-                                
-                            } label: {
-                                Image("checkIcon")
-                                    .frame(width: 82, height: 70)
-                                
-                                
-                            }.alert(isPresented: $showAlert) {
-                                Alert(
-                                    title: Text("Campos Insuficientes"),
-                                    message: Text("Preencha todos os campos \n de adição da peça!")
-                                )
-                            }.padding(10)
-                            Button {
-                                
-                                if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil){
-                                    showAlert = true
-                                    print("nao deu")
-                                }else {
-                                    prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: ((imagePicker.image ?? imagepicker1)!))
-                                   // print(prod)
-                                    resetScreenObject()
-                                    
-                                }
-                                
-                                
-                            } label: {
-                                Image(systemName: "plus")
-                                    .frame(width: 82, height: 70)
-                                
-                                
-                            }
-                            Button {
-                                
-                               // prod.addProductMock()
-                                
-                            } label: {
-                                Image(systemName: "plus")
-                                    .frame(width: 82, height: 70)
-                                
-                                
-                            }.alert(isPresented: $showAlert) {
-                                Alert(
-                                    title: Text("Campos Insuficientes"),
-                                    message: Text("Preencha todos os campos \n de adição da peça!")
-                                )
-                            }.padding(10)
-                            
-                        }
-                        
                     }
                 }.onChange(of: tags) { newValue in
                     //Obtendo novo valor inserido...
@@ -379,7 +358,39 @@ struct ContentView: View {
             }
             
             .background(Color("background"))
+        }.onTapGesture {
+            if isKeyboardVisible {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            }
         }
+        .navigationBarTitle("Nova peça", displayMode: .large)
+                    .navigationBarItems(
+                        leading:
+                            Button(action: {
+                              
+                                self.presentationMode.wrappedValue.dismiss()
+                            }) {
+                                Text("")
+                            },
+                        trailing:
+                            Button(action: {
+                                if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil){
+                                    showAlert = true
+                                    print("nao deu")
+                                }else {
+                                    prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: ((imagePicker.image ?? imagepicker1)!))
+                                    //print(prod)
+                                    resetScreenObject()
+                                    self.presentationMode.wrappedValue.dismiss()
+                                }
+                            }) {
+                                Text("Salvar")
+                            }.alert(isPresented: $showAlert) {
+                                Alert(
+                                    title: Text("Campos Insuficientes"),
+                                    message: Text("Preencha todos os campos \n de adição da peça!")
+                                )}
+                    )
         
     }
     @ViewBuilder

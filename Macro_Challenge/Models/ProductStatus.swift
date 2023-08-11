@@ -8,14 +8,21 @@
 import Foundation
 
 
-    enum ProductStatus: String, Codable{
-        
-        case washing = "Lavando"
+enum ProductStatus: String, Codable, CaseIterable, Identifiable{
+    
+    var id: String { self.rawValue }
+    
+    
+    
+    //var id: UUID
+    case todos = "Todos"
+    case acquarid = "Adquirido"
+    case washing = "Lavando"
         case maintenance = "Manuteção"
         case selling = "Vendendo"
-        case acquarid = "Adquirido"
+        
         case sold = "Vendido"
-        case nullo = "null"
+       // case nullo = "null"
         
     }
     

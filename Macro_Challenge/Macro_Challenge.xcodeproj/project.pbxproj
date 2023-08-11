@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		056DA21B2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */; };
 		056DA21D2A1BDF26005FD1F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA21C2A1BDF26005FD1F5 /* ContentView.swift */; };
-		056DA21F2A1BDF27005FD1F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056DA21E2A1BDF27005FD1F5 /* Assets.xcassets */; };
-		056DA2222A1BDF27005FD1F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056DA2212A1BDF27005FD1F5 /* Preview Assets.xcassets */; };
 		056DA22C2A1BDF27005FD1F5 /* Macro_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA22B2A1BDF27005FD1F5 /* Macro_ChallengeTests.swift */; };
 		056DA2362A1BDF27005FD1F5 /* Macro_ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA2352A1BDF27005FD1F5 /* Macro_ChallengeUITests.swift */; };
 		056DA2382A1BDF27005FD1F5 /* Macro_ChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA2372A1BDF27005FD1F5 /* Macro_ChallengeUITestsLaunchTests.swift */; };
@@ -19,7 +17,6 @@
 		0D1038692A83DCD70095B33A /* ProductDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D1038672A83DCD70095B33A /* ProductDataBase.xcdatamodeld */; };
 		0D1E03262A78C2750062B13F /* SellingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E03252A78C2750062B13F /* SellingList.swift */; };
 		0D1E03282A78CD950062B13F /* SoldList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E03272A78CD950062B13F /* SoldList.swift */; };
-		0D29D41E2A7445BA005C813F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D29D41D2A7445BA005C813F /* Media.xcassets */; };
 		0D29D4202A74D84F005C813F /* MaintenanceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D29D41F2A74D84F005C813F /* MaintenanceList.swift */; };
 		0D3D662C2A38FF1200B462FA /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D662B2A38FF1200B462FA /* ProductViewModel.swift */; };
 		0D3D662E2A3AAA4B00B462FA /* CircleButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D662D2A3AAA4B00B462FA /* CircleButtons.swift */; };
@@ -32,6 +29,8 @@
 		0DC46DE82A22A1D300B48210 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC46DE72A22A1D300B48210 /* Tag.swift */; };
 		0DC46DEA2A22A29900B48210 /* ProductStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC46DE92A22A29900B48210 /* ProductStatus.swift */; };
 		0DC46DEC2A25441500B48210 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC46DEB2A25441500B48210 /* PhotoPicker.swift */; };
+		0DF8E71D2A857B0800B7BE3A /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF8E71C2A857B0800B7BE3A /* assets.xcassets */; };
+		0DF8E7202A86C49000B7BE3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF8E71F2A86C49000B7BE3A /* LaunchScreen.storyboard */; };
 		817112172A269A0A001D1F6D /* ProductAddSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817112162A269A0A001D1F6D /* ProductAddSpec.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,8 +55,6 @@
 		056DA2172A1BDF26005FD1F5 /* Macro_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Macro_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_ChallengeApp.swift; sourceTree = "<group>"; };
 		056DA21C2A1BDF26005FD1F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		056DA21E2A1BDF27005FD1F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		056DA2212A1BDF27005FD1F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		056DA2272A1BDF27005FD1F5 /* Macro_ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Macro_ChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		056DA22B2A1BDF27005FD1F5 /* Macro_ChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_ChallengeTests.swift; sourceTree = "<group>"; };
 		056DA2312A1BDF27005FD1F5 /* Macro_ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Macro_ChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,7 +66,6 @@
 		0D1E03252A78C2750062B13F /* SellingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellingList.swift; sourceTree = "<group>"; };
 		0D1E03272A78CD950062B13F /* SoldList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoldList.swift; sourceTree = "<group>"; };
 		0D2418102A8427C600F4F3AC /* ProductDataBase 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ProductDataBase 2.xcdatamodel"; sourceTree = "<group>"; };
-		0D29D41D2A7445BA005C813F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../../../../../Media.xcassets; sourceTree = "<group>"; };
 		0D29D41F2A74D84F005C813F /* MaintenanceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceList.swift; sourceTree = "<group>"; };
 		0D3D662B2A38FF1200B462FA /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		0D3D662D2A3AAA4B00B462FA /* CircleButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtons.swift; sourceTree = "<group>"; };
@@ -82,6 +78,10 @@
 		0DC46DE72A22A1D300B48210 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		0DC46DE92A22A29900B48210 /* ProductStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStatus.swift; sourceTree = "<group>"; };
 		0DC46DEB2A25441500B48210 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		0DF8E71C2A857B0800B7BE3A /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = assets.xcassets; path = ../../../../../../Downloads/assets.xcassets; sourceTree = "<group>"; };
+		0DF8E71E2A857B1300B7BE3A /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = assets.xcassets; path = ../../../../../../../Downloads/assets.xcassets; sourceTree = "<group>"; };
+		0DF8E71F2A86C49000B7BE3A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0DF8E7212A86C4AA00B7BE3A /* Macro-Challenge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Macro-Challenge-Info.plist"; sourceTree = SOURCE_ROOT; };
 		817112162A269A0A001D1F6D /* ProductAddSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,12 +136,14 @@
 		056DA2192A1BDF26005FD1F5 /* Macro_Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				0DF8E7212A86C4AA00B7BE3A /* Macro-Challenge-Info.plist */,
 				056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */,
 				0D29D4212A74D8C9005C813F /* ListView */,
 				0D3D662A2A38FEF800B462FA /* ViewModelProduct */,
 				056DA21C2A1BDF26005FD1F5 /* ContentView.swift */,
 				056DA2202A1BDF27005FD1F5 /* Preview Content */,
 				0DC46DEB2A25441500B48210 /* PhotoPicker.swift */,
+				0DF8E71C2A857B0800B7BE3A /* assets.xcassets */,
 				05C74E1B2A2FA6CF00F05822 /* TabBarView.swift */,
 				0D3D662D2A3AAA4B00B462FA /* CircleButtons.swift */,
 				0D8AA9D92A7AF08E00E885CA /* UserDefaultModel.swift */,
@@ -153,9 +155,7 @@
 		056DA2202A1BDF27005FD1F5 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				056DA21E2A1BDF27005FD1F5 /* Assets.xcassets */,
-				056DA2212A1BDF27005FD1F5 /* Preview Assets.xcassets */,
-				0D29D41D2A7445BA005C813F /* Media.xcassets */,
+				0DF8E71E2A857B1300B7BE3A /* assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -221,6 +221,7 @@
 				0DC46DE92A22A29900B48210 /* ProductStatus.swift */,
 				0DC46DE52A22A17100B48210 /* Product.swift */,
 				0DC46DE72A22A1D300B48210 /* Tag.swift */,
+				0DF8E71F2A86C49000B7BE3A /* LaunchScreen.storyboard */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -330,9 +331,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056DA2222A1BDF27005FD1F5 /* Preview Assets.xcassets in Resources */,
-				0D29D41E2A7445BA005C813F /* Media.xcassets in Resources */,
-				056DA21F2A1BDF27005FD1F5 /* Assets.xcassets in Resources */,
+				0DF8E71D2A857B0800B7BE3A /* assets.xcassets in Resources */,
+				0DF8E7202A86C49000B7BE3A /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,10 +538,12 @@
 				DEVELOPMENT_TEAM = 7857H4YLGF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Macro-Challenge-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Meu Brechó";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -568,10 +570,12 @@
 				DEVELOPMENT_TEAM = 7857H4YLGF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Macro-Challenge-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Meu Brechó";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

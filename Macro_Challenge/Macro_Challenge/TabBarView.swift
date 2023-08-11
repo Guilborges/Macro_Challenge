@@ -15,25 +15,21 @@ struct TabBarView: View {
     
     var body: some View {
         TabView {
-            PrincipalList(prod: prodVm)
-                .tabItem {
-                    Image(systemName: "globe")
-                }
-            
-            WashingList(prod: prodVm)
-                .tabItem {
-                    Image(systemName: "globe")
-                }
-            
-            MaintenanceList(prod: prodVm)
-                .tabItem {
-                    Image(systemName: "globe")
-                }
-            
             SellingList(prod: prodVm)
                 .tabItem {
-                    Image(systemName: "globe")
+                    Image("storeIcon2")
+                    
                 }
+                .background(Color("background"))
+
+            PrincipalList(prod: prodVm)
+                .tabItem {
+                    Image("processIcon2")
+                }
+                .background(Color("background"))
+
+            
+           
 
         }
         

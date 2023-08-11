@@ -16,28 +16,66 @@ struct PrincipalList: View {
     @ObservedObject var prod: ProductViewModel
     @State private var setIndexProduct: Int = 0
     @State private var showingSheet = false
+    @State private var showingSheetProduct = false
     
+    @State private var selectedFilter = ProductStatus.todos
     
-    
+    var filteredProducts: [Product] {
+        if selectedFilter == ProductStatus.todos {
+            return prod.productList
+        } else  {
+            return prod.productList.filter { $0.status == selectedFilter }
+        }
+    }
     
     var body: some View {
+        VStack {
         
-        NavigationStack {
-            VStack(alignment: .leading) {
-                Text("Meu Brechó")
+            
+                HStack{
+                Text("Processos")
                     .bold()
                     .font(.system(size: 34, weight: .bold, design: .rounded))
                     .padding(25)
                     .foregroundColor(Color("title"))
-                Text("Total de Peças: \(prod.productsCount())")
-                    .frame(maxWidth: .infinity, alignment: .center)
                 
                 
+               
+                    Spacer()
+                   
+                    Menu {
+                        ForEach(ProductStatus.allCases, id: \.self) { status in
+                            Button(status.rawValue) {
+                                self.selectedFilter = status
+                                print(selectedFilter)
+                            }
+                        }
+                    } label: {
+                       
+                            Text("Filtro").foregroundColor(Color("elements"))
+                            
+                            Image(systemName: "line.3.horizontal.decrease.circle").foregroundColor((Color("elements")))
+                        }.padding(20)
+                  
+                }.background(Color("background"))
+             
+            VStack {
+                
+                Text("\(selectedFilter.rawValue)")
+                
+                    .foregroundColor(Color("elements"))
+                    .background(Color("background"))
+                    .padding(.trailing)
+                
+            }
+                
+                
+                
+            
                 ScrollView {
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 3), spacing: 16) {
-                        ForEach(Array(prod.productList.enumerated()), id: \.offset) { index, product in
+                        ForEach(Array(filteredProducts.enumerated()), id: \.offset) { index, product in
                             Button(action: {
-                                
                                 setIndexProduct = index
                                 showingSheet.toggle()
                             }, label: {
@@ -46,23 +84,28 @@ struct PrincipalList: View {
                                         
                                         
                                         Image(uiImage: image)
-                                        
+                                            
                                             .resizable()
                                             .scaledToFill()
+                                            
                                             .frame(width: 100, height: 100)
-                                            .border(Color.black, width: 1.2)
+                                        
+                                          //  .border(Color.black, width: 1.2)
                                             .clipped()
                                             .cornerRadius(5)
+                                            
                                         
                                         TriangleColor(product: product)
-                                        
                                     }
                                 }
                             })
-                            
-                            
-                            
-                            
+                            .simultaneousGesture(LongPressGesture (minimumDuration: 0.3) .onEnded({ _ in
+                                showingSheetProduct = true
+                                setIndexProduct = index
+                            }))
+                            .sheet(isPresented: $showingSheetProduct, content: {
+                                Text(prod.productList[setIndexProduct].tags[0].name)
+                            })
                             .actionSheet(isPresented: $showingSheet) {
                                 ActionSheet(title: Text("Mude o Status da sua peça"), message: nil, buttons: [ // 4
                                     .default(Text("Adiquirido"), action: { // 5
@@ -92,27 +135,36 @@ struct PrincipalList: View {
                                 ]
                                 )
                             }
+                           
                         }
-                    }
-                    .padding()
-                }
-                
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: ContentView(prod: prod, tags: $tags)) {
-                            Image(systemName: "plus")
+                        
+                        
+                        .background(Color("background"))
+
                         }
-                    }
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
-                .padding()
+                    
+                    .background(Color("background"))
+
+                   
+               
             }
+                .background(Color("background"))
             .navigationViewStyle(.stack)
             .frame(maxWidth: .infinity)
         }
-        .navigationBarHidden(true)
-    }
+        
+        .background(Color("background"))
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+            .padding()
+        }
+        
+        
+  
+        
+    
 }
+
+
 
 
 
@@ -138,35 +190,35 @@ struct TriangleColor: View {
         switch product.status{
         case ProductStatus.acquarid: Triangle()
                 .fill(Color("aquired"))
-                .frame(width: 30, height: 30)
-                .position(x: 84, y: 16)
-                .cornerRadius(4)
-                .rotationEffect(Angle(degrees: 90))
+                .frame(width: 60, height: 60)
+                .position(x: 75, y: 16)
+                .cornerRadius(15)
+                .rotationEffect(Angle(degrees: -90))
         case ProductStatus.sold: Triangle()
                 .fill(Color("sold"))
-                .frame(width: 30, height: 30)
-                .position(x: 84, y: 16)
-                .cornerRadius(4)
-                .rotationEffect(Angle(degrees: 90))
+                .frame(width: 60, height: 60)
+                .position(x: 75, y: 16)
+                .cornerRadius(10)
+                .rotationEffect(Angle(degrees: -90))
         case ProductStatus.maintenance: Triangle()
                 .fill(Color("maintenance"))
-                .frame(width: 30, height: 30)
-                .position(x: 84, y: 16)
-                .cornerRadius(4)
-                .rotationEffect(Angle(degrees: 90))
+                .frame(width: 60, height: 60)
+                .position(x: 75, y: 16)
+                .cornerRadius(10)
+                .rotationEffect(Angle(degrees: -90))
         case ProductStatus.selling: Triangle()
                 .fill(Color("selling"))
-                .frame(width: 30, height: 30)
-                .position(x: 84, y: 16)
-                .cornerRadius(4)
-                .rotationEffect(Angle(degrees: 90))
+                .frame(width: 60, height: 60)
+                .position(x: 75, y: 16)
+                .cornerRadius(10)
+                .rotationEffect(Angle(degrees: -90))
         case ProductStatus.washing: Triangle()
                 .fill(Color("washing"))
-                .frame(width: 30, height: 30)
-                .position(x: 84, y: 16)
-                .cornerRadius(4)
-                .rotationEffect(Angle(degrees: 90))
-                
+                .frame(width: 60, height: 60)
+                .position(x: 75, y: 16)
+                .cornerRadius(10)
+                .rotationEffect(Angle(degrees: -90))
+            
             
         default: Circle()
                 .frame(width: 20)
