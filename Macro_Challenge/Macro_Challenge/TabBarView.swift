@@ -18,20 +18,17 @@ struct TabBarView: View {
             SellingList(prod: prodVm)
                 .tabItem {
                     Image("storeIcon2")
-                    
-                }
-                .background(Color("background"))
-
+                }.background(Color("background"))
             PrincipalList(prod: prodVm)
                 .tabItem {
                     Image("processIcon2")
-                }
-                .background(Color("background"))
-
+                }.background(Color("background"))
             
            
 
         }
+        
+        .background(Color("background"))
         
         
         

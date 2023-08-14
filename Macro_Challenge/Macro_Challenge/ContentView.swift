@@ -23,7 +23,7 @@ struct ContentView: View {
     @State private var isKeyboardVisible: Bool = false
     
     //Variaves do botão de status
-    @State private var buttonBoolAcquarid = false
+    @State private var buttonBoolAcquarid = true
     @State private var buttonBoolMaintenance = false
     @State private var buttonBoolSelling = false
     @State private var buttonBoolSold = false
@@ -47,22 +47,22 @@ struct ContentView: View {
             ScrollView{
                 ZStack {
                     VStack {
-//                        VStack(alignment: .leading) {
-//                            Text("Adicionar")
-////                                .position(x: 65, y:10)
-////                                .bold()
-//                                .font(.system(size: 34, weight: .bold, design: .rounded))
-//                                .padding(25)
-////                                .foregroundColor(Color("title"))
-//
-//
-//                        }
+                        //                        VStack(alignment: .leading) {
+                        //                            Text("Adicionar")
+                        ////                                .position(x: 65, y:10)
+                        ////                                .bold()
+                        //                                .font(.system(size: 34, weight: .bold, design: .rounded))
+                        //                                .padding(25)
+                        ////                                .foregroundColor(Color("title"))
+                        //
+                        //
+                        //                        }
                         Spacer(minLength: 30)
                         HStack{
                             
                             if let image = imagePicker.image {
                                 PhotosPicker( selection: $imagePicker.imageSelection)
-                                    {
+                                {
                                     Image(uiImage: image)
                                         .resizable()
                                         .frame(width: 42, height: 30)
@@ -73,23 +73,23 @@ struct ContentView: View {
                                     Image(systemName: "photo")
                                         .resizable()
                                         .frame(width: 42, height: 30)
-                                        
+                                    
                                         .padding()
                                 }
                                 .foregroundColor(Color("elements"))//cor do botao de adicionar foto
                             }
-                                
+                            
                             
                             Text("Adicionar foto da sua peça")
-                               // .position(x: 65, y:10)
+                            // .position(x: 65, y:10)
                                 .bold()
                                 .font(.system(size: 15, weight: .bold, design: .rounded))
                                 .padding(10)
                                 .foregroundColor(Color("elements"))
                             
-                           
+                            
                         }
-//                        .frame(width:350, height:50)
+                        //                        .frame(width:350, height:50)
                         //.cornerRadius(CGFloat:30)
                         .background(Color("assetBackgroundLight"))
                         .cornerRadius(10)
@@ -105,6 +105,7 @@ struct ContentView: View {
                                 Spacer(minLength: 30)
                                 TextField("Adicione uma tag", text: $text, onCommit: addTag)
                                     .padding(.leading)
+                                    .frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.06)
                                     .font(.system(size: 17, weight: .bold, design: .rounded))
                                     .background(
                                         Color("assetBackgroundLight")
@@ -112,35 +113,35 @@ struct ContentView: View {
                                             .cornerRadius(10)
                                             .frame(height: 40)
                                     )
-                                    .position(x: 173, y:10)
-                                    .padding(10)
+                                
+                                
                                     .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
                                         // Código para limpar o TextField aqui
                                         text = ""
                                     }
-
-                                }
+                                
+                            }
                             Spacer(minLength: 20)
-                                //exibicao das tags
-                                HStack{
-                                    ScrollView(.vertical, showsIndicators: false) {
+                            //exibicao das tags
+                            HStack{
+                                ScrollView(.vertical, showsIndicators: false) {
+                                    
+                                    
+                                    //Exibindo tags
+                                    ForEach(getRows(),id: \.self) { rows in
                                         
-                                        
-                                        //Exibindo tags
-                                        ForEach(getRows(),id: \.self) { rows in
+                                        HStack(spacing:6){
                                             
-                                            HStack(spacing:6){
-                                                
-                                                ForEach(rows) { row in
-                                                    // Row view...
-                                                    RowView(tag: row)
-                                                }
+                                            ForEach(rows) { row in
+                                                // Row view...
+                                                RowView(tag: row)
                                             }
                                         }
-                                        .padding(10)
                                     }
-                                }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.06) .background(
-                                    RoundedRectangle(cornerRadius: 10).strokeBorder(Color.gray)                                    .position(x: 182, y:20))
+                                    .padding(10)
+                                }
+                            }.frame(width: sizeOfView.size.width * 0.9, height: sizeOfView.size.height * 0.20) .background(
+                                RoundedRectangle(cornerRadius: 10).strokeBorder(Color.gray)                                    )
                             
                             Section(header: Text("Preço de venda")
                                 .font(.system(size: 17, weight: .bold, design: .rounded))
@@ -148,8 +149,8 @@ struct ContentView: View {
                                 .bold()
                                 .padding(10)
                                 .position(x:63, y:35)){
-                                Text("Qual será o preço de venda \nde sua peça?")
-                                    .font(.system(size: 16, design: .rounded))
+                                    Text("Qual será o preço de venda \nde sua peça?")
+                                        .font(.system(size: 16, design: .rounded))
                                     TextField("0.00", text: $purchasedPrice, onEditingChanged: { isEditing in
                                         isKeyboardVisible = true
                                     })
@@ -159,23 +160,13 @@ struct ContentView: View {
                                         .cornerRadius(10)
                                         .frame(width: 130, height: 40)
                                         .position(x: 295, y:-45)
-//                                        .frame(height: 50)
-                                        
+                                                                   
                                     )
-//                                        .toolbar {
-//                                            // Adicionar o botão "Dismiss" ao teclado
-//                                            ToolbarItem(placement: .keyboard) {
-//                                                Button("Fechar") {
-//                                                    // Esconde o teclado quando o botão "Fechar" é pressionado
-//                                                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-//                                                }
-//                                            }
-//
-//                                        }
+                                    
                                 }
                             
                             
-                        
+                            
                         }
                         .padding(10)
                         
@@ -184,9 +175,9 @@ struct ContentView: View {
                             Section(header: Text("Status")
                                 .font(.system(size: 17, weight: .bold, design: .rounded))
                                 .foregroundColor(Color("elements"))
-//                                .position(x:40,y:0 )
+                                                                
                                 .position(x:30,y:0 )
-
+                                    
                                 .bold()
                                 .padding(10)) {
                                     Text("Em qual etapa do processo sua peça está?")
@@ -208,12 +199,12 @@ struct ContentView: View {
                                                         Image("iconeAdquiridoClicado")
                                                             .resizable()
                                                             .frame(width: 53, height: 53 )
-
+                                                        
                                                     } else {
                                                         Image("iconeAdquirido")
                                                             .resizable()
                                                             .frame(width: 53, height: 53)
-
+                                                        
                                                     }
                                                     Text("Adquirido")
                                                         .foregroundColor(Color("title"))
@@ -236,12 +227,12 @@ struct ContentView: View {
                                                         Image("iconeLavandoClicado")
                                                             .resizable()
                                                             .frame(width: 53, height: 53)
-
+                                                        
                                                     } else {
                                                         Image("iconeLavando")
                                                             .resizable()
                                                             .frame(width: 53, height: 53)
-
+                                                        
                                                     }
                                                     Text("Lavando")
                                                         .foregroundColor(Color("title"))
@@ -264,12 +255,12 @@ struct ContentView: View {
                                                         Image("iconeManutencaoClicado")
                                                             .resizable()
                                                             .frame(width: 53, height: 53)
-
+                                                        
                                                     } else {
                                                         Image("iconeManutencao")
                                                             .resizable()
                                                             .frame(width: 53, height: 53)
-
+                                                        
                                                     }
                                                     Text("Manutenção")
                                                         .foregroundColor(Color("title"))
@@ -292,12 +283,12 @@ struct ContentView: View {
                                                         Image("iconeNaLojaClicado")
                                                             .resizable()
                                                             .frame(width: 53, height: 53)
-
+                                                        
                                                     } else {
                                                         Image("iconeNaLoja")
                                                             .resizable()
                                                             .frame(width: 53, height: 53)
-
+                                                        
                                                     }
                                                     Text("Na loja")
                                                         .foregroundColor(Color("title"))
@@ -325,7 +316,7 @@ struct ContentView: View {
                                                         Image("iconeVendido")
                                                             .resizable()
                                                             .frame(width: 53, height: 53)
-//                                                            .position(x: 40, y:27)
+                                                        //                                                            .position(x: 40, y:27)
                                                     }
                                                     Text("Vendido")
                                                         .foregroundColor(Color("title"))
@@ -364,40 +355,38 @@ struct ContentView: View {
             }
         }
         .navigationBarTitle("Nova peça", displayMode: .large)
-                    .navigationBarItems(
-                        leading:
-                            Button(action: {
-                              
-                                self.presentationMode.wrappedValue.dismiss()
-                            }) {
-                                Text("")
-                            },
-                        trailing:
-                            Button(action: {
-                                if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil){
-                                    showAlert = true
-                                    print("nao deu")
-                                }else {
-                                    prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: ((imagePicker.image ?? imagepicker1)!))
-                                    //print(prod)
-                                    resetScreenObject()
-                                    self.presentationMode.wrappedValue.dismiss()
-                                }
-                            }) {
-                                Text("Salvar")
-                            }.alert(isPresented: $showAlert) {
-                                Alert(
-                                    title: Text("Campos Insuficientes"),
-                                    message: Text("Preencha todos os campos \n de adição da peça!")
-                                )}
-                    )
+        .navigationBarItems(
+            leading:
+                Button(action: {
+                    
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("")
+                },
+            trailing:
+                Button(action: {
+                    if (purchasedPrice == "" || tags.isEmpty || imagePicker.image == nil){
+                        showAlert = true
+                        print("nao deu")
+                    }else {
+                        prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: ((imagePicker.image ?? imagepicker1)!))
+                        //print(prod)
+                        resetScreenObject()
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                }) {
+                    Text("Salvar")
+                }.alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("Campos Insuficientes"),
+                        message: Text("Preencha todos os campos \n de adição da peça!")
+                    )}
+        )
         
     }
     @ViewBuilder
     func RowView(tag: Tag) ->some View{
         Text(tag.name)
-        //aplicando o mesmo tamanho de fonte..
-        //senão o tamanho irá variar...
             .font(.system(size: 16))
         // add capsula...
             .padding(.horizontal,14)

@@ -17,112 +17,116 @@ struct SellingList: View {
     @State private var showingSheet = false
     var body: some View {
         
-            NavigationStack {
-                VStack(alignment: .leading) {
+        NavigationStack {
+            VStack {
+                HStack{
                     Text("Sua Loja")
                         .bold()
                         .font(.system(size: 34, weight: .bold, design: .rounded))
                         .padding(25)
                         .foregroundColor(Color("title"))
-                    
-                    
-                    
-                    ScrollView {
-                                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 3), spacing: 16) {
-                                    ForEach(Array(prod.productList.enumerated()), id: \.offset) { index, product in
-                                        if product.status == .selling{
-                                            Button(action: {
-                                                setIndexProduct = index
-                                                showingSheet.toggle()
-                                            }) {
+                    Spacer()
+                }
+                
+                ScrollView {
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 3), spacing: 16) {
+                        ForEach(Array(prod.productList.enumerated()), id: \.offset) { index, product in
+                            if product.status == .selling{
+                                Button(action: {
+                                    setIndexProduct = index
+                                    showingSheet.toggle()
+                                }) {
+                                    
+                                    VStack {
+                                        Section{
+                                            if let image = product.image{
+                                                Image(uiImage: image)
+                                                    .resizable()
+                                                    .scaledToFill()
                                                 
-                                                VStack {
-                                                    Section{
-                                                        if let image = product.image{
-                                                            Image(uiImage: image)
-                                                                .resizable()
-                                                                .scaledToFill()
-                                                            
-                                                                .frame(width: 90, height: 90)
-                                                            
-                                                                
-                                                                .clipped()
-                                                               
-                                                        }
-
-                                                        
-                                                        Text("R$:\(String(format: "%.2f", product.purchasedPrice))")
-                                                            .font(.footnote)
-                                                    }
-                                                    
-                                                }
-                                                .foregroundColor(.primary)
-                                                .background(Color.white)
-                                                .cornerRadius(10)
+                                                    .frame(width: 90, height: 90)
+                                                
+                                                
+                                                    .clipped()
                                                 
                                             }
-                                            .actionSheet(isPresented: $showingSheet) {
-                                                ActionSheet(title: Text("Mude o Status da sua peça"), message: nil, buttons: [ // 4
-                                                                .default(Text("Adiquirido"), action: { // 5
-                                                                    prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .acquarid)
-                                                                    
-
-                                                                }),
-                                                                .default(Text("Lavando"), action: {
-                                                                    prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .washing)
-                                                                    
-                                                               
-                                                                }),
-                                                                .default(Text("Manutenção"), action: {
-                                                                    prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .maintenance)
-                                                                    
-                                                                  
-                                                                }),
-                                                                .default(Text("Em Loja"), action: {
-                                                                    prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .selling)
-              
-                                                                }),
-                                                                .default(Text("Vendido"), action: {
-                                                                    prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .sold)
-                                                                    
-                                                                }),
-                                                                .cancel() 
-                                                             ]
-                                                             )
-                                            }
-                                            .buttonStyle(PlainButtonStyle())
+                                            
+                                            
+                                            Text("R$:\(String(format: "%.2f", product.purchasedPrice))")
+                                                .font(.footnote)
+                                                
                                         }
+                                        
                                     }
+                                    .foregroundColor(.primary)
+                                    .background(Color.white)
+                                    .cornerRadius(10)
+                                    
                                 }
-                                .padding()
-                            }
-                   // .background(Color("background"))
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: ContentView(prod: prod, tags: $tags)) {
-                                Text("Adicionar Peça").foregroundColor(Color("elements"))
+                                .actionSheet(isPresented: $showingSheet) {
+                                    ActionSheet(title: Text("Mude o Status da sua peça"), message: nil, buttons: [ // 4
+                                        .default(Text("Adquirido"), action: { // 5
+                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .acquarid)
+                                            
+                                            
+                                        }),
+                                        .default(Text("Lavando"), action: {
+                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .washing)
+                                            
+                                            
+                                        }),
+                                        .default(Text("Manutenção"), action: {
+                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .maintenance)
+                                            
+                                            
+                                        }),
+                                        .default(Text("Em Loja"), action: {
+                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .selling)
+                                            
+                                        }),
+                                        .default(Text("Vendido"), action: {
+                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .sold)
+                                            
+                                        }),
+                                        .cancel()
+                                    ]
+                                    )
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
                         }
                     }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                     .padding()
                 }
-                .navigationViewStyle(.stack)
-                .frame(maxWidth: .infinity)
-                .background(Color("background"))
+                // .background(Color("background"))
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink(destination: ContentView(prod: prod, tags: $tags)) {
+                            Text("Adicionar Peça").foregroundColor(Color("elements"))
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                // .padding()
             }
-           
-           
+            .navigationViewStyle(.stack)
+            .frame(maxWidth: .infinity)
+            .background(Color("background"))
         }
-       
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+        .padding()
+        
+        
     }
+    
+}
 
 struct SoldButton: View {
     let product: Product
     
     var body: some View {
         Button(action: {
-           
+            
         }) {
             VStack(spacing: 8) {
                 if let image = product.image{
@@ -135,10 +139,10 @@ struct SoldButton: View {
                 
                 Divider() // Linha que separa a foto do preço
                 
-                    
+                
                 Text("R$:\(String(format: "%.2f", product.purchasedPrice))") // Preço com símbolo de moeda
                     .font(.footnote)
-                    
+                
                 
             }
             .padding()
