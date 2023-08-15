@@ -540,7 +540,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro-Challenge-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MeuBrechózin";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Para carregar fotos e cadastrar  suas peças";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) Para carregar fotos e cadastrar  suas peças";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -575,7 +575,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro-Challenge-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MeuBrechózin";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Para carregar fotos e cadastrar  suas peças";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) Para carregar fotos e cadastrar  suas peças";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
