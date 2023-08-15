@@ -47,16 +47,7 @@ struct ContentView: View {
             ScrollView{
                 ZStack {
                     VStack {
-                        //                        VStack(alignment: .leading) {
-                        //                            Text("Adicionar")
-                        ////                                .position(x: 65, y:10)
-                        ////                                .bold()
-                        //                                .font(.system(size: 34, weight: .bold, design: .rounded))
-                        //                                .padding(25)
-                        ////                                .foregroundColor(Color("title"))
-                        //
-                        //
-                        //                        }
+                    
                         Spacer(minLength: 30)
                         HStack{
                             

@@ -9,7 +9,7 @@ import Foundation
 
 
 class Tag: Identifiable, Equatable, Hashable,Codable {
-    let id = UUID()
+    var id = UUID()
     var name: String
     var size: CGFloat = 0
     

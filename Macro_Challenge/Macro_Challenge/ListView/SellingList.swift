@@ -98,7 +98,6 @@ struct SellingList: View {
                     }
                     .padding()
                 }
-                // .background(Color("background"))
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         NavigationLink(destination: ContentView(prod: prod, tags: $tags)) {
@@ -107,7 +106,6 @@ struct SellingList: View {
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
-                // .padding()
             }
             .navigationViewStyle(.stack)
             .frame(maxWidth: .infinity)
