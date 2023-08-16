@@ -56,8 +56,12 @@ struct ContentView: View {
                                 {
                                     Image(uiImage: image)
                                         .resizable()
-                                        .frame(width: 42, height: 30)
-                                        .padding()
+                                        .scaledToFill()
+                                    
+                                        .frame(width: 90, height: 90)
+                                    
+                                    
+                                        .clipped()
                                 }
                             } else  {
                                 PhotosPicker( selection: $imagePicker.imageSelection){
