@@ -32,7 +32,14 @@ class ProductViewModel: ObservableObject {
 
     
 
-
+    func removeProduct(withUUID uuidToRemove: UUID, from products: inout [Product]) {
+        if let index = products.firstIndex(where: { $0.id == uuidToRemove }) {
+            products.remove(at: index)
+            print("Product with UUID \(uuidToRemove) removed.")
+        } else {
+            print("Product with UUID \(uuidToRemove) not found.")
+        }
+    }
     
     func productsCount() -> Int {
         var contador = 0
@@ -169,5 +176,24 @@ class ProductViewModel: ObservableObject {
         productList.remove(at: indexList)
         saveUserDefault()
     }
+    
+    func handleDelete(_ productToDelete: Product) {
+        if let index = productList.firstIndex(where: { $0.id == productToDelete.id }) {
+            
+            productList.remove(at: index)
+            
+               print("Product with ID \(productToDelete.id) removed.")
+           }
+        saveUserDefault()
+       }
+  
+    func changeStatus(_ product: Product, newStatus: ProductStatus) {
+        if let index = productList.firstIndex(where: { $0.id == product.id }) {
+            objectWillChange.send()
+            productList[index].status = newStatus
+            
+           }
+        saveUserDefault()
+       }
     
 }

@@ -22,6 +22,8 @@ struct PrincipalList: View {
     
     @State private var showAlert = false
     
+    @State private var selectedItem: Product? = nil
+    
     @State private var selectedFilter = ProductStatus.todos
     
     var filteredProducts: [Product] {
@@ -87,6 +89,10 @@ struct PrincipalList: View {
                                 Button(action: {
                                     setIndexProduct = index
                                     showingSheet.toggle()
+                                    
+                                    selectedItem = product
+                                    
+                                    
                                 }, label: {
                                     ZStack {
                                         if let image = product.image{
@@ -115,24 +121,34 @@ struct PrincipalList: View {
                                 .actionSheet(isPresented: $showingSheet) {
                                     ActionSheet(title: Text("Mude o Status da sua peça"), message: nil, buttons: [ // 4
                                         .default(Text("Adquirido"), action: { // 5
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .acquarid)
-                                            
+                                            if let selectedItem = selectedItem {
+                                                prod.changeStatus(selectedItem, newStatus: .acquarid)
+                                                                }
+
                                         }),
                                         .default(Text("Lavando"), action: {
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .washing)
+                                            if let selectedItem = selectedItem {
+                                                prod.changeStatus(selectedItem, newStatus: .washing)
+                                                                }
                                         }),
                                         .default(Text("Manutenção"), action: {
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .maintenance)
-                                            
+                                            if let selectedItem = selectedItem {
+                                                prod.changeStatus(selectedItem, newStatus: .maintenance)
+                                                                }
+
                                             
                                         }),
                                         .default(Text("Em Loja"), action: {
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .selling)
-                                            
+                                            if let selectedItem = selectedItem {
+                                                prod.changeStatus(selectedItem, newStatus: .selling)
+                                                                }
+
                                         }),
                                         .default(Text("Vendido"), action: {
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .sold)
-                                            
+                                            if let selectedItem = selectedItem {
+                                                prod.changeStatus(selectedItem, newStatus: .sold)
+                                                                }
+
                                         }),
                                         .destructive(Text("Apagar Peça"), action: {
                                             
@@ -151,7 +167,9 @@ struct PrincipalList: View {
                                          
                                         }),
                                         secondaryButton: .destructive(Text("Apagar"), action: {
-                                            prod.deleteProductIndex(indexList: setIndexProduct)
+                                            if let selectedItem = selectedItem {
+                                                prod.handleDelete(selectedItem)
+                                                                }
                                         })
                                     )
                                 }
@@ -187,9 +205,7 @@ struct PrincipalList: View {
         
         }
         
-        
-  
-        
+   
     
 }
 
