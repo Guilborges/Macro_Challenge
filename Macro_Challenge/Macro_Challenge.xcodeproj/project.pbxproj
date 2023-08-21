@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0512219D2A93FD5A00CC02D1 /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0512219C2A93FD5A00CC02D1 /* assets.xcassets */; };
+		051221A12A93FE9D00CC02D1 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051221A02A93FE9D00CC02D1 /* SplashScreenView.swift */; };
+		051221A32A93FF4500CC02D1 /* SplashScreenAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051221A22A93FF4500CC02D1 /* SplashScreenAppView.swift */; };
 		056DA21B2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */; };
 		056DA21D2A1BDF26005FD1F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA21C2A1BDF26005FD1F5 /* ContentView.swift */; };
 		056DA22C2A1BDF27005FD1F5 /* Macro_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056DA22B2A1BDF27005FD1F5 /* Macro_ChallengeTests.swift */; };
@@ -53,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		0512219C2A93FD5A00CC02D1 /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
+		051221A02A93FE9D00CC02D1 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		051221A22A93FF4500CC02D1 /* SplashScreenAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenAppView.swift; sourceTree = "<group>"; };
 		056DA2172A1BDF26005FD1F5 /* Macro_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Macro_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_ChallengeApp.swift; sourceTree = "<group>"; };
 		056DA21C2A1BDF26005FD1F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 				0D9E79A22A6F7B09000CA54B /* WashingList.swift */,
 				0D1E03252A78C2750062B13F /* SellingList.swift */,
 				0D1E03272A78CD950062B13F /* SoldList.swift */,
+				051221A02A93FE9D00CC02D1 /* SplashScreenView.swift */,
+				051221A22A93FF4500CC02D1 /* SplashScreenAppView.swift */,
 			);
 			path = ListView;
 			sourceTree = "<group>";
@@ -362,6 +368,7 @@
 				05F73CC02A27C08700243342 /* TagView_Tests.swift in Sources */,
 				0D9E79A12A6F7909000CA54B /* PrincipalList.swift in Sources */,
 				0D9E79A32A6F7B09000CA54B /* WashingList.swift in Sources */,
+				051221A12A93FE9D00CC02D1 /* SplashScreenView.swift in Sources */,
 				0D8AA9DA2A7AF08E00E885CA /* UserDefaultModel.swift in Sources */,
 				05C74E1C2A2FA6CF00F05822 /* TabBarView.swift in Sources */,
 				0D3D662E2A3AAA4B00B462FA /* CircleButtons.swift in Sources */,
@@ -369,6 +376,7 @@
 				0D1E03282A78CD950062B13F /* SoldList.swift in Sources */,
 				0D1E03262A78C2750062B13F /* SellingList.swift in Sources */,
 				056DA21D2A1BDF26005FD1F5 /* ContentView.swift in Sources */,
+				051221A32A93FF4500CC02D1 /* SplashScreenAppView.swift in Sources */,
 				0D29D4202A74D84F005C813F /* MaintenanceList.swift in Sources */,
 				0DC46DEA2A22A29900B48210 /* ProductStatus.swift in Sources */,
 				056DA21B2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift in Sources */,
