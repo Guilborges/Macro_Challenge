@@ -13,6 +13,7 @@ struct Macro_ChallengeApp: App {
     var body: some Scene {
         WindowGroup {
             TabBarView(prodVm: ProductViewModel(), setIndexProduct: 0)
+                .preferredColorScheme(.light)
         }
     }
 }

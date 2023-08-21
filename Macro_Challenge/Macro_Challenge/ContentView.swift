@@ -22,6 +22,7 @@ struct ContentView: View {
     
     @State private var isKeyboardVisible: Bool = false
     
+    
     //Variaves do botão de status
     @State private var buttonBoolAcquarid = true
     @State private var buttonBoolMaintenance = false
@@ -47,7 +48,7 @@ struct ContentView: View {
             ScrollView{
                 ZStack {
                     VStack {
-                    
+                        
                         Spacer(minLength: 30)
                         HStack{
                             
@@ -144,7 +145,8 @@ struct ContentView: View {
                                 .bold()
                                 .padding(10)
                                 .position(x:63, y:35)){
-                                    Text("Qual será o preço de venda \nde sua peça?")
+                                    
+                                    Text("Qual será o preço \n de venda  de sua peça?")
                                         .font(.system(size: 16, design: .rounded))
                                     TextField("0.00", text: $purchasedPrice, onEditingChanged: { isEditing in
                                         isKeyboardVisible = true
@@ -155,7 +157,7 @@ struct ContentView: View {
                                         .cornerRadius(10)
                                         .frame(width: 130, height: 40)
                                         .position(x: 295, y:-45)
-                                                                   
+                                                                          
                                     )
                                     
                                 }
@@ -170,7 +172,7 @@ struct ContentView: View {
                             Section(header: Text("Status")
                                 .font(.system(size: 17, weight: .bold, design: .rounded))
                                 .foregroundColor(Color("elements"))
-                                                                
+                                    
                                 .position(x:30,y:0 )
                                     
                                 .bold()
@@ -311,7 +313,6 @@ struct ContentView: View {
                                                         Image("iconeVendido")
                                                             .resizable()
                                                             .frame(width: 53, height: 53)
-                                                        //                                                            .position(x: 40, y:27)
                                                     }
                                                     Text("Vendido")
                                                         .foregroundColor(Color("title"))

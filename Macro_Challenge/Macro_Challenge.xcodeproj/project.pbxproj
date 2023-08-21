@@ -113,7 +113,6 @@
 		056DA20E2A1BDF26005FD1F5 = {
 			isa = PBXGroup;
 			children = (
-				0D8AA9E42A82BA7300E885CA /* Models */,
 				0D8AA9E02A82B35500E885CA /* DataBase */,
 				056DA2192A1BDF26005FD1F5 /* Macro_Challenge */,
 				056DA22A2A1BDF27005FD1F5 /* Macro_ChallengeTests */,
@@ -136,6 +135,7 @@
 		056DA2192A1BDF26005FD1F5 /* Macro_Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				0D8AA9E42A82BA7300E885CA /* Models */,
 				0DF8E7212A86C4AA00B7BE3A /* Macro-Challenge-Info.plist */,
 				056DA21A2A1BDF26005FD1F5 /* Macro_ChallengeApp.swift */,
 				0D29D4212A74D8C9005C813F /* ListView */,
@@ -311,8 +311,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 				"pt-BR",
+				Base,
 			);
 			mainGroup = 056DA20E2A1BDF26005FD1F5;
 			productRefGroup = 056DA2182A1BDF26005FD1F5 /* Products */;
@@ -550,7 +550,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "FontsSwiftUi.Macro-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -585,7 +585,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "FontsSwiftUi.Macro-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

@@ -15,10 +15,9 @@ struct SoldList: View {
     @State var setIndexProduct: Int = 0
     @State private var showingSheet = false
     @ObservedObject var prod: ProductViewModel
-
+    
     var body: some View {
         NavigationStack {
-            
             VStack(alignment: .leading) {
                 Text("Vendidos")
                     .bold()
@@ -27,9 +26,6 @@ struct SoldList: View {
                     .foregroundColor(Color("title"))
                 Text("Total de Peças: \(prod.productsCountSold())")
                     .frame(maxWidth: .infinity, alignment: .center)
-
-                
-                
                 List{
                     ForEach(Array(prod.productList.enumerated()), id: \.offset) { index, element in
                         if element.status == .sold{
@@ -45,7 +41,7 @@ struct SoldList: View {
                                     Text("\(element.tags[0].name)")
                                     
                                     Text("\(element.purchasedPrice,specifier: "%.2f") R$").frame(width: 90)
-                                       
+                                    
                                     
                                 }
                                 
@@ -55,40 +51,37 @@ struct SoldList: View {
                                     
                                     
                                 } label: {
-                                ButtonCircleGreen().position(x:100,y:20)
-                                        
+                                    ButtonCircleGreen().position(x:100,y:20)
+                                
                                     
                                 }
                                 .actionSheet(isPresented: $showingSheet) {
                                     ActionSheet(title: Text("Mude o Status da sua peça"), message: nil, buttons: [ // 4
-                                                    .default(Text("Adiquirido"), action: { // 5
-                                                        prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .acquarid)
-                                                        
-                                                        //showingSheet.toggle()
-                                                      //  self.coffeeConsumptionTime = "Morning"
-                                                    }),
-                                                    .default(Text("Lavando"), action: {
-                                                        prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .washing)
-                                                        
-                                                   
-                                                      //  self.coffeeConsumptionTime = "Afternoon"
-                                                    }),
-                                                    .default(Text("Manutenção"), action: {
-                                                        prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .maintenance)
-                                                        
-                                                      
-                                                    }),
-                                                    .default(Text("Em Loja"), action: {
-                                                        prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .selling)
-  
-                                                    }),
-                                                    .default(Text("Vendido"), action: {
-                                                        prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .sold)
-                                                        
-                                                    }),
-                                                    .cancel() // 6
-                                                 ]
-                                                 )
+                                        .default(Text("Adiquirido"), action: { // 5
+                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .acquarid)
+                                     
+                                        }),
+                                        .default(Text("Lavando"), action: {
+                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .washing)
+                                            
+                                            
+                                        }),
+                                        .default(Text("Manutenção"), action: {
+                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .maintenance)
+                                            
+                                            
+                                        }),
+                                        .default(Text("Em Loja"), action: {
+                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .selling)
+                                            
+                                        }),
+                                        .default(Text("Vendido"), action: {
+                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .sold)
+                                            
+                                        }),
+                                        .cancel() // 6
+                                    ]
+                                    )
                                 }
                                 
                             }
@@ -109,6 +102,6 @@ struct SoldList: View {
         
         
     }
-
-    }
+    
+}
 

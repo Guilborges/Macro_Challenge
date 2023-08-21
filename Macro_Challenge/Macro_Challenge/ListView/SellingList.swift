@@ -18,13 +18,11 @@ struct SellingList: View {
     var body: some View {
         
         NavigationStack {
+       
             VStack {
+                Divider()
                 HStack{
-                    Text("Sua Loja")
-                        .bold()
-                        .font(.system(size: 34, weight: .bold, design: .rounded))
-                        .padding(25)
-                        .foregroundColor(Color("title"))
+                   
                     Spacer()
                 }
                 
@@ -43,18 +41,12 @@ struct SellingList: View {
                                                 Image(uiImage: image)
                                                     .resizable()
                                                     .scaledToFill()
-                                                
                                                     .frame(width: 90, height: 90)
-                                                
-                                                
                                                     .clipped()
                                                 
                                             }
-                                            
-                                            
                                             Text("R$:\(String(format: "%.2f", product.purchasedPrice))")
                                                 .font(.footnote)
-                                                
                                         }
                                         
                                     }
@@ -105,14 +97,17 @@ struct SellingList: View {
                         }
                     }
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                .foregroundColor(Color("title"))
+                
             }
-            .navigationViewStyle(.stack)
-            .frame(maxWidth: .infinity)
+            .navigationBarTitle("Sua Loja")
+            
+            
             .background(Color("background"))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
         .padding()
+        
         
         
     }

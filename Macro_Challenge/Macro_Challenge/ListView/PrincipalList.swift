@@ -15,15 +15,14 @@ struct PrincipalList: View {
     @State var imagepicker1 = Image(systemName: "")
     @ObservedObject var prod: ProductViewModel
     @State private var setIndexProduct: Int = 0
+
+   
     @State private var showingSheet = false
     @State private var showingSheetProduct = false
-    
-    @State private var isMenuOpen = false
-    
     @State private var showAlert = false
     
-    @State private var selectedItem: Product? = nil
     
+    @State private var selectedItem: Product? = nil
     @State private var selectedFilter = ProductStatus.todos
     
     var filteredProducts: [Product] {
@@ -38,18 +37,10 @@ struct PrincipalList: View {
         
         NavigationStack{
             
-            ScrollView{
+            
                 VStack {
-                    
-                    
+                    Divider()
                     HStack{
-                        Text("Processos")
-                            .bold()
-                            .font(.system(size: 34, weight: .bold, design: .rounded))
-                            .padding(25)
-                            .foregroundColor(Color("title"))
-                        
-                      
                         
                         Spacer()
                         
@@ -79,9 +70,7 @@ struct PrincipalList: View {
                             Spacer()
                         }
                     }
-                    
-                    
-                    
+
                     
                     ScrollView {
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 3), spacing: 16) {
@@ -104,8 +93,6 @@ struct PrincipalList: View {
                                                 .scaledToFill()
                                             
                                                 .frame(width: 100, height: 100)
-                                            
-                                            //  .border(Color.black, width: 1.2)
                                                 .clipped()
                                                 .cornerRadius(5)
                                             
@@ -172,18 +159,11 @@ struct PrincipalList: View {
                                                                 }
                                         })
                                     )
-                                }
                                 
                             }
-                            
-                            
                             .background(Color("background"))
-                            
                         }
-                        
                         .background(Color("background"))
-                        
-                        
                     }
                 }
             }
@@ -194,9 +174,12 @@ struct PrincipalList: View {
                     }
                 }
             }
-                .background(Color("background"))
+                
+            .navigationBarTitle("Status")
+            .foregroundColor(Color("title"))
             .navigationViewStyle(.stack)
             .frame(maxWidth: .infinity)
+            .background(Color("background"))
         }
         
         
@@ -204,9 +187,6 @@ struct PrincipalList: View {
             .padding()
         
         }
-        
-   
-    
 }
 
 

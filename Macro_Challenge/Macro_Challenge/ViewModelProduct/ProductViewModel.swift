@@ -24,10 +24,6 @@ class ProductViewModel: ObservableObject {
     public func addProduct(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool,image:UIImage) {
     productList.append(Product(tags: tags, purchasedPrice: purchasedPrice, status: status.self, acessory: true,image: image))
         saveUserDefault()
-       
-  
-
-        
     }
 
     
@@ -58,10 +54,10 @@ class ProductViewModel: ObservableObject {
             self.userDefault.updateProducts(products: self.productList)
             print("Função executando em uma thread secundária.")
             
-            
         }
         
         backgroundThread.start()
+        
     }
     
     func productsCountWashing() -> Int {
