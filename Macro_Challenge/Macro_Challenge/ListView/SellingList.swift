@@ -87,8 +87,18 @@ struct SellingList: View {
                                 .buttonStyle(PlainButtonStyle())
                             }
                         }
+                        if prod.productList.isEmpty {
+                            Spacer()
+                                .frame(height: 500)
+                            Text("Nenhuma peça adicionada")
+                                    .foregroundColor(.gray)
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    .background(Color.clear)
+                                    .multilineTextAlignment(.center)
+                        }
                     }
-                    .padding()
+                          .padding()
+                          .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
