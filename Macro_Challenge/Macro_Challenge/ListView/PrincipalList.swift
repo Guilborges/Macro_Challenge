@@ -73,6 +73,16 @@ struct PrincipalList: View {
 
                     
                     ScrollView {
+                        if filteredProducts.isEmpty {
+                            Spacer()
+                                .frame(height: 150)
+                               Text("Nenhuma peça adicionada")
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                                   .font(.headline)
+                                   .foregroundColor(.gray)
+                                   .background(Color.clear)
+                                   .multilineTextAlignment(.center)
+                           } else {
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 3), spacing: 16) {
                             ForEach(Array(filteredProducts.enumerated()), id: \.offset) { index, product in
                                 Button(action: {
@@ -151,14 +161,15 @@ struct PrincipalList: View {
                                         title: Text("Deseja apagar a peça selecionada?"),
                                         message: Text("Essa ação não poderá ser desfeita"),
                                         primaryButton: .default(Text("Cancelar"), action: {
-                                         
+                                            
                                         }),
                                         secondaryButton: .destructive(Text("Apagar"), action: {
                                             if let selectedItem = selectedItem {
                                                 prod.handleDelete(selectedItem)
-                                                                }
+                                            }
                                         })
                                     )
+                                }
                                 
                             }
                             .background(Color("background"))
