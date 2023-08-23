@@ -156,7 +156,7 @@ struct ContentView: View {
                                     .keyboardType(.decimalPad).background(Color(("assetBackgroundLight"))
                                         .cornerRadius(10)
                                         .frame(width: 130, height: 40)
-                                        .position(x: 295, y:-45)
+                                        .position(x: 285, y:-45)
                                                                           
                                     )
                                     
