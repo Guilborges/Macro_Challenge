@@ -151,7 +151,7 @@ struct ContentView: View {
                                     TextField("0.00", text: $purchasedPrice, onEditingChanged: { isEditing in
                                         isKeyboardVisible = true
                                     })
-                                    .position(x: 420, y:-45)
+                                    .position(x: 405, y:-45)
                                     .padding(.trailing)
                                     .keyboardType(.decimalPad).background(Color(("assetBackgroundLight"))
                                         .cornerRadius(10)
