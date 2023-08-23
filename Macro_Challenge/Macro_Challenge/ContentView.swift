@@ -146,7 +146,7 @@ struct ContentView: View {
                                 .padding(10)
                                 .position(x:63, y:35)){
                                     
-                                    Text("Qual será o preço \n de venda  de sua peça?")
+                                    Text("Qual será o preço \nde venda  de sua peça?")
                                         .font(.system(size: 16, design: .rounded))
                                     TextField("0.00", text: $purchasedPrice, onEditingChanged: { isEditing in
                                         isKeyboardVisible = true
@@ -161,8 +161,23 @@ struct ContentView: View {
                                     )
                                     
                                 }
-                            
-                            
+                          
+                        }
+                        .toolbar {
+                            ToolbarItemGroup(placement: .keyboard) {
+                                Spacer()
+                                
+                                Button(action: {
+                                    // Dismiss the keyboard
+                                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                                    
+                                    // Additional actions if needed
+                                }) {
+                                    Text("OK")
+                                        .font(.system(size: 14))
+                                        .foregroundColor(.blue)
+                                }
+                            }
                             
                         }
                         .padding(10)
