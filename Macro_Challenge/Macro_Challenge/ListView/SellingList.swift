@@ -15,6 +15,8 @@ struct SellingList: View {
     @ObservedObject var prod: ProductViewModel
     @State var setIndexProduct: Int = 0
     @State private var showingSheet = false
+    @State private var exibindoDetalhes = false
+    
     var body: some View {
         
         NavigationStack {
@@ -28,12 +30,12 @@ struct SellingList: View {
                 
                 ScrollView {
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 3), spacing: 16) {
-                        ForEach(Array(prod.productList.enumerated()), id: \.offset) { index, product in
-                            if product.status == .selling{
-                                Button(action: {
-                                    setIndexProduct = index
-                                    showingSheet.toggle()
-                                }) {
+                                            ForEach(Array(prod.productList.enumerated()), id: \.offset) { index, product in
+                                                if product.status == .selling {
+                                                    Button(action: {
+                                                        setIndexProduct = index
+                                                        exibindoDetalhes.toggle()
+                                                    }) {
                                     
                                     VStack {
                                         Section{
@@ -118,12 +120,15 @@ struct SellingList: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
         .padding()
         
-        
+        .sheet(isPresented: $exibindoDetalhes) {
+                    if let produtoSelecionado = prod.productList[safe: setIndexProduct] {
+                        DetalhesProdutoSheet(product: produtoSelecionado)
+                    }
+                }
         
     }
-    
+     
 }
-
 struct SoldButton: View {
     let product: Product
     
