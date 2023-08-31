@@ -66,7 +66,7 @@ struct SellingList: View {
                             if product.status == .selling{
                                 Button(action: {
                                     setIndexProduct = index
-                                    showingSheet.toggle()
+                                    exibindoDetalhes.toggle()
                                 }) {
 
                                     
