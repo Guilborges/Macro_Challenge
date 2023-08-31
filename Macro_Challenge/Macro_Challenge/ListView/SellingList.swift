@@ -23,6 +23,7 @@ struct SellingList: View {
     @ObservedObject var prod: ProductViewModel
     @State var setIndexProduct: Int = 0
     @State private var showingSheet = false
+
     @State private var searchText = ""
     @State private var selectedFilter = ProductStatus.selling
     
@@ -42,6 +43,9 @@ struct SellingList: View {
     
     
     
+
+    @State private var exibindoDetalhes = false
+
     
     var body: some View {
         
@@ -57,12 +61,14 @@ struct SellingList: View {
                 
                 ScrollView {
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 3), spacing: 16) {
+
                         ForEach(Array(filteredProducts.enumerated()), id: \.offset) { index, product in
                             if product.status == .selling{
                                 Button(action: {
                                     setIndexProduct = index
                                     showingSheet.toggle()
                                 }) {
+
                                     
                                     VStack {
                                         Section{
@@ -150,10 +156,12 @@ struct SellingList: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
         .padding()
         
-        
+        .sheet(isPresented: $exibindoDetalhes) {
+                    if let produtoSelecionado = prod.productList[safe: setIndexProduct] {
+                        DetalhesProdutoSheet(product: produtoSelecionado)
+                    }
+                }
         
     }
-    
+     
 }
-
-
