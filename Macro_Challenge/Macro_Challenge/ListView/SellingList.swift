@@ -7,28 +7,57 @@
 
 import Foundation
 import SwiftUI
+import CoreData
 
 struct SellingList: View {
+    //@Environment(\.managedObjectContext) private var viewContext
+    
+    
+    //@FetchRequest(entity: ProductDb.entity(), sortDescriptors: [])  var products: FetchedResults<ProductDb>
+    
+    
+    
     @State private var tags: [Tag] = []
     @State var imagePicker = ImagePicker()
     @State var imagepicker1 = Image(systemName: "")
     @ObservedObject var prod: ProductViewModel
     @State var setIndexProduct: Int = 0
     @State private var showingSheet = false
+    @State private var searchText = ""
+    @State private var selectedFilter = ProductStatus.selling
+    
+    
+    
+    var filteredProducts: [Product] {
+            if searchText.isEmpty {
+                return prod.productList
+            } else {
+                return prod.productList.filter { product in
+                    product.tags.contains { tag in
+                        tag.name.localizedCaseInsensitiveContains(searchText)
+                    }
+                }
+            }
+        }
+    
+    
+    
+    
     var body: some View {
         
         NavigationStack {
-       
+            
             VStack {
                 Divider()
                 HStack{
-                   
+                    SearchBar(text: $searchText, placeholder: "Encontre uma peça")
+                        .padding(3)
                     Spacer()
                 }
                 
                 ScrollView {
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 3), spacing: 16) {
-                        ForEach(Array(prod.productList.enumerated()), id: \.offset) { index, product in
+                        ForEach(Array(filteredProducts.enumerated()), id: \.offset) { index, product in
                             if product.status == .selling{
                                 Button(action: {
                                     setIndexProduct = index
@@ -91,14 +120,17 @@ struct SellingList: View {
                             Spacer()
                                 .frame(height: 500)
                             Text("Nenhuma peça adicionada")
-                                    .foregroundColor(.gray)
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                    .background(Color.clear)
-                                    .multilineTextAlignment(.center)
+                                .foregroundColor(.gray)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .background(Color.clear)
+                                .multilineTextAlignment(.center)
                         }
                     }
-                          .padding()
-                          .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .onChange(of: searchText) { newValue in
+                        prod.filterProducts(with: newValue)}
+                    .background(Color("background"))
+                    .padding()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -124,39 +156,4 @@ struct SellingList: View {
     
 }
 
-struct SoldButton: View {
-    let product: Product
-    
-    var body: some View {
-        Button(action: {
-            
-        }) {
-            VStack(spacing: 8) {
-                if let image = product.image{
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 70, height: 70)
-                        .cornerRadius(10)
-                }
-                
-                Divider() // Linha que separa a foto do preço
-                
-                
-                Text("R$:\(String(format: "%.2f", product.purchasedPrice))") // Preço com símbolo de moeda
-                    .font(.footnote)
-                
-                
-            }
-            .padding()
-            .foregroundColor(.primary)
-            .background(Color.white)
-            .cornerRadius(10)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.gray, lineWidth: 1)
-            )
-        }
-        .buttonStyle(PlainButtonStyle())
-    }
-}
+

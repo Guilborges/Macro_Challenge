@@ -9,96 +9,27 @@ import Foundation
 import SwiftUI
 
 struct SoldList: View {
-    @State private var tags: [Tag] = []
-    @State var imagePicker = ImagePicker()
-    @State var imagepicker1 = Image(systemName: "")
-    @State var setIndexProduct: Int = 0
-    @State private var showingSheet = false
-    @ObservedObject var prod: ProductViewModel
+    
+    @EnvironmentObject var prodVm: ProductViewModel
+    
+//    @FetchRequest(entity: ProductDb.entity(), sortDescriptors: [])  var products: FetchedResults<ProductDb>
+    
+    
+
+    
     
     var body: some View {
-        NavigationStack {
-            VStack(alignment: .leading) {
-                Text("Vendidos")
-                    .bold()
-                    .font(.system(size: 34, weight: .bold, design: .rounded))
-                    .padding(25)
-                    .foregroundColor(Color("title"))
-                Text("Total de Peças: \(prod.productsCountSold())")
-                    .frame(maxWidth: .infinity, alignment: .center)
-                List{
-                    ForEach(Array(prod.productList.enumerated()), id: \.offset) { index, element in
-                        if element.status == .sold{
-                            
-                            HStack{
-                                if let image = element.image{
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width:90,height: 90)
-                                }
-                                VStack(alignment: .leading){
-                                    Text("\(element.tags[0].name)")
-                                    
-                                    Text("\(element.purchasedPrice,specifier: "%.2f") R$").frame(width: 90)
-                                    
-                                    
-                                }
-                                
-                                Button {
-                                    setIndexProduct = index
-                                    showingSheet.toggle()
-                                    
-                                    
-                                } label: {
-                                    ButtonCircleGreen().position(x:100,y:20)
-                                
-                                    
-                                }
-                                .actionSheet(isPresented: $showingSheet) {
-                                    ActionSheet(title: Text("Mude o Status da sua peça"), message: nil, buttons: [ // 4
-                                        .default(Text("Adiquirido"), action: { // 5
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .acquarid)
-                                     
-                                        }),
-                                        .default(Text("Lavando"), action: {
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .washing)
-                                            
-                                            
-                                        }),
-                                        .default(Text("Manutenção"), action: {
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .maintenance)
-                                            
-                                            
-                                        }),
-                                        .default(Text("Em Loja"), action: {
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .selling)
-                                            
-                                        }),
-                                        .default(Text("Vendido"), action: {
-                                            prod.trocarEnum(objeto: prod.productList[setIndexProduct], novoEnum: .sold)
-                                            
-                                        }),
-                                        .cancel() // 6
-                                    ]
-                                    )
-                                }
-                                
-                            }
-                        }
-                    }
+        
+        NavigationStack{
+            List{
+                ForEach(prodVm.productListDb){ productList in
+                    Text("\(productList.objectID)")
                     
-                    .onDelete(perform: prod.deleteProduct)
                 }
-                
-                
             }
-            .navigationViewStyle(.stack)
-            .frame(maxWidth: .infinity)
-            
         }
         
-        .navigationBarBackButtonHidden(false)
+        
         
         
     }

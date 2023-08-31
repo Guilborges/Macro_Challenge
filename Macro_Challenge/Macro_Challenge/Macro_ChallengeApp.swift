@@ -10,10 +10,12 @@ import SwiftUI
 @main
 
 struct Macro_ChallengeApp: App {
+    
     var body: some Scene {
         
         WindowGroup {
             SplashScreenAppView()
+                
             
         }
     }

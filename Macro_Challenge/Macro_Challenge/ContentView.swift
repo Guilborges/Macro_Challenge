@@ -338,6 +338,12 @@ struct ContentView: View {
                                     }
                                 }
                         }
+//                        Button {
+//                            prod.addProduct1( purchasedPrice: 20.0, status: "Status", acessory: true, image: "isso")
+//                        } label: {
+//                            Text("cRIA")
+//                        }
+
                     }
                 }.onChange(of: tags) { newValue in
                     //Obtendo novo valor inserido...
@@ -381,7 +387,7 @@ struct ContentView: View {
                         print("nao deu")
                     }else {
                         prod.addProduct(tags: tags, purchasedPrice: prod.convertStringToDouble(text: purchasedPrice), status: status, acessory: true,image: ((imagePicker.image ?? imagepicker1)!))
-                        //print(prod)
+                       
                         resetScreenObject()
                         self.presentationMode.wrappedValue.dismiss()
                     }

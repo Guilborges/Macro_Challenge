@@ -21,15 +21,25 @@ struct PrincipalList: View {
     @State private var showingSheetProduct = false
     @State private var showAlert = false
     
-    
+    @State private var searchText = ""
     @State private var selectedItem: Product? = nil
+    
+    
     @State private var selectedFilter = ProductStatus.todos
     
     var filteredProducts: [Product] {
-        if selectedFilter == ProductStatus.todos {
-            return prod.productList
-        } else  {
-            return prod.productList.filter { $0.status == selectedFilter }
+        let statusFiltered = selectedFilter == .todos
+        ? prod.productList
+        : prod.productList.filter { $0.status == selectedFilter }
+        
+        if searchText.isEmpty {
+            return statusFiltered
+        } else {
+            return statusFiltered.filter { product in
+                product.tags.contains { tag in
+                    tag.name.localizedCaseInsensitiveContains(searchText)
+                }
+            }
         }
     }
     
@@ -41,7 +51,7 @@ struct PrincipalList: View {
                 VStack {
                     Divider()
                     HStack{
-                        
+                        SearchBar(text: $searchText, placeholder: "aaaaaaaaaaaaaaaaaaaa")
                         Spacer()
                         
                         Menu {
@@ -85,6 +95,7 @@ struct PrincipalList: View {
                            } else {
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 3), spacing: 16) {
                             ForEach(Array(filteredProducts.enumerated()), id: \.offset) { index, product in
+                                
                                 Button(action: {
                                     setIndexProduct = index
                                     showingSheet.toggle()
@@ -174,17 +185,23 @@ struct PrincipalList: View {
                             }
                             .background(Color("background"))
                         }
+                        .onChange(of: searchText) { newValue in
+                            prod.filterProducts(with: newValue)}
                         .background(Color("background"))
                     }
                 }
+                    
             }
+               
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: ContentView(prod: prod, tags: $tags)) {
                         Text("Adicionar Peça").foregroundColor(Color("elements"))
                     }
                 }
+            
             }
+            
                 
             .navigationBarTitle("Status")
             .foregroundColor(Color("title"))

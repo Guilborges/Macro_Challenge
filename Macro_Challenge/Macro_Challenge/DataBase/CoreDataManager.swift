@@ -11,14 +11,15 @@ import CoreData
 import SwiftUI
 class CoreDataManeger {
     
-    static let instance = CoreDataManeger()
+    static let instanceSingle = CoreDataManeger()
     
     let containter: NSPersistentContainer
     let context: NSManagedObjectContext
     
     
     init(){
-        containter = NSPersistentContainer(name: "ProductDataBase")
+        
+        containter = NSPersistentContainer(name: "ProductDataModel")
         containter.loadPersistentStores { ( description, error) in
             if let error = error{
                 print("erro ao carregar o Core Data \(error)")
@@ -27,7 +28,7 @@ class CoreDataManeger {
         context = containter.viewContext
     }
     
-    func save(){
+    func saveCoreData(){
         do{
             try context.save()
         
@@ -38,6 +39,15 @@ class CoreDataManeger {
     }
     
     
-    
+    func fetchResults() -> [ProductDb] {
+            let fetchRequest: NSFetchRequest<ProductDb> = ProductDb.fetchRequest()
+            do {
+                let fetchedResults = try context.fetch(fetchRequest)
+                return fetchedResults
+            } catch {
+                // Lide com erros
+                return []
+            }
+        }
     
 }

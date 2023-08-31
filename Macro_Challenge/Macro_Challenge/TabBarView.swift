@@ -30,6 +30,12 @@ struct TabBarView: View {
                     Image("processIcon2")
                     Text("Status")
                 }.background(Color("background"))
+            SoldList()
+                .environmentObject(prodVm)
+                .tabItem{
+                    Image("processIcon2")
+                    Text("Status")
+                }
             
         }
         .background(Color("background"))

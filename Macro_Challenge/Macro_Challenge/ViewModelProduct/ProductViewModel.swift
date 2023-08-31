@@ -7,27 +7,58 @@
 
 import Foundation
 
-
+import CoreData
 import SwiftUI
 
 class ProductViewModel: ObservableObject {
-    
+    @Environment(\.managedObjectContext) private var viewContext
     @Published public var productList: [Product] = []
     @Published public var productListDb: [ProductDb] = []
+    
+    var filteredProducts: [Product] = []
+    
+    private let manager = CoreDataManeger.instanceSingle
+    
+    
+//    var coreDatamanager = CoreDataManeger()
     var userDefault = UserDefaultModel()
 
     init() {
+        
         self.productList = userDefault.product
+        fetchResults()
     }
     
+    
+    func fetchResults() {
+            let request = NSFetchRequest<ProductDb>(entityName: "ProductDb")
+            do {
+                productListDb = try manager.context.fetch(request)
+
+            } catch {
+                
+            }
+        }
     
     public func addProduct(tags: [Tag], purchasedPrice: Double, status: ProductStatus, acessory: Bool,image:UIImage) {
     productList.append(Product(tags: tags, purchasedPrice: purchasedPrice, status: status.self, acessory: true,image: image))
         saveUserDefault()
     }
 
+//    public func addProduct1( purchasedPrice: Double, status: String, acessory: Bool,image:String) {
+//
+//
+//        let newProduct = ProductDb(context: manager.context)
+//
+//        newProduct.status = status
+//
+//        newProduct.acessory = acessory
+//
+//        manager.saveCoreData()
+//    }
     
-
+   
+    
     func removeProduct(withUUID uuidToRemove: UUID, from products: inout [Product]) {
         if let index = products.firstIndex(where: { $0.id == uuidToRemove }) {
             products.remove(at: index)
@@ -146,7 +177,17 @@ class ProductViewModel: ObservableObject {
              saveUserDefault()
     }
         
-
+    func filterProducts(with searchText: String) {
+        if searchText.isEmpty {
+            filteredProducts = productList
+        } else {
+            filteredProducts = productList.filter { product in
+                product.tags.contains { tag in
+                    tag.name.localizedCaseInsensitiveContains(searchText)
+                }
+            }
+        }
+    }
     
     func totalPriceForCurrentStatus() -> Double {
         var totalPrice: Double = 0.0
