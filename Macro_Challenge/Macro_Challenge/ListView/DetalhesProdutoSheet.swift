@@ -36,7 +36,6 @@ struct DetalhesProdutoSheet: View {
             .background(Color.white)
             .cornerRadius(20)
             
-            Text("Detalhes do Produto")
     //            Text("Nome: \(product.tags)")
             Text("Preço: \(product.status.rawValue)")
             
