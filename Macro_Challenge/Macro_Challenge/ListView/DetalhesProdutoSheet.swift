@@ -9,50 +9,71 @@ import SwiftUI
 
 struct DetalhesProdutoSheet: View {
     let product: Product
-
-    var body: some View {
-        Divider()
-        VStack {
-            Divider()
-            VStack {
-                Section {
-                    if let image = product.image {
-                        Image(uiImage: image)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 325, height: 325)
-                            .aspectRatio(contentMode: .fill)
-                            .mask(
-                                RoundedRectangle(cornerRadius: 10)
-                             .frame(width: 375, height: 325)
-                            )
-                    }
-
-                    Rectangle()
-                            .fill(Color.white) // Define a cor de fundo como branco
-                            .frame(width: 350, height: 60)
-                            .overlay(
-                                Text("R$\(String(format: "%.2f", product.purchasedPrice))")
-                                    .font(.system(size: 30, design: .rounded))
-                            )
-                            .padding(.top, -8)
-                }
+    @State private var isEditing = false
     
-//                .border(Color.black, width: 0.5)
-            }
-            .border(Color.black, width: 0.5)
-            .cornerRadius(10)
-            .position(x: 178, y:300)
+    var body: some View {
+        VStack {
             
-//            Text("Nome: \(product.tags)")
-            Text("Preço: \(product.status.rawValue)")
-                .foregroundColor(.primary)
-
-            Spacer()
+            // Botão de edição no canto superior direito
+            HStack {
+                Spacer()
+                Button(action: {
+                    isEditing.toggle()
+                    
+                }) {
+                    Text(isEditing ? "Salvar" : "Editar")
+//                        .font(.headline)
+                        .foregroundColor(.blue)
+                }
+                .padding()
+            }
+            
+                            Divider()
+            
+            VStack {
+                if let image = product.image {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 325, height: 325)
+                        .aspectRatio(contentMode: .fill)
+                        .mask(
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 375, height: 325)
+                        )
+                }
+                
+                Rectangle()
+                    .fill(Color.white) // Define a cor de fundo como branco
+//                    .cornerRadius(20)
+                    .frame(width: 325, height: 60)
+                    .overlay(
+                        Text("R$\(String(format: "%.2f", product.purchasedPrice))")
+                            .font(.system(size: 30, design: .rounded))
+                            
+                    )
+                    .padding(.top, -8)
+                    
+                    
+//            }
+            
+            //                .border(Color.black, width: 0.5)
         }
+        .border(Color.black, width: 0.5)
+        .cornerRadius(10)
+        .position(x: 178, y:210)
+//
+        //            Text("Nome: \(product.tags)")
+        Text("\(product.status.rawValue)")
+            .position(x: 180, y:300)
+            .foregroundColor(.primary)
+        
+        Spacer()
+    }
         .padding()
         .background(Color("background"))
-    }
+}
+
 }
 
 extension Array {
