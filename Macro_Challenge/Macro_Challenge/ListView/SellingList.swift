@@ -82,6 +82,7 @@ struct SellingList: View {
                                             }
                                             Text("R$:\(String(format: "%.2f", product.purchasedPrice))")
                                                 .font(.footnote)
+                                                .bold()
                                         }
                                         
                                     }

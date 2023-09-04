@@ -63,7 +63,7 @@ struct DetalhesProdutoSheet: View {
         .cornerRadius(10)
         .position(x: 178, y:210)
 //
-        //            Text("Nome: \(product.tags)")
+//                    Text("Nome: \(product.tags)")
         Text("\(product.status.rawValue)")
             .position(x: 180, y:300)
             .foregroundColor(.primary)
