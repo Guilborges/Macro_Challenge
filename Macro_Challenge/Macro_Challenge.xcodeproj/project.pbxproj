@@ -205,6 +205,9 @@
 				0D29D41F2A74D84F005C813F /* MaintenanceList.swift */,
 				0D1E03252A78C2750062B13F /* SellingList.swift */,
 				0D1E03272A78CD950062B13F /* SoldList.swift */,
+
+				054295762A9FC0E7004CDB71 /* DetalhesProdutoSheet.swift */,
+
 			);
 			path = ListView;
 			sourceTree = "<group>";
