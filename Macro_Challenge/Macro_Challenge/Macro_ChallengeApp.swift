@@ -15,6 +15,7 @@ struct Macro_ChallengeApp: App {
         
         WindowGroup {
             SplashScreenAppView()
+                .preferredColorScheme(.light)
                 
             
         }

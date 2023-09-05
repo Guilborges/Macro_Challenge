@@ -15,10 +15,10 @@ struct PrincipalList: View {
     @State var imagepicker1 = Image(systemName: "")
     @ObservedObject var prod: ProductViewModel
     @State private var setIndexProduct: Int = 0
-
-   
+    
+    
     @State private var showingSheet = false
-    @State private var showingSheetProduct = false
+    
     @State private var showAlert = false
     
     @State private var searchText = ""
@@ -48,51 +48,51 @@ struct PrincipalList: View {
         NavigationStack{
             
             
-                VStack {
-                    Divider()
-                    HStack{
-                        SearchBar(text: $searchText, placeholder: "aaaaaaaaaaaaaaaaaaaa")
-                        Spacer()
-                        
-                        Menu {
-                            ForEach(ProductStatus.allCases, id: \.self) { status in
-                                Button(status.rawValue) {
-                                    self.selectedFilter = status
-                                    print(selectedFilter)
-                                }
+            VStack {
+                Divider()
+                HStack{
+                    SearchBar(text: $searchText, placeholder: "Encontre sua peça")
+                    Spacer()
+                    
+                    Menu {
+                        ForEach(ProductStatus.allCases, id: \.self) { status in
+                            Button(status.rawValue) {
+                                self.selectedFilter = status
+                                print(selectedFilter)
                             }
-                        } label: {
-                            
-                            Text("Filtro").foregroundColor(Color("elements"))
-                            
-                            Image(systemName: "line.3.horizontal.decrease.circle").foregroundColor((Color("elements")))
-                        }.padding(20)
-                        
-                    }.background(Color("background"))
-                    
-                    VStack {
-                        HStack{
-                            Text("\(selectedFilter.rawValue)")
-                            
-                                .foregroundColor(Color("elements"))
-                                .background(Color("background"))
-                                .padding(10)
-                            Spacer()
                         }
-                    }
-
+                    } label: {
+                        
+                        Text("Filtro").foregroundColor(Color("elements"))
+                        
+                        Image(systemName: "line.3.horizontal.decrease.circle").foregroundColor((Color("elements")))
+                    }.padding(20)
                     
-                    ScrollView {
-                        if filteredProducts.isEmpty {
-                            Spacer()
-                                .frame(height: 150)
-                               Text("Nenhuma peça adicionada")
-                                .frame(maxWidth: .infinity, maxHeight: .infinity)
-//                                   .font(.headline)
-                                   .foregroundColor(.gray)
-                                   .background(Color.clear)
-                                   .multilineTextAlignment(.center)
-                           } else {
+                }.background(Color("background"))
+                
+                VStack {
+                    HStack{
+                        Text("\(selectedFilter.rawValue)")
+                        
+                            .foregroundColor(Color("elements"))
+                            .background(Color("background"))
+                            .padding(10)
+                        Spacer()
+                    }
+                }
+                
+                
+                ScrollView {
+                    if filteredProducts.isEmpty {
+                        Spacer()
+                            .frame(height: 150)
+                        Text("Nenhuma peça adicionada")
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        //                                   .font(.headline)
+                            .foregroundColor(.gray)
+                            .background(Color.clear)
+                            .multilineTextAlignment(.center)
+                    } else {
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 3), spacing: 16) {
                             ForEach(Array(filteredProducts.enumerated()), id: \.offset) { index, product in
                                 
@@ -112,7 +112,6 @@ struct PrincipalList: View {
                                             
                                                 .resizable()
                                                 .scaledToFill()
-                                            
                                                 .frame(width: 100, height: 100)
                                                 .clipped()
                                                 .cornerRadius(5)
@@ -123,40 +122,37 @@ struct PrincipalList: View {
                                     }
                                 })
                                 
-                                .sheet(isPresented: $showingSheetProduct, content: {
-                                    Text(prod.productList[setIndexProduct].tags[0].name)
-                                })
-                                .actionSheet(isPresented: $showingSheet) {
+                                                                .actionSheet(isPresented: $showingSheet) {
                                     ActionSheet(title: Text("Mude o Status da sua peça"), message: nil, buttons: [ // 4
                                         .default(Text("Adquirido"), action: { // 5
                                             if let selectedItem = selectedItem {
                                                 prod.changeStatus(selectedItem, newStatus: .acquarid)
-                                                                }
-
+                                            }
+                                            
                                         }),
                                         .default(Text("Lavando"), action: {
                                             if let selectedItem = selectedItem {
                                                 prod.changeStatus(selectedItem, newStatus: .washing)
-                                                                }
+                                            }
                                         }),
                                         .default(Text("Manutenção"), action: {
                                             if let selectedItem = selectedItem {
                                                 prod.changeStatus(selectedItem, newStatus: .maintenance)
-                                                                }
-
+                                            }
+                                            
                                             
                                         }),
                                         .default(Text("Em Loja"), action: {
                                             if let selectedItem = selectedItem {
                                                 prod.changeStatus(selectedItem, newStatus: .selling)
-                                                                }
-
+                                            }
+                                            
                                         }),
                                         .default(Text("Vendido"), action: {
                                             if let selectedItem = selectedItem {
                                                 prod.changeStatus(selectedItem, newStatus: .sold)
-                                                                }
-
+                                            }
+                                            
                                         }),
                                         .destructive(Text("Apagar Peça"), action: {
                                             
@@ -190,19 +186,19 @@ struct PrincipalList: View {
                         .background(Color("background"))
                     }
                 }
-                    
+                
             }
-               
+            
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: ContentView(prod: prod, tags: $tags)) {
                         Text("Adicionar Peça").foregroundColor(Color("elements"))
                     }
                 }
-            
+                
             }
             
-                
+            
             .navigationBarTitle("Status")
             .foregroundColor(Color("title"))
             .navigationViewStyle(.stack)
@@ -210,11 +206,16 @@ struct PrincipalList: View {
             .background(Color("background"))
         }
         
+        .overlay(
+            CountComponent()
+                .position(x: UIScreen.main.bounds.width*0.46,y:UIScreen.main.bounds.width * 1.70)
+            
+                        )
         
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
-            .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+        .padding()
         
-        }
+    }
 }
 
 

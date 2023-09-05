@@ -121,6 +121,22 @@ class ProductViewModel: ObservableObject {
        return contador
         
     }
+    func productsCountAcquarid() -> Int {
+        var contador = 0
+        for _ in productList.filter({ product in
+            if product.status == .acquarid{
+                contador = contador+1
+                return true
+            }
+            return false
+        }){}
+            
+            
+        
+       return contador
+        
+    }
+
     func productsCountSold() -> Int {
         var contador = 0
         for _ in productList.filter({ product in

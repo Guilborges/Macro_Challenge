@@ -23,7 +23,7 @@ struct SplashScreenAppView: View {
                     }
             } else {
                 TabBarView(prodVm: ProductViewModel(), setIndexProduct: 0)
-                                        .preferredColorScheme(.light)
+                                        
             }
         }
     }

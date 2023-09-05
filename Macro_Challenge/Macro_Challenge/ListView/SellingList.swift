@@ -65,8 +65,11 @@ struct SellingList: View {
                         ForEach(Array(filteredProducts.enumerated()), id: \.offset) { index, product in
                             if product.status == .selling{
                                 Button(action: {
+                                    
                                     setIndexProduct = index
-                                    showingSheet.toggle()
+                                    exibindoDetalhes.toggle()
+                                        
+                                    
                                 }) {
 
                                     
