@@ -89,6 +89,15 @@ struct SellingList: View {
                                     .foregroundColor(.primary)
                                     .background(Color.white)
                                     .cornerRadius(10)
+                                    //Borda quadrado foto na lista scrollview
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.black, lineWidth: 1)
+                                            .position(x: 45, y: 56)
+//                                            .frame(width: 120, height: 100)
+                                        
+
+                                    )
                                     
                                 }
                                 .actionSheet(isPresented: $showingSheet) {
