@@ -33,7 +33,7 @@ struct CountComponent: View {
                            withAnimation {
                                isTabBarHidden.toggle()
                                if isTabBarHidden {
-                                   tabBarOffset = 140 // A altura da sua tab bar
+                                   tabBarOffset =  127// A altura da sua tab bar
                                } else {
                                    tabBarOffset = -40
                                }
@@ -56,7 +56,7 @@ struct CountComponent: View {
                 Group{
                     if isTabBarHidden {
                         CountsComponents(prodVm: ProductViewModel())
-                            .position(x:UIScreen.main.bounds.width*0.55, y: UIScreen.main.bounds.width*0.85)
+                            
                     }
                 }
                 

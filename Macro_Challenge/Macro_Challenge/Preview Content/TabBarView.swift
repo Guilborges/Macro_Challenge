@@ -24,6 +24,7 @@ struct TabBarView: View {
                     Text("Loja")
                 }.background(Color("background"))
             
+            
             PrincipalList(prod: prodVm)
             
                 .tabItem {
@@ -34,6 +35,7 @@ struct TabBarView: View {
             
             
         }
+        
         .background(Color("background"))
     }
 }

@@ -46,8 +46,6 @@ struct PrincipalList: View {
     var body: some View {
         
         NavigationStack{
-            
-            
             VStack {
                 Divider()
                 HStack{
@@ -80,7 +78,6 @@ struct PrincipalList: View {
                         Spacer()
                     }
                 }
-                
                 
                 ScrollView {
                     if filteredProducts.isEmpty {
@@ -197,8 +194,6 @@ struct PrincipalList: View {
                 }
                 
             }
-            
-            
             .navigationBarTitle("Status")
             .foregroundColor(Color("title"))
             .navigationViewStyle(.stack)
@@ -209,7 +204,7 @@ struct PrincipalList: View {
         .overlay(
             CountComponent()
                 .position(x: UIScreen.main.bounds.width*0.46,y:UIScreen.main.bounds.width * 1.70)
-            
+                .zIndex(0)
                         )
         
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)

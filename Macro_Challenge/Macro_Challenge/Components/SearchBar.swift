@@ -19,7 +19,7 @@ struct SearchBar: View {
                 .foregroundColor(.gray)
 
             TextField(placeholder, text: $text)
-                .frame(width: .infinity ,height: 40)
+                .frame(height: 40)
                 .foregroundColor(.primary)
 
             if !text.isEmpty {
