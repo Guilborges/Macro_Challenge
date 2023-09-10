@@ -205,6 +205,7 @@ struct PrincipalList: View {
             CountComponent()
                 .position(x: UIScreen.main.bounds.width*0.46,y:UIScreen.main.bounds.width * 1.70)
                 .zIndex(0)
+            
                         )
         
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)

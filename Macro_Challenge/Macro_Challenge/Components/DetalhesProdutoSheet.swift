@@ -29,48 +29,28 @@ struct DetalhesProdutoSheet: View {
             Divider()
             
             VStack {
+                Section{
+                    if let image = product.image{
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 300, height: 300)
+                            .clipped()
+                            .cornerRadius(300)
+                        
+                    }
+                    Text("R$:\(String(format: "%.2f", product.purchasedPrice))")
+                        .font(.footnote)
+                        .bold()
+                        .cornerRadius(20)
+                }.cornerRadius(20)
                 
-                if let image = product.image {
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 325, height: 325)
-                        .aspectRatio(contentMode: .fill)
-                        .mask(
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 375, height: 325)
-                            
-                        )
-                }
-                Rectangle()
-                    .fill(Color.white) // Define a cor de fundo como branco
-                    .frame(width: 325, height: 60)
-                    .overlay(
-                        Text("R$\(String(format: "%.2f", product.purchasedPrice))")
-                            .font(.system(size: 30, design: .rounded))
-                        
-                        
-                    )
-                    .padding(.top, -8)
             }
+            .foregroundColor(.primary)
+            .background(Color.white)
             
-            .cornerRadius(10)
             .position(x: 178, y: 210)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.gray, lineWidth: 1.0)
-                    .position(x: 161.5, y: 243)
-                    .frame(width: 325, height: 384.5)
-                
-                
-            )
-            .overlay(
-                Rectangle()
-                    .frame(height: 1.0)
-                    .foregroundColor(.gray)
-                    .position(x: 161.5, y: 343)
-                    .frame(width: 325)
-            )
+            
             
             Text("\(product.status.rawValue)")
                 .position(x: 180, y: 300)

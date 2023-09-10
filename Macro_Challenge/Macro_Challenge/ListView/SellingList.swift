@@ -66,7 +66,9 @@ struct SellingList: View {
                             if product.status == .selling{
                                 Button(action: {
                                     
+                                  
                                     setIndexProduct = index
+                                    print("\( product.tags[0].name )")
                                     exibindoDetalhes.toggle()
 
                                 }) {
