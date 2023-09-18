@@ -21,52 +21,51 @@ import SwiftUI
 
 
 struct CountComponent: View {
-   
+    
     @State private var tabBarOffset: CGFloat = -40
-        @State private var isTabBarHidden = false
+    @State private var isTabBarHidden = false
     
     var body: some View{
         VStack {
-                   Spacer() // Empurra o botão para o topo da tela
-                   
-            Button(action: {
-                           withAnimation {
-                               isTabBarHidden.toggle()
-                               if isTabBarHidden {
-                                   tabBarOffset =  127// A altura da sua tab bar
-                               } else {
-                                   tabBarOffset = -40
-                               }
-                           }
-                       }) {
-                           Text("Visão geral de seu brechó")
-                               .frame(width: UIScreen.main.bounds.width, height: 5)
-                               .foregroundColor(Color("elements"))
-                               .padding()
-                               .background(Color("assetBackgroundDark"))
-                               .cornerRadius(10)
-                       }
-                       Spacer()
-                   }
-                 
-        .padding(.bottom, tabBarOffset)
-        
-              .overlay(
+            Spacer() // Empurra o botão para o topo da tela
             
-                Group{
+            Button(action: {
+                withAnimation {
+                    isTabBarHidden.toggle()
                     if isTabBarHidden {
-                        CountsComponents(prodVm: ProductViewModel())
-                            
+                        tabBarOffset =  145//
+                    } else {
+                        tabBarOffset = -40
                     }
                 }
-                
-                  )
-               }
-            
+            }) {
+                Text("Visão geral de seu brechó")
+                    .frame(width: UIScreen.main.bounds.width, height: 5)
+                    .foregroundColor(Color("elements"))
+                    .padding()
+                    .background(Color("assetBackgroundDark"))
+                    .cornerRadius(10)
+            }
+            Spacer()
         }
+        
+        .padding(.bottom, tabBarOffset)
+        
+        .overlay(
+            
+            Group{
+                if isTabBarHidden {
+                    CountsComponents(prodVm: ProductViewModel())
+                        .frame(width: 100,height: 400)
+                    
+                }
+            }
+        )
+    }
+}
 
-       
-    
+
+
 
 
 
@@ -77,6 +76,9 @@ struct CountComponent_Preview: PreviewProvider {
         CountComponent()
     }
 }
+
+
+
 
 struct CountsComponents: View{
     @ObservedObject var prodVm: ProductViewModel
@@ -132,9 +134,10 @@ struct CountsComponents: View{
                     .font(.system(size: 16, weight: .bold, design: .rounded))
                 
             }
-            .padding(5)
             
-        }.frame(width: UIScreen.main.bounds.width+20, height: 90)
-        .background(Color("background"))
+            
+        }.padding(.bottom)
+            .frame(width: UIScreen.main.bounds.width+10, height: 110)
+            .background(Color("background"))
     }
 }

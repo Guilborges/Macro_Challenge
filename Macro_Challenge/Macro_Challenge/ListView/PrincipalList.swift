@@ -24,7 +24,6 @@ struct PrincipalList: View {
     @State private var searchText = ""
     @State private var selectedItem: Product? = nil
     
-    
     @State private var selectedFilter = ProductStatus.todos
     
     var filteredProducts: [Product] {
@@ -203,9 +202,8 @@ struct PrincipalList: View {
         
         .overlay(
             CountComponent()
-                .position(x: UIScreen.main.bounds.width*0.46,y:UIScreen.main.bounds.width * 1.70)
+                .position(x: UIScreen.main.bounds.width*0.46,y:UIScreen.main.bounds.width * 1.69)
                 .zIndex(0)
-            
                         )
         
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)

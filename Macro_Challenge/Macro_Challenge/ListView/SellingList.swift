@@ -97,8 +97,9 @@ struct SellingList: View {
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 10)
                                             .stroke(Color.black, lineWidth: 1)
-                                            .position(x: 45, y: 56)
-//                                            .frame(width: 120, height: 100)
+                                           // .position(x: 300, y: 200)
+                                            
+                                            
                                         
 
                                     )

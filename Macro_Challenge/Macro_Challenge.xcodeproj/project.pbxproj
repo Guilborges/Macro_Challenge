@@ -166,8 +166,6 @@
 		056DA2202A1BDF27005FD1F5 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				056DA21C2A1BDF26005FD1F5 /* ContentView.swift */,
-				05C74E1B2A2FA6CF00F05822 /* TabBarView.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -204,10 +202,9 @@
 				0D9E79A02A6F7909000CA54B /* PrincipalList.swift */,
 				0D29D41F2A74D84F005C813F /* MaintenanceList.swift */,
 				0D1E03252A78C2750062B13F /* SellingList.swift */,
+				05C74E1B2A2FA6CF00F05822 /* TabBarView.swift */,
+				056DA21C2A1BDF26005FD1F5 /* ContentView.swift */,
 				0D1E03272A78CD950062B13F /* SoldList.swift */,
-
-				054295762A9FC0E7004CDB71 /* DetalhesProdutoSheet.swift */,
-
 			);
 			path = ListView;
 			sourceTree = "<group>";
@@ -586,7 +583,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro_Challenge/Preview Content\"";
-				DEVELOPMENT_TEAM = TNPTQGXSA4;
+				DEVELOPMENT_TEAM = 7857H4YLGF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro-Challenge-Info.plist";
@@ -601,7 +598,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "FontsSwiftUi.Macro-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -621,7 +618,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro_Challenge/Preview Content\"";
-				DEVELOPMENT_TEAM = TNPTQGXSA4;
+				DEVELOPMENT_TEAM = 7857H4YLGF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro-Challenge-Info.plist";
@@ -636,7 +633,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "FontsSwiftUi.Macro-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
